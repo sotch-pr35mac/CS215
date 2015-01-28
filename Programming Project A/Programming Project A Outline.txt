@@ -1,0 +1,31 @@
+1. There will be a Rubric on a moodle for all projects
+2. Written report must have everyting from template 
+	a. pseudo code is not code! (must use pseudo code....) (algorithm only)
+	b. Cite! Cite! Cite!
+	c. Written to the level of a first draft for publication
+	d. Avoid first and second person. Watch tenses, active voice
+3. We will be cut some slack on this time (each project will get incrementally harder in terms of grading)
+4. Use the documentation standard
+	a. Use self-documenting variable names
+5. use Invariants and assert() statements (CAREFUL!)
+
+Report should be 5-15 pages
+Average Case == Random Input;
+
+Testing Plan
+-Try testing with differentiated data to see if the program correctly executes
+Test Results
+-Dictate how you fixed it, if you encountered a problem, what you tested, and what came out
+
+GOOGLE: HOW TO GET TIMES IN JAVA PROGRAM (java stopwatch class)
+-Do it 10 times and take the average
+
+!Label graph axis!
+
+Talk about what kind of computer you run it on
+
+Turn in a hard copy --Printed--
+
+Be able to sort things that are not numbers
+
+do timing in tics, don't worry about turning those tics into seconds
