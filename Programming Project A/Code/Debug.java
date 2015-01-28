@@ -5,7 +5,7 @@
 *	@Description This class will help debugging by being able to turn on and turn off debug messages easily
 */
 
-public class Debug {
+public class Debug<T> {
 	boolean debugOn; //Variable to keep track of whether or not debug is on
 
 	/*
@@ -36,6 +36,19 @@ public class Debug {
 	public void print(String message) {
 		if(debugOn == true) {
 			System.out.println(message);
+		}
+	}
+
+	/*
+	*	@Pre-Condition <code>T expected</code> and <code>T actual</code> are both of the same type T
+	*	@Post-Condition If <code>T expected</code> and <code>T actual</code> are found to be equal, the program moves on, otherwise the program halts with <code>AssertionError</code> is thrown
+	*	@Description runs an assert statement against an expected value and the actual value that are passed as parameters only when <code>debugOn == true</code>
+	*	@param T expected the expected value to assert against the actual value
+	*	@param T actualt he actual value to assert against the expected value
+	*/
+	public void assertIt(T expected, T actual) {
+		if(debugOn == true) {
+			assert actual == expected;
 		}
 	}
 }
