@@ -21,7 +21,7 @@ public class Sort<T extends Comparable<T>> {
 			for(int i = 1; i < sorted.size(); i++) {
 				T value = sorted.get(i);
 				int j = i - 1;
-				while((value.compareTo(sorted.get(j)) < 0) && j > 0) {
+				while(j >= 0 && (value.compareTo(sorted.get(j)) < 0)) {
 					sorted.set(j+1, sorted.get(j));
 					j--;
 				}

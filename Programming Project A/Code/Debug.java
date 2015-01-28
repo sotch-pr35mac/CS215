@@ -33,7 +33,7 @@ public class Debug<T> {
 	*	@Description will print messages only when debugOn boolean is set to true
 	*	@param String message the string to print when debugging is turned on
 	*/
-	public void print(String message) {
+	public void print(T message) {
 		if(debugOn == true) {
 			System.out.println(message);
 		}

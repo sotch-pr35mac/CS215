@@ -18,22 +18,18 @@ public class TestDriver {
 
 		//Create test data for sorts class
 		ArrayList<Integer> testList = new ArrayList<Integer>();
-		Integer oneOhone = new Integer(101);
-		Integer oneEleven = new Integer(111);
-		Integer oneOhOhFive = new Integer(1005);
-		testList.add(oneOhone);
-		testList.add(oneEleven);
-		testList.add(oneOhOhFive);
-		testList = DummyData.runArrayList(0, 10, 2, testList);
+		testList = DummyData.runArrayList(0, 1000, 0, 100000, testList);
 
 		System.out.println("Un-Sorted List");
 		System.out.println(testList);
 
 		//Test sort List
 		Sort sorter = new Sort<Integer>();
+		Stopwatch watchStopper = new Stopwatch();
 		testList = sorter.insertion(testList);
 
 		System.out.println("Sorted List");
 		System.out.println(testList);
+		System.out.println("Time to complete: "+watchStopper.elapsedTime());
 	}
 }
