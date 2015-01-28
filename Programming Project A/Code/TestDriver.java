@@ -21,13 +21,17 @@ public class TestDriver {
 		Integer oneOhone = new Integer(101);
 		Integer oneEleven = new Integer(111);
 		Integer oneOhOhFive = new Integer(1005);
+		testList.add(oneOhone);
+		testList.add(oneEleven);
+		testList.add(oneOhOhFive);
 		testList = DummyData.runArrayList(0, 10, 2, testList);
 
 		System.out.println("Un-Sorted List");
 		System.out.println(testList);
 
 		//Test sort List
-		testList = Sort.insertion(testList);
+		Sort sorter = new Sort<Integer>();
+		testList = sorter.insertion(testList);
 
 		System.out.println("Sorted List");
 		System.out.println(testList);
