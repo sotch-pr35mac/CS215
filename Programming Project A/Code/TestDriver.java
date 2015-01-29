@@ -8,6 +8,10 @@
 import java.util.ArrayList;
 
 public class TestDriver {
+
+	/*
+	*	@Description This serves as the Driver function for this program, run this class to execute the program
+	*/
 	public static void main(String args[]) {
 		//Turn on debugger
 		Debug debugger = new Debug();
@@ -18,7 +22,7 @@ public class TestDriver {
 
 		//Create test data for sorts class
 		ArrayList<Integer> testList = new ArrayList<Integer>();
-		testList = DummyData.runArrayList(0, 1000, 0, 100000, testList);
+		testList = DummyData.runArrayList(0, 1, 0, 100, testList);
 
 		System.out.println("Un-Sorted List");
 		System.out.println(testList);
