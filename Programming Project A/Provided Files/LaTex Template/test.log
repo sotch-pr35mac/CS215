@@ -1,0 +1,13 @@
+This is TeX, Version 3.14159265 (TeX Live 2014/Debian) (preloaded format=tex 2015.1.14)  30 JAN 2015 11:10
+**test.tex
+(./test.tex
+! Undefined control sequence.
+l.1 \documentclass
+                  {article}
+? 
+! Undefined control sequence.
+l.2 \begin
+          {document}
+? 
+[1] )
+Output written on test.dvi (1 page, 252 bytes).

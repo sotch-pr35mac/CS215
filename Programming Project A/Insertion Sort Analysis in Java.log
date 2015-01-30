@@ -1,0 +1,304 @@
+This is TeX, Version 3.14159265 (TeX Live 2014/Debian) (preloaded format=tex 2015.1.14)  30 JAN 2015 10:35
+**"Insertion Sort Analysis in Java.tex"
+(./Insertion Sort Analysis in Java.tex
+! Undefined control sequence.
+l.8 \documentclass
+                  [onecolumn, 12pt, article]{IEEEtran}
+? 
+! Undefined control sequence.
+l.9 \usepackage
+               {times,color,amsmath,amssymb,amsthm,comment,graphicx,cite,mul...
+
+? 
+
+Overfull \hbox (17.91275pt too wide) in paragraph at lines 8--15
+[]\tenrm [onecolumn, 12pt, ar-ti-cle]IEEEtran times,color,amsmath,amssymb,amsth
+m,comment,graphicx,cite,multirow |
+
+\hbox(7.5+2.5)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm [
+.\tenrm o
+.\tenrm n
+.\tenrm e
+.etc.
+
+! Undefined control sequence.
+l.18 \usepackage
+                [USenglish]{babel} %francais, polish, spanish, ...
+? 
+! Undefined control sequence.
+l.19 \usepackage
+                [T1]{fontenc}
+? 
+! Undefined control sequence.
+l.20 \usepackage
+                [ansinew]{inputenc}
+? 
+! Undefined control sequence.
+l.22 \usepackage
+                {lmodern} %Type1-font for non-english texts and characters
+? 
+! Undefined control sequence.
+l.23 \usepackage
+                {algorithm}
+? 
+! Undefined control sequence.
+l.24 \usepackage
+                {algpseudocode}
+? 
+! Undefined control sequence.
+l.25 \usepackage
+                {float}
+? 
+! Undefined control sequence.
+l.45 \usepackage
+                {amsmath}
+? 
+! Undefined control sequence.
+l.46 \usepackage
+                {amsthm}
+? 
+! Undefined control sequence.
+l.47 \usepackage
+                {amsfonts}
+? 
+! Undefined control sequence.
+l.48 \usepackage
+                {amssymb}
+? 
+! Undefined control sequence.
+l.53 \usepackage
+                {setspace}
+? 
+! Undefined control sequence.
+l.54 \singlespacing
+                           %% 1-spacing (default)
+? 
+! Undefined control sequence.
+l.61 \usepackage
+                {fancyhdr} %%Fancy headings
+? 
+! Undefined control sequence.
+l.62 \usepackage
+                {listings}
+? 
+! Undefined control sequence.
+l.69 \newtheorem
+                {problem}{Problem}%
+? 
+! Undefined control sequence.
+l.71 \newtheorem
+                {theorem}{Theorem}%
+? 
+! Undefined control sequence.
+l.72 \newtheorem
+                {acknowledgment}{Acknowledgment}%
+? 
+! Undefined control sequence.
+l.74 \newtheorem
+                {assumption}{Assumption}%
+? 
+! Undefined control sequence.
+l.75 \newtheorem
+                {axiom}{Axiom}%
+? 
+! Undefined control sequence.
+l.76 \newtheorem
+                {case}{Case}%
+? 
+! Undefined control sequence.
+l.77 \numberwithin
+                  {case}{problem}
+? 
+! Undefined control sequence.
+l.78 \newtheorem
+                {claim}{Claim}%
+? 
+! Undefined control sequence.
+l.79 \newtheorem
+                {conclusion}{Conclusion}
+? 
+! Undefined control sequence.
+l.80 \newtheorem
+                {condition}{Condition}
+? 
+! Undefined control sequence.
+l.81 \numberwithin
+                  {condition}{problem}
+? 
+! Undefined control sequence.
+l.82 \numberwithin
+                  {condition}{subsection}
+? 
+! Undefined control sequence.
+l.83 \newtheorem
+                {conjecture}{Conjecture}
+? 
+! Undefined control sequence.
+l.84 \newtheorem
+                {corollary}{Corollary}
+? 
+! Undefined control sequence.
+l.85 \newtheorem
+                {criterion}{Criterion}
+? 
+! Undefined control sequence.
+l.86 \newtheorem
+                {definition}{Definition}
+? 
+! Undefined control sequence.
+l.87 \numberwithin
+                  {definition}{section}
+? 
+! Undefined control sequence.
+l.88 \newtheorem
+                {example}{Example}
+? 
+! Undefined control sequence.
+l.89 \newtheorem
+                {exercise}{Exercise}%
+? 
+! Undefined control sequence.
+l.90 \newtheorem
+                {lemma}{Lemma}%
+? 
+! Undefined control sequence.
+l.91 \newtheorem
+                {notation}{Notation}%
+? 
+! Undefined control sequence.
+l.92 \theoremstyle
+                  {remark}
+? 
+! Undefined control sequence.
+l.93 \newtheorem
+                {question}{Question}%
+? 
+! Undefined control sequence.
+l.94 \numberwithin
+                  {question}{problem}
+? 
+! Undefined control sequence.
+l.95 \theoremstyle
+                  {plain}
+? 
+! Undefined control sequence.
+l.96 \newtheorem
+                {answer}{Answer}%
+? 
+! Undefined control sequence.
+l.97 \numberwithin
+                  {answer}{problem}
+? 
+! Undefined control sequence.
+l.98 \newtheorem
+                {proposition}{Proposition}%
+? 
+! Undefined control sequence.
+l.99 \newtheorem
+                {remark}{Remark}%
+? 
+! Undefined control sequence.
+l.100 \newtheorem
+                 {solution}{Solution}%
+? 
+! Undefined control sequence.
+l.101 \numberwithin
+                   {solution}{section}
+? 
+! Undefined control sequence.
+l.102 \newtheorem
+                 {summary}{Summary}%
+? 
+! Undefined control sequence.
+l.103 \numberwithin
+                   {equation}{section}%
+? 
+! Undefined control sequence.
+l.104 \newtheorem
+                 {option}{Option}
+? 
+
+Overfull \hbox (91.74615pt too wide) in paragraph at lines 69--105
+[]\tenrm problemProblemtheoremTheoremacknowledgmentAcknowledgmentassumptionAssu
+mptionaxiomAxiomcaseCasecaseproblem|
+
+\hbox(6.94444+1.94444)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\tenrm p
+.\tenrm r
+.\tenrm o
+.\tenrm b
+.etc.
+
+
+Overfull \hbox (4.71819pt too wide) in paragraph at lines 69--105
+\tenrm Ex-er-cise-lem-maLem-man-o-ta-tion-No-ta-tion-re-mark ques-tion-Ques-tio
+n-ques-tion-prob-lem plain an-swer-An-swer-an-swer-|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm E
+.\tenrm x
+.\discretionary
+..\tenrm -
+.\tenrm e
+.\tenrm r
+.etc.
+
+
+Overfull \hbox (6.13504pt too wide) in paragraph at lines 69--105
+\tenrm prob-lem propo-si-tion-Propo-si-tion-re-markRe-mark-so-lu-tion-So-lu-tio
+n-so-lu-tion-section sum-ma-ry-Sum-ma-rye-qua-tion-sec-|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm p
+.\tenrm r
+.\tenrm o
+.\tenrm b
+.\discretionary
+..\tenrm -
+.etc.
+
+! Undefined control sequence.
+l.133 \begin
+            {document}
+? 
+! Undefined control sequence.
+l.136 \title
+            {Insertion Sort Analysis in Java}
+? 
+! Undefined control sequence.
+l.137 \author
+             {Preston Stosur-Bassett}
+? 
+! Undefined control sequence.
+l.138 \date
+           {February 2, 2015}
+? 
+! Undefined control sequence.
+l.139 \maketitle
+                
+? 
+! Undefined control sequence.
+l.141 \pagestyle
+                {fancy}
+? 
+! Undefined control sequence.
+l.142 \fancyhead
+                [R]{Insertion Sort Analysis in Java, page \thepage}
+? 
+! Undefined control sequence.
+l.142 ...tion Sort Analysis in Java, page \thepage
+                                                  }
+? 
+! Undefined control sequence.
+l.143 \fancyhead
+                [L]{Preston Stosur-Bassett}
+? 
+! Undefined control sequence.
+l.146 \begin
+            {abstract}
+? 
+[1] )
+Output written on "Insertion Sort Analysis in Java.dvi" (1 page, 1380 bytes).

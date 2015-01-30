@@ -21,8 +21,9 @@ public class TestDriver {
 		debugger.print("Debug is on.");
 
 		//Create test data for sorts class
+		//Note that this Array is for testing purposes only, the Algorithm can handle all Comparable Generic Types
 		ArrayList<Integer> testList = new ArrayList<Integer>();
-		testList = DummyData.runArrayList(0, 1, 0, 100, testList);
+		testList = DummyData.runArrayList(0, 1000000, 0, 1000000, testList);
 
 		System.out.println("Un-Sorted List");
 		System.out.println(testList);
@@ -32,6 +33,7 @@ public class TestDriver {
 		Stopwatch watchStopper = new Stopwatch();
 		testList = sorter.insertion(testList);
 
+		//Print out the results.
 		System.out.println("Sorted List");
 		System.out.println(testList);
 		System.out.println("Time to complete: "+watchStopper.elapsedTime());
