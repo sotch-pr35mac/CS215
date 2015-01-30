@@ -6,6 +6,7 @@
 */
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sort<T extends Comparable<T>> {
 	/*
@@ -18,10 +19,16 @@ public class Sort<T extends Comparable<T>> {
 	// INVARIANT (Outer-Loop): sorted[0 ... i - 1] will contain all the same data as unsorted[0 ... i - 1] but sorted in stricly non-decreasing order.
 	// INVARIANT (Inner-Loop):
 	public ArrayList<T> insertion(ArrayList<T> unsorted) {
+		Debug debugger = new Debug<List<T>>();
+		debugger.turnOn();
 		ArrayList<T> sorted = unsorted;
 		if(sorted.size() > 1) {
-			// INITIALIZATION (Outer-Loop): The invariant holds because i = 1, and there is one element in the subarray of sorted[0 ... i - 1] and unsorted[0 ... i - 1], which is already in strictly non-decreasing order
 			for(int i = 1; i < sorted.size(); i++) {
+				// INITIALIZATION (Outer-Loop): The invariant holds because i = 1, and there is one element in the subarray of sorted[0 ... i - 1] and unsorted[0 ... i - 1], which is already in strictly non-decreasing order
+				List<T> subSorted = sorted.subList(0, i - 1);
+				List<T> subUnsorted = unsorted.subList(0, i - 1);
+				debugger.assertIt(subUnsorted, subSorted);
+
 				// MAINTENANCE (Outer-Loop):
 				T value = sorted.get(i);
 				int j = i - 1;

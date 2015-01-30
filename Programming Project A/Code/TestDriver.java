@@ -22,17 +22,17 @@ public class TestDriver {
 
 		//Create test data for sorts class
 		//Note that this Array is for testing purposes only, the Algorithm can handle all Comparable Generic Types
-		//TEMP: ArrayList<Integer> testList = new ArrayList<Integer>();
-		//TEMP: testList = DummyData.runArrayList(0, 0, 0, 1000000, testList);
-		ArrayList<String> testList = new ArrayList<String>();
-		testList = DummyData.runArrayList(0, 1000, testList);
+		ArrayList<Integer> testList = new ArrayList<Integer>();
+		testList = DummyData.runArrayList(0, 5, 0, 10, testList);
+		//ArrayList<String> testList = new ArrayList<String>();
+		//testList = DummyData.runArrayList(0, 1000, testList);
 
 		System.out.println("Un-Sorted List");
 		System.out.println(testList);
 
 		//Test sort List
-		//Sort sorter = new Sort<Integer>();
-		Sort sorter = new Sort<String>();
+		Sort sorter = new Sort<Integer>();
+		//Sort sorter = new Sort<String>();
 		Stopwatch watchStopper = new Stopwatch();
 		testList = sorter.insertion(testList);
 

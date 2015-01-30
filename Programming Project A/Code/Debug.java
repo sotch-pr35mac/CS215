@@ -48,7 +48,7 @@ public class Debug<T> {
 	*/
 	public void assertIt(T expected, T actual) {
 		if(debugOn == true) {
-			assert actual == expected;
+			assert actual.equals(expected);
 		}
 	}
 }
