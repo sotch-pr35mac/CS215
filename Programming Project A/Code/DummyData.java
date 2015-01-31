@@ -21,6 +21,7 @@ public class DummyData {
 	*/
 	public static ArrayList<Integer> runArrayList(int start, int end, int min, int max, ArrayList<Integer> list) {
 		Random random = new Random();
+		// TODO: Write loop invariant
 		while(start < end) {
 			Integer intToAdd = new Integer(random.nextInt((max - min + 1) + min));
 			list.add(intToAdd);
@@ -41,6 +42,7 @@ public class DummyData {
 	*/
 	public static ArrayList<String> runArrayList(int start, int end, ArrayList<String> list) {
 		Random random = new Random();
+		// TODO: Write loop invariant
 		while(start < end) {
 			Integer intToString = new Integer(random.nextInt((1000000 - 1) + 1));
 			String intString = String.valueOf(intToString);

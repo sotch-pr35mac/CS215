@@ -5,6 +5,8 @@
 *	@Description This class will help debugging by being able to turn on and turn off debug messages easily
 */
 
+import java.util.List;
+
 public class Debug<T> {
 	boolean debugOn; //Variable to keep track of whether or not debug is on
 
@@ -46,9 +48,23 @@ public class Debug<T> {
 	*	@param T expected the expected value to assert against the actual value
 	*	@param T actualt he actual value to assert against the expected value
 	*/
-	public void assertIt(T expected, T actual) {
+	public void assertEquals(T expected, T actual) {
 		if(debugOn == true) {
 			assert actual.equals(expected);
+		}
+	}
+
+	/*
+	*
+	*/
+	public void assertOrder(List<Integer> actual) {
+		if(debugOn == true) {
+			int i = actual.size();
+			while(i > 1) {
+				assert (actual.get(i).compareTo(actual.get(i - 1) > 1));
+
+				i--;
+			}
 		}
 	}
 }
