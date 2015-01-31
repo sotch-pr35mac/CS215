@@ -61,7 +61,7 @@ public class Debug<T> {
 		if(debugOn == true) {
 			int i = actual.size();
 			while(i > 1) {
-				assert actual.get(i).compareTo(actual.get(i - 1)) > 1;
+				assert actual.get(i - 1).compareTo(actual.get(i - 2)) > 1;
 
 				i--;
 			}
