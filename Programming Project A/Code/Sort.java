@@ -20,7 +20,7 @@ public class Sort<T extends Comparable<T>> {
 	// INVARIANT (Inner-Loop): sorted[0 ... j] is sorted in stricly non-decreasing order.
 	public ArrayList<T> insertion(ArrayList<T> unsorted) {
 		Debug debugger = new Debug<List<T>>();
-		debugger.turnOn();
+		//debugger.turnOn();
 		ArrayList<T> sorted = unsorted;
 		if(sorted.size() > 1) {
 			int i = 1;

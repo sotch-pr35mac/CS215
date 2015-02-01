@@ -144,24 +144,118 @@
 
 %% BEGIN ABSTRACT
 \begin{abstract}
-
+%% TODO: Write abstract
 %% END ABSTRACT
 \end{abstract}
 
 %% BEGIN MOTIVATION
 \section{Motivation}
-
+In order to show how an algorithm might run on a given set of hardware, and how the algorithm will perform when given large amounts of data, algorithms are analysed. More specifically, insertion sort is analysed to determined what the run time might be for sorting large amounts of data on any modern computer.
 %% END MOTIVATION
 
 %% BEGIN BACKGROUND
 \section{Background}
-
+%%% TODO: !! THIS SECTION SEEMS INCOMPLETE, PLEASE FINISH !! 
+A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions.
 %% END BACKGROUND
 
 %% BEGIN PROCEDURE
 \section{Procedure}
-
+An insertion sort can be implemented in a multitude of languages using the pseudocode provided below.
+\newline
+\textbf{Insertion Sort Pre-Condition}: A is a non-empty array of data with a natural order.
+\newline
+\textbf{Insertion Sort Post-Condition}: A' is a permutation of A (containing all the same elements) in strictly non-decreasing order.
+\begin{algorithm}
+\caption {\textsc{Insertion-Sort}(A)}
+\begin{algorithmic}[1]
+\Procedure{Insertion-Sort}{A}
+\State{$i = 2$}
+\While{$i$ upto $A.length$}
+	\State{$key = A[i]$}
+	\State{$j = i - 1$}
+	\While{$j$ downto $1$ and $key < A[j]$}
+		\State{$A[j + 1] = A[j]$}
+		\State{$j = j - 1$}
+	\EndWhile
+	\State{$A[j+1] = key$}
+	\State{$i = i + 1$}
+\EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\newline
+\textbf{Outer-Loop Invariant}: The subarray A'[1 ... i - 1] contains all the same elements as the subarray A[1 .. i - 1].
+\newline 
+\textbf{Outer-Loop Initialization}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same one element.
+\newline
+\textbf{Outer-Loop Maintenance}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same elements, although they maybe in different orders.
+\newline
+\textbf{Outer-Loop Termination}: When the outer-loop terminates, i = A.length, which implies that the entire array has been traversed and the guard has been negated. The negation of the guard implies that A'[1 ... i - 1] contains all the elements in A[1 ... i - 1].
+\newline
+\newline
+\textbf{Inner-Loop Invariant}: A'[1 ... j] is sorted in strictly non-decreasing order.
+\newline
+\textbf{Inner-Loop Initialization}: Before the first iteration of the loop, j = 1, meaning the subarray A'[1 ... j] contains exactly one element, which is already sorted.
+\newline
+\textbf{Inner-Loop Maintenance}: At the beginning of each iteration of the loop the inner-loop invariants holds because j counts down from i and A'[j+1] is swapped with A'[j] only if A'[j+1] is less than A[j].
+\newline
+\textbf{Inner-Loop Termination}: The negation of the implies that j = A.length and A'[1 ... j] has been entirely traversed and sorted in strictly non-decreasing order which maintains the inner-loop invariant. 
+\newline
+\newline
+\textbf{Conclusion}: The termination of both the inner and outer loops implies that the entire array has been traversed, A' is a permutation of A containing all the same elements in strictly non-decreasing order. This satisfies the post condition.
 %% END PROCEDURE
+
+%% BEGIN TESTING
+\section{Testing}
+\subsection{Testing Plan and Results}
+All arrays used in testing are Java ArrayList<Integer> unless otherwise specified. All times are recorded in milliseconds using a stopwatch class borrowed from [NEED CITATION]. %% TODO: Add Citation %%
+It is important to note that the stopwatch class used takes the elapsed real-time between the start of the insertion sort algorithm and the end of the insertion sort algorithm as opposed to taking the elapsed processor-time because these tests were run on a multi-core computer. 
+In the table below A denotes Array. Times in the table below are given as averages out of 10 trials.
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline Tested Input & Expected Results & Actual Results & Time \\
+\hline Empty A & Empty A & Empty A & 0.0003 \\
+\hline A of 1000 Strings & Sorted A 1000 Strings & Sorted A 1000 Strings & 0.021 \\
+\hline A 1 Element & Original A & Original A & 0.0003 \\
+\hline A 10 Elements & Sorted A 10 Elements & Sorted A 10 Elements & 0.0005 \\
+\hline A 100 Elements & Sorted A 100 Elements & Sorted A 100 Elements & 0.0021 \\
+\hline A 1000 Elements & Sorted A 1000 Elements & Sorted A 1000 Elements & 0.019 \\
+\hline A 10000 Elements & Sorted A 10000 Elements & Sorted A 10000 Elements & 0.129 \\
+\hline A 100000 Elements & Sorted A 100000 Elements & Sorted A 100000 Elements & 6.4923 \\
+\hline A 1000000 Elements & Sorted A 1000000 Elements & Sorted A 1000000 Elements & 2135.5007 \\
+\hline A 10000000 Elements & Sorted A 10000000 Elements & OS Crash & N/A \\
+\hline A 1000 Identical Elements & Original Array & Original Array & 0.0052 \\
+\hline
+\end{tabular}
+\end{center}
+\subsection{Problems Encountered}
+
+%% END TESTING
+
+%% BEGIN EXPERIMENTAL ANALYSIS
+\section{Experimental Analysis}
+
+%% END EXPERIMENTAL ANALYSIS
+
+%% BEGIN CONCLUSION
+\section{Conclusions}
+
+%% END CONCLUSION
+
+\newpage
+
+%% BEGIN REFERENCES
+\section*{References}
+
+%% END REFERENCES
+
+\newpage
+
+%% BEGIN APPENDIX
+\section*{Appendix}
+
+%% END APPENDIX
 
 %% END DOCUMENT
 \end{document}

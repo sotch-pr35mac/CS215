@@ -63,6 +63,7 @@ public class Debug<T> {
 	public void assertOrder(List<Integer> actual) {
 		if(debugOn == true) {
 			int i = actual.size();
+			// TODO: Write invariant for this loop
 			while(i > 1) {
 				assert actual.get(i - 1).compareTo(actual.get(i - 2)) >= 0;
 
