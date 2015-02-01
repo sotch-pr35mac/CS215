@@ -55,13 +55,16 @@ public class Debug<T> {
 	}
 
 	/*
-	*
+	* @Pre-Condition: <code>List<Integer> actual</code> is a iterable list of Integer objects
+	*	@Post-Conditions: If the List of Integer objects is in stricly non-decreasing order, the program moves on normally, if not, the program halts with an <code>AssertionError</code>
+	* @Description: runs an assertion statement against a list of Integer objects to ensure that for <code>k = actual.size(); A[k - 2] <= A[k - 1];</code>
+	*	@param List<Integer> actual the list to assert is in stricly non-decreasing order
 	*/
 	public void assertOrder(List<Integer> actual) {
 		if(debugOn == true) {
 			int i = actual.size();
 			while(i > 1) {
-				assert actual.get(i - 1).compareTo(actual.get(i - 2)) > 0;
+				assert actual.get(i - 1).compareTo(actual.get(i - 2)) >= 0;
 
 				i--;
 			}
