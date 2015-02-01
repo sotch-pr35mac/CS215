@@ -60,7 +60,7 @@
 %\usepackage{a4wide} %%Smaller margins = more text per page.
 \usepackage{fancyhdr} %%Fancy headings
 \usepackage{listings}
-
+\usepackage{capt-of}
 
 
 %
@@ -155,8 +155,7 @@ In order to show how an algorithm might run on a given set of hardware, and how 
 
 %% BEGIN BACKGROUND
 \section{Background}
-%%% TODO: !! THIS SECTION SEEMS INCOMPLETE, PLEASE FINISH !! 
-A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions.
+A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions. The insertion sort demonstrated below (see Algorithm 1) was implemented in Java and executed on an HP SprectreXT TouchSmart with 4 Intel Core i7 at 1.GHz running Ubuntu Gnome 14.10 64-bit.
 %% END BACKGROUND
 
 %% BEGIN PROCEDURE
@@ -212,6 +211,8 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 All arrays used in testing are Java ArrayList<Integer> unless otherwise specified. All times are recorded in milliseconds using a stopwatch class borrowed from [NEED CITATION]. %% TODO: Add Citation %%
 It is important to note that the stopwatch class used takes the elapsed real-time between the start of the insertion sort algorithm and the end of the insertion sort algorithm as opposed to taking the elapsed processor-time because these tests were run on a multi-core computer. 
 In the table below A denotes Array. Times in the table below are given as averages out of 10 trials.
+\newline
+\captionof{table}{Test Results}
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline Tested Input & Expected Results & Actual Results & Time \\
