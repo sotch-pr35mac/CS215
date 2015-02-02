@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  1 FEB 2015 10:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  2 FEB 2015 01:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -541,35 +541,51 @@ Overfull \hbox (9.78156pt too wide) in paragraph at lines 217--232
  []
 
 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `!tbp') on input line 233.
+
+<insertion_sort_time_analysis.pdf, id=16, 871.255pt x 427.5975pt>
+File: insertion_sort_time_analysis.pdf Graphic file (type pdf)
+
+<use insertion_sort_time_analysis.pdf>
+Package pdftex.def Info: insertion_sort_time_analysis.pdf used on input line 23
+5.
+(pdftex.def)             Requested size: 361.19843pt x 177.26695pt.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.91998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] [3] [4] (./Insertion Sort Analysis in Java.aux) ) 
+[2] [3 <./insertion_sort_time_analysis.pdf>] [4] [5]
+(./Insertion Sort Analysis in Java.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6410 strings out of 493104
- 90899 string characters out of 6136932
- 163389 words of memory out of 5000000
- 9718 multiletter control sequences out of 15000+600000
+ 6417 strings out of 493104
+ 91124 string characters out of 6136932
+ 163397 words of memory out of 5000000
+ 9724 multiletter control sequences out of 15000+600000
  172881 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,43p,739b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
--mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcs
-c10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on "Insertion Sort Analysis in Java.pdf" (4 pages, 199195 bytes)
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm
+/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmm
+i12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on "Insertion Sort Analysis in Java.pdf" (5 pages, 216678 bytes)
 .
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 68 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
