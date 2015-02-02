@@ -155,7 +155,7 @@ In order to show how an algorithm might run on a given set of hardware, and how 
 
 %% BEGIN BACKGROUND
 \section{Background}
-A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions. The insertion sort demonstrated below (see Algorithm 1) was implemented in Java and executed on an HP SprectreXT TouchSmart with 4 Intel Core i7 at 1.GHz running Ubuntu Gnome 14.10 64-bit.
+A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions.
 %% END BACKGROUND
 
 %% BEGIN PROCEDURE
@@ -167,6 +167,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \textbf{Insertion Sort Post-Condition}: A' is a permutation of A (containing all the same elements) in strictly non-decreasing order.
 \begin{algorithm}
 \caption {\textsc{Insertion-Sort}(A)}
+\label{algo:insertionsort}
 \begin{algorithmic}[1]
 \Procedure{Insertion-Sort}{A}
 \State{$i = 2$}
@@ -230,19 +231,21 @@ In the table below A denotes Array. Times in the table below are given as averag
 \hline
 \end{tabular}
 \end{center}
-\begin{figure}[!]
+
+\subsection{Problems Encountered}
+One major issue encountered during the development of this insertion sort was that after completing the sort, A' was completely sorted properly except for the first element in the array. No matter what value the first element of A had, it did not change position in A'. For example, if A[5, 6, 3, 4, 7] was passed to the insertion sort algorithm, the returned array would look like A'[5, 3, 4, 6, 7]. Changing the guard for the inner for loop (see Algorithm 1 line 6) from \textit{key < A[j] and j downto 1} to \textit{j downto 1 and key < A[j]} corrected this issue.
+%% END TESTING
+
+%% BEGIN EXPERIMENTAL ANALYSIS
+\section{Experimental Analysis}
+ The insertion sort demonstrated in Algorithm 1 was implemented in Java and executed on an HP SprectreXT TouchSmart with 4 Core Intel i7 processor clocked at 1.9GHz running Ubuntu Gnome 14.10 64-bit.
+ \begin{figure}[!]
 \begin{center}
 \includegraphics[width=0.7\linewidth]{insertion_sort_time_analysis.pdf}
 \end{center}
 \captionof{figure}{Insertion Sort Time Analysis}
 \label{fig:insertionsorttimeanalysis}
 \end{figure}
-\subsection{Problems Encountered}
-
-%% END TESTING
-
-%% BEGIN EXPERIMENTAL ANALYSIS
-\section{Experimental Analysis}
 
 %% END EXPERIMENTAL ANALYSIS
 
