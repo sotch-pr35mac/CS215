@@ -170,6 +170,9 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \label{algo:insertionsort}
 \begin{algorithmic}[1]
 \Procedure{Insertion-Sort}{A}
+\If{$A.length <= 1$}
+\State{\Return{$A$}}
+\EndIf
 \State{$i = 2$}
 \While{$i$ upto $A.length$}
 	\State{$key = A[i]$}
@@ -241,12 +244,13 @@ One major issue encountered during the development of this insertion sort was th
  The insertion sort demonstrated in Algorithm 1 was implemented in Java and executed on an HP SprectreXT TouchSmart with 4 Core Intel i7 processor clocked at 1.9GHz running Ubuntu Gnome 14.10 64-bit.
  \begin{figure}[!]
 \begin{center}
-\includegraphics[width=0.7\linewidth]{insertion_sort_time_analysis.pdf}
+\includegraphics[scale=.75]{insertion_sort_time_analysis.pdf}
 \end{center}
 \captionof{figure}{Insertion Sort Time Analysis}
 \label{fig:insertionsorttimeanalysis}
 \end{figure}
 
+The expected growth of insertion sort as the number of elements (n) grows large can be represented as $ \theta(n^2) $ where $ \theta() $ represents the asymptotically tightly bound running time. At $n_0$ the algorithm took 0.0003 milliseconds to complete. At $n_1$ the algorithm also took 0.0003 milliseconds to complete. For both these values of $n$, the algorithm runs at a constant time because no for-loops are executed. As $n$ grows larger the time to complete the experimental data correlates quite accurately with the expected growth. For $n_{1*10^6} $ the data matches up perfectly. This is to be expected however, because as n grows larger the constants and lower orders of the actual running time of the insertion sort start to effect the the running time less and less because the highest order of $n^2$ is so large. 
 %% END EXPERIMENTAL ANALYSIS
 
 %% BEGIN CONCLUSION
@@ -277,6 +281,9 @@ breaklines=true,
 label={DummyData.java},
 breaklines=true,
 ]{Code/DummyData.java}
+
+The class Stopwatch has not been altered from its original form.
+\newline
 \lstinputlisting[caption=Stopwatch,
 label={Stopwatch.java}
 breaklines=true,
