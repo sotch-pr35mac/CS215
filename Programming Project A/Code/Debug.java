@@ -61,7 +61,6 @@ public class Debug<T> {
 	*	@param List<Integer> actual the list to assert is in stricly non-decreasing order
 	*/
 	public void assertOrder(List<Integer> actual) {
-		//TODO: Write invariant
 		if(debugOn == true) {
 			int i = actual.size();
 			while(i > 1) {
