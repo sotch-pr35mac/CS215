@@ -155,7 +155,7 @@ In order to show how an algorithm might run on a given set of hardware, and how 
 
 %% BEGIN BACKGROUND
 \section{Background}
-A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions.
+A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position, and repositioning it into a more appropriate place in the list. How will this procedure perform when handling high volumes of data? How will it perform when executed on different machines? Because insertion sort is a more basic sorting algorithm, numerous papers and articles have been written answering these two questions.
 %% END BACKGROUND
 
 %% BEGIN PROCEDURE
@@ -192,7 +192,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \newline 
 \textbf{Outer-Loop Initialization}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same one element.
 \newline
-\textbf{Outer-Loop Maintenance}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same elements, although they maybe in different orders.
+\textbf{Outer-Loop Maintenance}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same elements, although they may be in different orders.
 \newline
 \textbf{Outer-Loop Termination}: When the outer-loop terminates, i = A.length, which implies that the entire array has been traversed and the guard has been negated. The negation of the guard implies that A'[1 ... i - 1] contains all the elements in A[1 ... i - 1].
 \newline
@@ -201,9 +201,9 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \newline
 \textbf{Inner-Loop Initialization}: Before the first iteration of the loop, j = 1, meaning the subarray A'[1 ... j] contains exactly one element, which is already sorted.
 \newline
-\textbf{Inner-Loop Maintenance}: At the beginning of each iteration of the loop the inner-loop invariants holds because j counts down from i and A'[j+1] is swapped with A'[j] only if A'[j+1] is less than A[j].
+\textbf{Inner-Loop Maintenance}: At the beginning of each iteration of the loop the inner-loop invariant holds because j counts down from i, and A'[j+1] is swapped with A'[j] only if A'[j+1] is less than A[j].
 \newline
-\textbf{Inner-Loop Termination}: The negation of the implies that j = A.length and A'[1 ... j] has been entirely traversed and sorted in strictly non-decreasing order which maintains the inner-loop invariant. 
+\textbf{Inner-Loop Termination}: The negation of the guard implies that j = A.length and that A'[1 ... j] has been entirely traversed and sorted in strictly non-decreasing order, which maintains the inner-loop invariant. 
 \newline
 \newline
 \textbf{Conclusion}: The termination of both the inner and outer loops implies that the entire array has been traversed, A' is a permutation of A containing all the same elements in strictly non-decreasing order. This satisfies the post condition.
@@ -214,7 +214,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \subsection{Testing Plan and Results}
 All arrays used in testing are Java ArrayList<Integer> unless otherwise specified. All times are recorded in milliseconds using a stopwatch class borrowed from [NEED CITATION]. %% TODO: Add Citation %%
 It is important to note that the stopwatch class used takes the elapsed real-time between the start of the insertion sort algorithm and the end of the insertion sort algorithm as opposed to taking the elapsed processor-time because these tests were run on a multi-core computer. 
-In the table below A denotes Array. Times in the table below are given as averages out of 10 trials.
+In the table below, A denotes Array. Times in the table below are given as averages out of 10 trials.
 \newline
 \captionof{table}{Test Results}
 \begin{center}
@@ -236,7 +236,12 @@ In the table below A denotes Array. Times in the table below are given as averag
 \end{center}
 
 \subsection{Problems Encountered}
-One major issue encountered during the development of this insertion sort was that after completing the sort, A' was completely sorted properly except for the first element in the array. No matter what value the first element of A had, it did not change position in A'. For example, if A[5, 6, 3, 4, 7] was passed to the insertion sort algorithm, the returned array would look like A'[5, 3, 4, 6, 7]. Changing the guard for the inner for loop (see Algorithm 1 line 6) from \textit{key < A[j] and j downto 1} to \textit{j downto 1 and key < A[j]} corrected this issue.
+One major issue encountered during the development of this insertion sort was that after completing the sort, A' was sorted properly except for the first element in the array. No matter what value the first element of A had, it did not change position in A'. For example, if A[5, 6, 3, 4, 7] was passed to the insertion sort algorithm, the returned array would look like A'[5, 3, 4, 6, 7]. Changing the guard for the inner for loop (see Algorithm 1 line 6) from \textit{key < A[j] and j downto 1} to \textit{j downto 1 and key < A[j]} corrected this issue.
+
+Another issue encountered during the development of this program was 
+
+%% Also mention generics
+
 %% END TESTING
 
 %% BEGIN EXPERIMENTAL ANALYSIS
@@ -250,11 +255,14 @@ One major issue encountered during the development of this insertion sort was th
 \label{fig:insertionsorttimeanalysis}
 \end{figure}
 
-The expected growth of insertion sort as the number of elements (n) grows large can be represented as $ \theta(n^2) $ where $ \theta() $ represents the asymptotically tightly bound running time. At $n_0$ the algorithm took 0.0003 milliseconds to complete. At $n_1$ the algorithm also took 0.0003 milliseconds to complete. For both these values of $n$, the algorithm runs at a constant time because no for-loops are executed. As $n$ grows larger the time to complete the experimental data correlates quite accurately with the expected growth. For $n_{1*10^6} $ the data matches up perfectly. This is to be expected however, because as n grows larger the constants and lower orders of the actual running time of the insertion sort start to effect the the running time less and less because the highest order of $n^2$ is so large. It is expected for lower values of n to not correlate well with $ \theta(n^2) $ because the system running the algorithm may be executing superfolous commands such as checking for system. For the data graphed above (see Fig. 1) this was in fact the case. To aid this issue, averages of 10 trails were taken and used in Figure 1.
+The expected growth of insertion sort as the number of elements (n) grows large can be represented as $ \theta(n^2) $ where $ \theta() $ represents the asymptotically tightly bound running time. At $n_0$ the algorithm took 0.0003 milliseconds to complete. At $n_1$ the algorithm also took 0.0003 milliseconds to complete. For both these values of $n$, the algorithm runs at a constant time because no for-loops are executed. As $n$ grows larger the time to complete the experimental data correlates quite accurately with the expected growth. For $n_{1*10^6} $ the data matches up perfectly. This is to be expected, because as n grows larger the constants and lower orders of the actual running time of the insertion sort start to affect the running time less and less as the highest order of $n^2$ is so large. It is expected for lower values of n to not correlate well with $ \theta(n^2) $ because the system running the algorithm may be executing superfolous commands such as checking for system. For the data graphed above (see Fig. 1) this was in fact the case. To aid this issue, averages of 10 trails were taken and used in Figure 1.
 %% END EXPERIMENTAL ANALYSIS
 
 %% BEGIN CONCLUSION
 \section{Conclusions}
+Insertion sort is not the best choice for sorting large amounts of data because as n grows large, it takes insertion sort $ \theta(n^2) $ time to complete on modern day computers. Obviously, the faster the system executing insertion sort, the faster the algorithm will complete, however, with large enough values of n, it can take powerful systems quite a long amount of time to complete, as shown in Figure 1. 
+
+%% TODO: Add more here
 
 %% END CONCLUSION
 
