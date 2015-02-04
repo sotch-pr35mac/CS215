@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  3 FEB 2015 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  3 FEB 2015 22:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,7 +573,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1.
  [6]) (./Code/Debug.java [7] [8]
 [9]) (./Code/DummyData.java [10] [11] [12])
-Underfull \hbox (badness 10000) in paragraph at lines 295--300
+Underfull \hbox (badness 10000) in paragraph at lines 316--321
 
  []
 
@@ -613,7 +613,7 @@ ype1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr
 c/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 sy8.pfb>
-Output written on "Insertion Sort Analysis in Java.pdf" (16 pages, 291363 bytes
+Output written on "Insertion Sort Analysis in Java.pdf" (16 pages, 291832 bytes
 ).
 PDF statistics:
  114 PDF objects out of 1000 (max. 8388607)
