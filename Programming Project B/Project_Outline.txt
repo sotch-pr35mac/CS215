@@ -1,0 +1,10 @@
+Programming Project B Outline
+
+Insertion Sort
+Merge Sort
+Heap Sort 
+
+==> This all must have Pre-Conditions, Post-Conditions, and Invariants, Generics
+--> On this project, you must assert at the beginning of every method that the pre-conditions hold true
+
+we will have a lot of graphs for this, best worst and average for all three on three different graphs
