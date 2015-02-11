@@ -63,12 +63,55 @@ public class Debug<T> {
 	public void assertOrder(List<Integer> actual) {
 		if(debugOn == true) {
 			int i = actual.size();
-			// TODO: Write invariant for this loop
 			while(i > 1) {
 				assert actual.get(i - 1).compareTo(actual.get(i - 2)) >= 0;
 
 				i--;
 			}
+		}
+	}
+
+	/*
+	* @Description: asserts that the first arguement is stricly greator than the second arguement
+	*	@param int large an integer primative value to assert is strictly greator than the second arguement
+	*	@param int small an integer primative value to assert the first arguement is strictly greator than.
+	*/
+	public void assertStrictGreat(int large, int small) {
+		if(debugOn == true) {
+			assert large > small;
+		}
+	}
+
+	/*
+	*	@Description: asserts that the first arguement is strictly less than the second arguement
+	*	@param int small an integer primative value to assert is stricly less than the second arguement
+	*	@param int large an integer primative value to assert the first arguement is strictly less than.
+	*/
+	public void assertStrictLess(int small, int large) {
+		if(debugOn == true) {
+			assert small < large;
+		}
+	}
+
+	/*
+	*	@Description: asserts that the first arguement is greator than or equal to the second arguement
+	*	@param int large an integer primative value to assert is greator than or equal to the second arguement
+	*	@param int small an integer primative value to assert the first arguement is greator than or equal to.
+	*/
+	public void assertGreatEqual(int large, int small) {
+		if(debugOn == true) {
+			assert large >= small;
+		}
+	}
+
+	/*
+	*	@Description: asserts that the first arguement is less than or equal to the second arguement
+	*	@param int small an integer primative value to assert is less than or equal to the second arguement
+	*	@param int large an integer primative value to assert the first arguement is less than or equal to.
+	*/
+	public void assertLessEqual(int small, int large) {
+		if(debugOn == true) {
+			assert small <= large;
 		}
 	}
 }

@@ -20,7 +20,7 @@ public class Sort<T extends Comparable<T>> {
 	// INVARIANT (Inner-Loop): sorted[0 ... j] is sorted in stricly non-decreasing order.
 	public ArrayList<T> insertion(ArrayList<T> unsorted) {
 		Debug debugger = new Debug<List<T>>();
-		//debugger.turnOn();
+		debugger.turnOn();
 		ArrayList<T> sorted = unsorted;
 		if(sorted.size() > 1) {
 			int i = 1;
@@ -60,7 +60,8 @@ public class Sort<T extends Comparable<T>> {
 			}
 			/* TERMINATION (Outer-Loop): When the loop terminates, i is equal to sorted.size() meaning the entire array has been traversed and that the guard has been negated.
 				The negation of the guard implies that sorted[0 ... i - 1] contains all the elements of unsorted[0 ... i - 1] */
-			// TODO: ensurelist is in stricly non decreasing order
+			List subSortedOT = sorted.subList(0, i - 1);
+			debugger.assertOrder(subSortedOT);
 			Integer integerI = new Integer(i);
 			Integer sortedSizeO = new Integer(sorted.size());
 			debugger.assertEquals(sortedSizeO, integerI);

@@ -23,10 +23,10 @@ public class TestDriver {
 		//Create test data for sorts class
 		//Note that this Array is for testing purposes only, the Algorithm can handle all Comparable Generic Types
 		ArrayList<Integer> testList = new ArrayList<Integer>();
-		testList = DummyData.runArrayList(0, 10, 0, 10, testList);
-		//testList = DummyData.identicalElement(0, 1000, 10, testList);
+		testList = DummyData.runArrayList(10, 0, 10, testList);
+		//testList = DummyData.identicalElement(1000, 10, testList);
 		//ArrayList<String> testList = new ArrayList<String>();
-		//testList = DummyData.runArrayList(0, 1000, testList);
+		//testList = DummyData.runArrayList(1000, testList);
 
 		System.out.println("Un-Sorted List");
 		System.out.println(testList);
