@@ -10,6 +10,30 @@ import java.util.List;
 
 public class Sort<T extends Comparable<T>> {
 	/*
+	*	@Pre-Condition:
+	*	@Post-Condition:
+	*	@Description:
+	*	@param
+	*	@return
+	*/
+	//INVARIANTS
+	public ArrayList<T> heap(ArrayList<T> unsorted) {
+
+	}
+
+	/*
+	*	@Pre-Condition:
+	*	@Post-Condition:
+	*	@Description:
+	*	@param
+	*	@return
+	*/
+	// INVARIANTS
+	public ArrayList<T> merge(ArrayList<T> unsorted) {
+
+	}
+
+	/*
 	*	@Pre-Condition: ArrayList<T> unsorted is an unsorted ArrayList of a comparable data type that is non-empty
 	*	@Post-Condition: ArrayList<T> will return a permutation of <code>unsorted</code> that will be in increasing order
 	*	@Description: Insertion will sort an ArrayList of generic type T in increasing order using an insertion sort
