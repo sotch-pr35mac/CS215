@@ -1,0 +1,204 @@
+ %% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[onecolumn, 11pt, conference, compsocconf]{IEEEtran}
+\documentclass[onecolumn, 12pt, article]{IEEEtran}
+\usepackage{times,color,amsmath,amssymb,amsthm,comment,graphicx,cite,multirow}
+%\documentclass[letterpaper,oneside,11pt]{letter}
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt / 11pt / 12pt
+
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[USenglish]{babel} %francais, polish, spanish, ...
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{graphicx} %%For loading graphic files
+%\usepackage{subfig} %%Subfigures inside a figure
+%\usepackage{tikz} %%Generate vector graphics from within LaTeX
+
+%% Please note:
+%% Images can be included using \includegraphics{filename}
+%% resp. using the dialog in the Insert menu.
+%% 
+%% The mode "LaTeX => PDF" allows the following formats:
+%%   .jpg  .png  .pdf  .mps
+%% 
+%% The modes "LaTeX => DVI", "LaTeX => PS" und "LaTeX => PS => PDF"
+%% allow the following formats:
+%%   .eps  .ps  .bmp  .pict  .pntg
+
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{array,MnSymbol}
+
+
+%% Line Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+\singlespacing        %% 1-spacing (default)
+%\onehalfspacing       %% 1,5-spacing
+%\doublespacing        %% 2-spacing
+
+
+%% Other Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide} %%Smaller margins = more text per page.
+\usepackage{fancyhdr} %%Fancy headings
+\usepackage{listings}
+\usepackage{capt-of}
+
+
+%
+% Theorem like environments
+%
+\newtheorem{problem}{Problem}%
+%\numberwithin{problem}{section}
+\newtheorem{theorem}{Theorem}%
+\newtheorem{acknowledgment}{Acknowledgment}%
+%\newtheorem{algorithm}{Algorithm}%
+\newtheorem{assumption}{Assumption}%
+\newtheorem{axiom}{Axiom}%
+\newtheorem{case}{Case}%
+\numberwithin{case}{problem}
+\newtheorem{claim}{Claim}%
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\numberwithin{condition}{problem}
+\numberwithin{condition}{subsection}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{section}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}%
+\newtheorem{lemma}{Lemma}%
+\newtheorem{notation}{Notation}%
+\theoremstyle{remark}
+\newtheorem{question}{Question}%
+\numberwithin{question}{problem}
+\theoremstyle{plain}
+\newtheorem{answer}{Answer}%
+\numberwithin{answer}{problem}
+\newtheorem{proposition}{Proposition}%
+\newtheorem{remark}{Remark}%
+\newtheorem{solution}{Solution}%
+\numberwithin{solution}{section}
+\newtheorem{summary}{Summary}%
+\numberwithin{equation}{section}%
+\newtheorem{option}{Option}
+
+
+
+\raggedbottom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Note:
+% 1. Edit the used packages and their options (see above).
+% 2. If you want, add a BibTeX-File to the project
+%    (e.g., 'literature.bib').
+% 3. Happy TeXing!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Options / Modifications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{options} %You need a file 'options.tex' for this
+%% ==> TeXnicCenter supplies some possible option files
+%% ==> with its-templates (File | New from Template...).
+
+
+
+
+
+%% BEGIN DOCUMENT
+\begin{document}
+
+%% Title Page
+\title{Java Sorting Algorithms Run-Time Analysis}
+\author{Preston Stosur-Bassett}
+\date{February 23, 2015}
+\maketitle
+
+\pagestyle{fancy}
+\fancyhead[R]{Java Sorting Algorithms Run-Time Analysis, page \thepage}
+\fancyhead[L]{Preston Stosur-Bassett}
+
+%% BEGIN ABSTRACT
+\begin{abstract}
+
+%% END ABSTRACT
+\end{abstract}
+
+%% BEGIN MOTIVATION
+\section{Motivation}
+
+%% END MOTIVATION
+
+%% BEGIN BACKGROUND
+\section{Background}
+
+%% END BACKGROUND
+
+%% BEGIN PROCEDURE
+\section{Procedure}
+
+%% END PROCEDURE
+
+%% BEGIN TESTING
+\section{Testing}
+\subsection{Testing Plan and Results}
+
+\subsection{Problems Encountered}
+
+%% END TESTING
+
+%% BEGIN EXPERIMENTAL ANALYSIS
+\section{Experimental Analysis}
+
+%% END EXPERIMENTAL ANALYSIS
+
+%% BEGIN CONCLUSION
+\section{Conclusions}
+
+%% END CONCLUSION
+
+\newpage
+
+%% BEGIN REFERENCES
+%% \section*{References}
+
+\nocite{*}
+\bibligraphystyle{IEEEtran}
+\bibliography{}
+
+%% END REFERENCES
+
+\newpage
+
+%% BEGIN APPENDIX
+\section*{Appendix}
+
+%% END APPENDIX
+
+%% END DOCUMENT
+\end{document}
