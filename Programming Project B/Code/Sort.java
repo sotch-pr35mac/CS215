@@ -29,8 +29,12 @@ public class Sort<T extends Comparable<T>> {
 	*	@param
 	*	@return
 	*/
+	//INVARIANTS
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
-		ArrayList<T> returnValue;
+		ArrayList<T> combined = new ArrayList<T>();
+		while(left.size() > 0 && right.size() > 0) {
+
+		}
 	}
 
 	/*
