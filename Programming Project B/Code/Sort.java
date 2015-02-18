@@ -17,8 +17,20 @@ public class Sort<T extends Comparable<T>> {
 	*	@return
 	*/
 	//INVARIANTS
-	public ArrayList<T> heap(ArrayList<T> unsorted) {
+	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
 
+	}
+
+	/*
+	*	@Pre-Condition:
+	*	@Post-Condition:
+	*	@Description:
+	*	@param
+	*	@param
+	*	@return
+	*/
+	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
+		ArrayList<T> returnValue;
 	}
 
 	/*
@@ -29,20 +41,41 @@ public class Sort<T extends Comparable<T>> {
 	*	@return
 	*/
 	// INVARIANTS
-	public ArrayList<T> merge(ArrayList<T> unsorted) {
-
+	public ArrayList<T> mergeSort(ArrayList<T> unsorted) {
+		ArrayList<T> sorted = unsorted;
+		ArrayList<T> left = new ArrayList<T>();
+		ArrayList<T> right = new ArrayList<T>();
+		ArrayList<T> returnValue;
+		if(sorted.size() <= 1) {
+			returnValue = sorted;
+		}
+		else {
+			int mid = (sorted.size() / 2);
+			for(int i = 0; i < mid; i++) {
+				T temp = sorted.get(i);
+				left.add(temp);
+			}
+			for(int i = mid; i < sorted.size(); i++) {
+				T temp = sorted.get(i);
+				right.add(temp);
+			}
+			left = mergeSort(left);
+			right = mergeSort(right);
+			returnValue = mergeTogether(left, right);
+		}
+		return returnValue;
 	}
 
 	/*
 	*	@Pre-Condition: ArrayList<T> unsorted is an unsorted ArrayList of a comparable data type that is non-empty
 	*	@Post-Condition: ArrayList<T> will return a permutation of <code>unsorted</code> that will be in increasing order
-	*	@Description: Insertion will sort an ArrayList of generic type T in increasing order using an insertion sort
+	*	@Description: insertionSort will sort an ArrayList of generic type T in increasing order using an insertion sort
 	*	@param ArrayList<T> unsorted is a non-empty unsorted array list of T, where T is a comparable type
 	*	@return sorted is a permutation of <code>unsorted</code> where all the elements are sorted in increasing order
 	*/
 	// INVARIANT (Outer-Loop): The pre condition implies that sorted[0 ... i - 1] will contain all the same data as unsorted[0 ... i - 1].
 	// INVARIANT (Inner-Loop): sorted[0 ... j] is sorted in stricly non-decreasing order.
-	public ArrayList<T> insertion(ArrayList<T> unsorted) {
+	public ArrayList<T> insertionSort(ArrayList<T> unsorted) {
 		Debug debugger = new Debug<List<T>>();
 		debugger.turnOn();
 		ArrayList<T> sorted = unsorted;
