@@ -33,7 +33,10 @@ public class Sort<T extends Comparable<T>> {
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
 		ArrayList<T> combined = new ArrayList<T>();
 		while(left.size() > 0 && right.size() > 0) {
-
+			if(left.get(0).compareTo(right.get(0)) < 0) {
+				combined.add(left.get(0));
+				//left = rest.add(left); ==> WHAT THE HELL IS REST?!
+			}
 		}
 	}
 
