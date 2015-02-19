@@ -22,8 +22,8 @@ public class Sort<T extends Comparable<T>> {
 	}*/
 
 	/*
-	*	@Pre-Condition: TODO: Write this shit.
-	*	@Post-Condition: TODO: Write this shit.
+	*	@Pre-Condition: ArrayList<T> left is a non-empty sorted array in stricly non-decreasing order where T is a comparable data type with a natural order
+	*	@Post-Condition: ArrayList<T> right is a non-empty sorted array in strictly non-decreasing order where T is a comparable data type with a natural order
 	*	@Description: mergeTogether is used by the mergeSort method to recombine the left and right sections of the ArrayList<T> that is being sorted by merge sort. Note that this is a helper method for the mergeSort method, and should not be called externally of this class.
 	*	@param ArrayList<T> left a non-empty ArrayList<T> where T is a comparable data type with a natural order.
 	*	@param ArrayList<T> right a non-empty ArrayList<T> where T is a comparable data type with a natural order.

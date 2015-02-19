@@ -161,7 +161,53 @@ A sorting algorithm is used to sort data with a natural order. One such sorting 
 
 %% BEGIN PROCEDURE
 \section{Procedure}
-
+An insertion sort can be implemented in a multitude of languages using the pseudocode provided below.
+\newline
+\textbf{Insertion Sort Pre-Condition}: A is a non-empty array of data with a natural order.
+\newline
+\textbf{Insertion Sort Post-Condition}: A' is a permutation of A (containing all the same elements) in strictly non-decreasing order.
+\begin{algorithm}
+\caption {\textsc{Insertion-Sort}(A)}
+\label{algo:insertionsort}
+\begin{algorithmic}[1]
+\Procedure{Insertion-Sort}{A}
+\If{$A.length <= 1$}
+\State{\Return{$A$}}
+\EndIf
+\State{$i = 2$}
+\While{$i$ upto $A.length$}
+	\State{$key = A[i]$}
+	\State{$j = i - 1$}
+	\While{$j$ downto $1$ and $key < A[j]$}
+		\State{$A[j + 1] = A[j]$}
+		\State{$j = j - 1$}
+	\EndWhile
+	\State{$A[j+1] = key$}
+	\State{$i = i + 1$}
+\EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\newline
+\textbf{Insertion Sort Outer-Loop Invariant}: The subarray A'[1 ... i - 1] contains all the same elements as the subarray A[1 .. i - 1].
+\newline 
+\textbf{Insertion Sort Outer-Loop Initialization}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same one element.
+\newline
+\textbf{Insertion Sort Outer-Loop Maintenance}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same elements, although they may be in different orders.
+\newline
+\textbf{Insertion Sort Outer-Loop Termination}: When the outer-loop terminates, i = A.length, which implies that the entire array has been traversed and the guard has been negated. The negation of the guard implies that A'[1 ... i - 1] contains all the elements in A[1 ... i - 1].
+\newline
+\newline
+\textbf{Insertion Sort Inner-Loop Invariant}: A'[1 ... j] is sorted in strictly non-decreasing order.
+\newline
+\textbf{Insertion Sort Inner-Loop Initialization}: Before the first iteration of the loop, j = 1, meaning the subarray A'[1 ... j] contains exactly one element, which is already sorted.
+\newline
+\textbf{Insertion Sort Inner-Loop Maintenance}: At the beginning of each iteration of the loop the inner-loop invariant holds because j counts down from i, and A'[j+1] is swapped with A'[j] only if A'[j+1] is less than A[j].
+\newline
+\textbf{Insertion Sort Inner-Loop Termination}: The negation of the guard implies that j = A.length and that A'[1 ... j] has been entirely traversed and sorted in strictly non-decreasing order, which maintains the inner-loop invariant. 
+\newline
+\newline
+\textbf{Insertion Sort Conclusion}: The termination of both the inner and outer loops implies that the entire array has been traversed, A' is a permutation of A containing all the same elements in strictly non-decreasing order. This satisfies the post condition.
 %% END PROCEDURE
 
 %% BEGIN TESTING
