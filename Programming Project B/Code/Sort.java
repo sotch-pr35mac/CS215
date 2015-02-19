@@ -33,37 +33,34 @@ public class Sort<T extends Comparable<T>> {
 	//INVARIANTS (There should be around 3 invariants for this method)
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
 		ArrayList<T> combined = new ArrayList<T>();
-		while(left.size() > 0 && right.size() > 0) {
-			if(left.get(0).compareTo(right.get(0)) < 0) {
-				combined.add(left.get(0));
-				//left = rest(left) ==> WHAT THE HELL IS REST?!
-				//TODO: Figure out what the fuck I am actually doing here.
-				//I have no idea if this is actually what im supposed to be doing here...
-				left = left.remove(0);
+		int i = 0;
+		int y = 0;
+		int x = 0;
+
+		while(left.size() != i && right.size() != y) {
+			if(left.get(i).compareTo(right.get(y)) < 0) {
+				combined.add(x, left.get(i));
+				i++;
+				x++;
 			}
 			else {
-				combined.add(right.get(0));
-				// right = rest(right) ==> WHAT THE HELL IS REST?!
-				//TODO: Figure out what the fuck I am actually doing here.
-				//I have no idea if this is actually what im supposed to be doing here...
-				right = right.remove(0);
-			}
-		}
-		if(left.size() > 0) {
-			//TODO: Figure out what the fuck I am actually doing here.
-			//I have no idea if this is actually what im supposed to be doing here...
-			for(int i = 0; i < left.size(); i++) {
-				combined.add(left.get(i));
-			}
-		}
-		if(right.size() > 0) {
-			//TODO: Figure out what the fuck I am actually doing here.
-			//I have no idea if this is actually what im supposed to be doing here...
-			for(int i = 0; i < right.size(); i++) {
-				combined.add(right.get(i));
+				combined.add(x, right.get(y));
+				y++;
+				x++;
 			}
 		}
 
+		while(left.size() != i) {
+			combined.add(x, left.get(i));
+			i++;
+			x++;
+		}
+
+		while(right.size() != y) {
+			combined.add(x, right.get(y));
+			y++;
+			x++;
+		}
 		return combined;
 	}
 
