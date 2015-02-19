@@ -98,7 +98,7 @@ public class Debug<T> {
 	*	@param int large an integer primative value to assert is greator than or equal to the second arguement
 	*	@param int small an integer primative value to assert the first arguement is greator than or equal to.
 	*/
-	public void assertGreatEqual(int large, int small) {
+	public void assertGreatEquals(int large, int small) {
 		if(debugOn == true) {
 			assert large >= small;
 		}
@@ -109,7 +109,7 @@ public class Debug<T> {
 	*	@param int small an integer primative value to assert is less than or equal to the second arguement
 	*	@param int large an integer primative value to assert the first arguement is less than or equal to.
 	*/
-	public void assertLessEqual(int small, int large) {
+	public void assertLessEquals(int small, int large) {
 		if(debugOn == true) {
 			assert small <= large;
 		}

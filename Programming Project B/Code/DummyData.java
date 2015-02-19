@@ -24,7 +24,7 @@ public class DummyData {
 		int start = 0;
 		// INVARIANT: A.length >= start
 		// INITIALIZATION: start = 0, A.length can be longer than 0 when initially passed, but not smaller, so our invariant holds
-		debugger.assertGreatEqual(list.size(), start);
+		debugger.assertGreatEquals(list.size(), start);
 		while(start < end) {
 			// MAINTANANCE: At the beginning of each iteration, one element was added to A and start was increased by one, therefore, our invariant holds true.
 			debugger.assertGreatEquals(list.size(), start);
