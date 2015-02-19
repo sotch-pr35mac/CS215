@@ -171,7 +171,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \label{algo:insertionsort}
 \begin{algorithmic}[1]
 \Procedure{Insertion-Sort}{A}
-\If{$A.length <= 1$}
+\If{$A.length < 2$}
 \State{\Return{$A$}}
 \EndIf
 \State{$i = 2$}
@@ -185,6 +185,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 	\State{$A[j+1] = key$}
 	\State{$i = i + 1$}
 \EndWhile
+\State{\Return{$A$}}
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
@@ -212,7 +213,33 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \newline
 
 A merge sort can be implemented in a variety of languages using the pseudocode provided below. 
-
+\newline
+\textbf{Merge Sort Pre-Condition}: A is a non-empty array of comparable data with a natural order.
+\newline
+\textbf{Merge Sort Post-Condition}: A' is a permutation of A (containing all the same elements) in stricly non-decreasing order.
+\begin{algorithm}
+\caption {\textsc{Merge-Sort}(A)}
+\label{algo:mergesort}
+\begin{algorithmic}[1]
+\Procedure{Merge-Sort}{A}
+\If{$A.length < 2$}
+\State{\Return{$A$}}
+\EndIf
+\State{$mid = A.length / 2$}
+\For{$i = 1$ upto $mid$}
+	\State{$left[left.length] = A[i]$}
+\EndFor
+\For{$i = mid$ upto $A.length$}
+	\State{$right[right.length] = A[i]$}
+\EndFor
+\State{$left =$ Merge-Sort($left$)}
+\State{$right =$ Merge-Sort($right$)}
+\State{$A =$ Merge($left$, $right$)}
+\State{\Return{$A$}}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\newline
 %% END PROCEDURE
 
 %% BEGIN TESTING
