@@ -10,9 +10,11 @@ import java.util.List;
 
 public class Sort<T extends Comparable<T>> {
 	/*
-	*	@Pre-Condition:
+	*	@Pre-Condition: ArrayList<T> is a non-empty set of data where T is a comparable data type with a natural order
 	*	@Post-Condition:
-	*	@Description:
+	*	@Description: heapify is a helper method for heapSort that keeps the heap in order so that the root node is the largest element in the heap.
+	*	@param ArrayList<T> unsorted is a non-empty set of data where T is a comparable data type with a natural order
+	*	@param
 	*	@param
 	*	@return
 	*/
@@ -39,13 +41,13 @@ public class Sort<T extends Comparable<T>> {
 	}
 
 	/*
-	*	@Pre-Condition:
-	*	@Post-Condition:
-	*	@Description:
-	*	@param
-	*	@return
+	*	@Pre-Condition: ArrayList<T> unsorted is a non-empty ArrayList<T> where T is a comparable data type with a natural order.
+	*	@Post-Condition: ArrayList<T> sorted is a permutation of unsorted (it contains all the same elements) in stricly non-decreasing order
+	*	@Description: heapSort will sort a given set of data in an ArrayList<T> in strictly non-decreasing order using the heap sort method.
+	*	@param ArrayList<T> unsorted is a non-empty ArrayList<T> where T is a comparable data type with a natural order
+	*	@return ArrayList<T> sorted is a permutation of unsorted in strictly non-decreasing order
 	*/
-	//INVARIANTS
+	//INVARIANTS (There should be two of them here)
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
 		int arrSize = unsorted.size() - 1;
 		for(int i = arrSize / 2; i >= 0; i--) {
@@ -58,8 +60,8 @@ public class Sort<T extends Comparable<T>> {
 			arrSize--;
 			unsorted = heapify(unsorted, 0, arrSize);
 		}
-
-		return unsorted;
+		ArrayList<T> sorted = unsorted;
+		return sorted;
 	}
 
 	/*
