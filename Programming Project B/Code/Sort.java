@@ -22,17 +22,17 @@ public class Sort<T extends Comparable<T>> {
 		int right = left + 1;
 		int originalI = i;
 
-		if(left <= total && unsorted[left].compareTo(unsorted[i]) > 0) {
+		if(left <= total && unsorted.get(left).compareTo(unsorted.get(i)) > 0) {
 			i = left;
 		}
-		if(right <= total && unsorted[right].compareTo(unsorted[i]) > 0) {
+		if(right <= total && unsorted.get(right).compareTo(unsorted.get(i)) > 0) {
 			i = right;
 		}
 		if(i != originalI) {
 			T tmp = unsorted.get(originalI);
 			unsorted.set(originalI, unsorted.get(i));
 			unsorted.set(i, tmp);
-			unsorted = heapify(unsorted, i);
+			unsorted = heapify(unsorted, i, total);
 		}
 
 		return unsorted;
@@ -49,14 +49,14 @@ public class Sort<T extends Comparable<T>> {
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
 		int arrSize = unsorted.size();
 		for(int i = arrSize / 2; i >= 0; i--) {
-			heapify(unsorted, i);
+			unsorted = heapify(unsorted, i, arrSize);
 		}
 		for(int i = arrSize; i > 0; i--) {
 			T tmp = unsorted.get(0);
 			unsorted.set(0, unsorted.get(i));
 			unsorted.set(i, tmp);
 			arrSize--;
-			unsorted = heapify(arr, 0, arrSize);
+			unsorted = heapify(unsorted, 0, arrSize);
 		}
 
 		return unsorted;

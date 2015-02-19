@@ -19,7 +19,8 @@ public class Driver{
 
     Sort sorter = new Sort();
 
-    testList = sorter.mergeSort(testList);
+    //testList = sorter.mergeSort(testList);
+    testList = sorter.heapSort(testList);
 
     System.out.println("Sorted List: ");
     System.out.println(testList);
