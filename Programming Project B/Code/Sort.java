@@ -35,9 +35,35 @@ public class Sort<T extends Comparable<T>> {
 		while(left.size() > 0 && right.size() > 0) {
 			if(left.get(0).compareTo(right.get(0)) < 0) {
 				combined.add(left.get(0));
-				//left = rest.add(left); ==> WHAT THE HELL IS REST?!
+				//left = rest(left) ==> WHAT THE HELL IS REST?!
+				//TODO: 
+				//I have no idea if this is actually what im supposed to be doing here...
+				left = left.remove(0);
+			}
+			else {
+				combined.add(right.get(0));
+				// right = rest(right) ==> WHAT THE HELL IS REST?!
+				//TODO:
+				//I have no idea if this is actually what im supposed to be doing here...
+				right = right.remove(0);
 			}
 		}
+		if(left.size() > 0) {
+			//TODO:
+			//I have no idea if this is actually what im supposed to be doing here...
+			for(int i = 0; i < left.size(); i++) {
+				combined.add(left.get(i));
+			}
+		}
+		if(right.size() > 0) {
+			//TODO:
+			//I have no idea if this is actually what im supposed to be doing here...
+			for(int i = 0; i < right.size(); i++) {
+				combined.add(right.get(i));
+			}
+		}
+
+		return combined;
 	}
 
 	/*
