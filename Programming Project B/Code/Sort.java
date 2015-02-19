@@ -47,7 +47,7 @@ public class Sort<T extends Comparable<T>> {
 	*/
 	//INVARIANTS
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
-		int arrSize = unsorted.size();
+		int arrSize = unsorted.size() - 1;
 		for(int i = arrSize / 2; i >= 0; i--) {
 			unsorted = heapify(unsorted, i, arrSize);
 		}
