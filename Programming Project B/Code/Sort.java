@@ -22,41 +22,42 @@ public class Sort<T extends Comparable<T>> {
 	}
 
 	/*
-	*	@Pre-Condition:
-	*	@Post-Condition:
-	*	@Description:
-	*	@param
-	*	@param
-	*	@return
+	*	@Pre-Condition: TODO: Write this shit.
+	*	@Post-Condition: TODO: Write this shit.
+	*	@Description: mergeTogether is used by the mergeSort method to recombine the left and right sections of the ArrayList<T> that is being sorted by merge sort.
+	*	@param ArrayList<T> left a non-empty ArrayList<T> where T is a comparable data type with a natural order.
+	*	@param ArrayList<T> right a non-empty ArrayList<T> where T is a comparable data type with a natural order.
+	*	@return ArrayList<T> combined should contain all the elements of left and right in stricly non-decreasing order
 	*/
-	//INVARIANTS
+	//TODO: Write the invariants for this shit.
+	//INVARIANTS (There should be around 3 invariants for this method)
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
 		ArrayList<T> combined = new ArrayList<T>();
 		while(left.size() > 0 && right.size() > 0) {
 			if(left.get(0).compareTo(right.get(0)) < 0) {
 				combined.add(left.get(0));
 				//left = rest(left) ==> WHAT THE HELL IS REST?!
-				//TODO: 
+				//TODO: Figure out what the fuck I am actually doing here.
 				//I have no idea if this is actually what im supposed to be doing here...
 				left = left.remove(0);
 			}
 			else {
 				combined.add(right.get(0));
 				// right = rest(right) ==> WHAT THE HELL IS REST?!
-				//TODO:
+				//TODO: Figure out what the fuck I am actually doing here.
 				//I have no idea if this is actually what im supposed to be doing here...
 				right = right.remove(0);
 			}
 		}
 		if(left.size() > 0) {
-			//TODO:
+			//TODO: Figure out what the fuck I am actually doing here.
 			//I have no idea if this is actually what im supposed to be doing here...
 			for(int i = 0; i < left.size(); i++) {
 				combined.add(left.get(i));
 			}
 		}
 		if(right.size() > 0) {
-			//TODO:
+			//TODO: Figure out what the fuck I am actually doing here.
 			//I have no idea if this is actually what im supposed to be doing here...
 			for(int i = 0; i < right.size(); i++) {
 				combined.add(right.get(i));
@@ -67,13 +68,14 @@ public class Sort<T extends Comparable<T>> {
 	}
 
 	/*
-	*	@Pre-Condition:
-	*	@Post-Condition:
-	*	@Description:
-	*	@param
-	*	@return
+	*	@Pre-Condition: ArrayList<T> unsorted is a set of data type T, where T is a Comparable data type with a natural order.
+	*	@Post-Condition: ArrayList<T> returnValue is a permutation of unsorted in strictly non-decreasing order.
+	*	@Description: mergeSort will sort a given set of data in ArrayList<T> using the merge sort method
+	*	@param a non-empty ArrayList<T> unsorted where T is a Comparable data type with a natural order
+	*	@return ArrayList<T> returnValue which is a permutation of unsorted, in strictly non-decreasing order,
 	*/
-	// INVARIANTS
+	//TODO: Write the invariants for this shit.
+	// INVARIANTS (2 Invariants)
 	public ArrayList<T> mergeSort(ArrayList<T> unsorted) {
 		ArrayList<T> sorted = unsorted;
 		ArrayList<T> left = new ArrayList<T>();
