@@ -161,7 +161,7 @@ A sorting algorithm is used to sort data with a natural order. One such sorting 
 
 %% BEGIN PROCEDURE
 \section{Procedure}
-An insertion sort can be implemented in a multitude of languages using the pseudocode provided below.
+An insertion sort can be implemented in a multitude of languages using the pseudocode provided in Algorithm 1.
 \newline
 \textbf{Insertion Sort Pre-Condition}: A is a non-empty array of data with a natural order.
 \newline
@@ -212,7 +212,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \newline
 \newline
 
-A merge sort can be implemented in a variety of languages using the pseudocode provided below. 
+A merge sort can be implemented in a variety of languages using the pseudocode provided in Algorithm 2.
 \newline
 \textbf{Merge Sort Pre-Condition}: A is a non-empty array of comparable data with a natural order.
 \newline
@@ -236,6 +236,35 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \State{$right =$ Merge-Sort($right$)}
 \State{$A =$ Merge($left$, $right$)}
 \State{\Return{$A$}}
+\EndProcedure
+\newline
+\Procedure{Merge}{left, right}
+\State{$var$ $i = 0$}
+\State{$var$ $y = 0$}
+\State{$var$ $x = 0$}
+\While{$left.length$ $!=$ $i$ and $right.length$ $!=$ $y$}
+	\If{$left[i] < right[y]$}
+		\State{$combined[x] = left[i]$}
+		\State{$i = i + 1$}
+		\State{$x = x + 1$}
+	\EndIf
+	\If{$right[y] < left[i]$}
+		\State{$combned[x] = right[y]$}
+		\State{$y = y + 1$}
+		\State{$x = x + 1$}
+	\EndIf
+\EndWhile
+\While{$left.length$ $!=$ $i$}
+	\State{$combined[x] = left[i]$}
+	\State{$i = i + 1$}
+	\State{$x = x + 1$}
+\EndWhile
+\While{$right.length$ $!=$ $y$}
+	\State{$combined[x] = right[y]$}
+	\State{$y = y + 1$}
+	\State{$x = x + 1$}
+\EndWhile
+\State{\Return{$combined$}}
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
