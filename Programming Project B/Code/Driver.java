@@ -7,6 +7,15 @@
 
 public class Driver{
   public static void main(String args[]) {
-    //Do stuff hereturn 
+    DummyData testData = new DummyData();
+
+    ArrayList<Integer> testList = new ArrayList<Integer>();
+    testList = testData.runArrayList(10, 1, 25, testList);
+
+    Sort sorter = new Sort();
+
+    testList = sorter.mergeSort(testList);
+
+    System.out.println(testList);
   }
 }
