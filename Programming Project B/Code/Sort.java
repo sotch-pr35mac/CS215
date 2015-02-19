@@ -17,9 +17,50 @@ public class Sort<T extends Comparable<T>> {
 	*	@return
 	*/
 	//INVARIANTS
-	/*public ArrayList<T> heapSort(ArrayList<T> unsorted) {
+	private ArrayList<T> heapify(ArrayList<T> unsorted, int i, int total) {
+		int left = i * 2;
+		int right = left + 1;
+		int originalI = i;
 
-	}*/
+		if(left <= total && unsorted[left].compareTo(unsorted[i]) > 0) {
+			i = left;
+		}
+		if(right <= total && unsorted[right].compareTo(unsorted[i]) > 0) {
+			i = right;
+		}
+		if(i != originalI) {
+			T tmp = unsorted.get(originalI);
+			unsorted.set(originalI, unsorted.get(i));
+			unsorted.set(i, tmp);
+			unsorted = heapify(unsorted, i);
+		}
+
+		return unsorted;
+	}
+
+	/*
+	*	@Pre-Condition:
+	*	@Post-Condition:
+	*	@Description:
+	*	@param
+	*	@return
+	*/
+	//INVARIANTS
+	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
+		int arrSize = unsorted.size();
+		for(int i = arrSize / 2; i >= 0; i--) {
+			heapify(unsorted, i);
+		}
+		for(int i = arrSize; i > 0; i--) {
+			T tmp = unsorted.get(0);
+			unsorted.set(0, unsorted.get(i));
+			unsorted.set(i, tmp);
+			arrSize--;
+			unsorted = heapify(arr, 0, arrSize);
+		}
+
+		return unsorted;
+	}
 
 	/*
 	*	@Pre-Condition: ArrayList<T> left is a non-empty sorted array in stricly non-decreasing order where T is a comparable data type with a natural order
