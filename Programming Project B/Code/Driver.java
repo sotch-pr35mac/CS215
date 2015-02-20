@@ -12,17 +12,19 @@ public class Driver{
     DummyData testData = new DummyData();
 
     ArrayList<Integer> testList = new ArrayList<Integer>();
-    testList = testData.runArrayList(10, 1, 25, testList);
+    testList = testData.runArrayList(1000000, 1, 10000000, testList);
 
     System.out.println("Unsorted list: ");
     System.out.println(testList);
 
     Sort sorter = new Sort();
 
-    //testList = sorter.mergeSort(testList);
-    testList = sorter.heapSort(testList);
+    Stopwatch watchman = new Stopwatch();
+    testList = sorter.mergeSort(testList);
+    //testList = sorter.heapSort(testList);
 
     System.out.println("Sorted List: ");
     System.out.println(testList);
+    System.out.println("Time To Complete: "+watchman.elapsedTime());
   }
 }
