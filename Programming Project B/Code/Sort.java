@@ -18,7 +18,7 @@ public class Sort<T extends Comparable<T>> {
 	*	@param
 	*	@return
 	*/
-	//INVARIANTS
+	//NOTE: No Invariants as this has no loops
 	private ArrayList<T> heapify(ArrayList<T> unsorted, int i, int total) {
 		int left = i * 2;
 		int right = left + 1;
