@@ -341,12 +341,12 @@ In the table below, A denotes Array. Times in the table below are given as avera
 \hline
 \end{tabular}
 \end{center}
-\newline
 \captionof{table}{Merge Sort Test Results}
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline Tested Input & Expected Results & Actual Results & Time \\
 \hline Empty A & Empty A & Empty A & 0.0002 \\
+\hline A of 1000 Strings & Sorted A 1000 Strings & Sorted A 1000 Strings & 0.0297 \\
 \hline A 1 Element & Original A & Original A & 0.0001 \\
 \hline A 10 Elements & Sorted A 10 Elements & Sorted A 10 Elements & 0.0004 \\
 \hline A 100 Elements & Sorted A 100 Elements & Sorted A 100 Elements & 0.0028 \\
@@ -354,7 +354,26 @@ In the table below, A denotes Array. Times in the table below are given as avera
 \hline A 10000 Elements & Sorted A 10000 Elements & Sorted A 10000 Elements & 0.2098 \\
 \hline A 100000 Elements & Sorted A 100000 Elements & Sorted A 100000 Elements & 2.1904 \\
 \hline A 1000000 Elements & Sorted A 1000000 Elements & Sorted A 1000000 Elements & 22.9314 \\
-\hline 
+\hline A 10000000 Elements & Sorted A 10000000 Elements & Sorted A 10000000 Elements & 241.0322 \\
+\hline A 1000 Identical Elements & Original A & Original A & 0.0298 \\
+\hline
+\end{tabular}
+\end{center}
+\captionof{table}{Heap Sort Test Results}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline Tested Input & Expected Results & Actual Results & Time \\
+\hline Empty A & Empty A & Empty A & 0.0002 \\
+\hline A of 1000 Strings & Sorted A 1000 Strings & Sorted A 1000 Strings & .0188 \\
+\hline A 1 Element & Original A & Original A & 0.0003 \\
+\hline A 10 Elements & Sorted A 10 Elements & Sorted A 10 Elements & 0.0006 \\
+\hline A 100 Elements & Sorted A 100 Elements & Sorted A 100 Elements & 0.002 \\
+\hline A 1000 Elements & Sorted A 1000 Elements & Sorted A 1000 Elements & 0.0162 \\
+\hline A 10000 Elements & Sorted A 10000 Elements & Sorted A 10000 Elements & 0.0468 \\
+\hline A 100000 Elements & Sorted A 100000 Elements & Sorted A 100000 Elements & 0.889 \\
+\hline A 1000000 Elements & Sorted A 1000000 Elements & Sorted A 1000000 Elements & 23.0635 \\
+\hline A 10000000 Elements & Sorted A 10000000 Elements & Sorted A 10000000 Elements & 244.1952 \\
+\hline A 1000 Identical Elements & Original A & Original A & 0.0156 \\
 \hline
 \end{tabular}
 \end{center}
