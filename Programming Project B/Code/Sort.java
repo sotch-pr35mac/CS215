@@ -16,7 +16,7 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> unsorted is a non-empty set of data where T is a comparable data type with a natural order
 	*	@param int i
 	*	@param int total
-	*	@return
+	*	@return ArrayList<T> unsorted 
 	*/
 	//NOTE: No Invariants as this has no loops
 	private ArrayList<T> heapify(ArrayList<T> unsorted, int i, int total) {

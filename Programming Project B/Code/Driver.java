@@ -11,8 +11,9 @@ public class Driver{
   public static void main(String args[]) {
     DummyData testData = new DummyData();
 
-    ArrayList<Integer> testList = new ArrayList<Integer>();
-    testList = testData.runArrayList(1000000, 1, 10000000, testList);
+    ArrayList<String> testList = new ArrayList<String>();
+    //testList = testData.runArrayList(1000, 0, 0, testList);
+    testList = testData.runArrayList(1000, testList);
 
     System.out.println("Unsorted list: ");
     System.out.println(testList);

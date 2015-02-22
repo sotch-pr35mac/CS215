@@ -319,7 +319,45 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 %% BEGIN TESTING
 \section{Testing}
 \subsection{Testing Plan and Results}
-
+All arrays used in testing are Java ArrayList<Integer> unless otherwise spcified. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgewock and Kevin Wayne %%TODO: Cite this shit.
+It is important to note that the soptwatch class used takes the elapsed real-time between the start of the sort algorithm and the end of the sort algorithim as opposed to taking the elapsed processor-time becasue these tests were run on a multi-core computer.
+In the table below, A denotes Array. Times in the table below are given as averages out of 10 trials.
+\newline
+\captionof{table}{Insertion Sort Test Results}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline Tested Input & Expected Results & Actual Results & Time \\
+\hline Empty A & Empty A & Empty A & 0.0003 \\
+\hline A of 1000 Strings & Sorted A 1000 Strings & Sorted A 1000 Strings & 0.021 \\
+\hline A 1 Element & Original A & Original A & 0.0003 \\
+\hline A 10 Elements & Sorted A 10 Elements & Sorted A 10 Elements & 0.0005 \\
+\hline A 100 Elements & Sorted A 100 Elements & Sorted A 100 Elements & 0.0021 \\
+\hline A 1000 Elements & Sorted A 1000 Elements & Sorted A 1000 Elements & 0.019 \\
+\hline A 10000 Elements & Sorted A 10000 Elements & Sorted A 10000 Elements & 0.129 \\
+\hline A 100000 Elements & Sorted A 100000 Elements & Sorted A 100000 Elements & 6.4923 \\
+\hline A 1000000 Elements & Sorted A 1000000 Elements & Sorted A 1000000 Elements & 2135.5007 \\
+\hline A 10000000 Elements & Sorted A 10000000 Elements & OS Crash & N/A \\
+\hline A 1000 Identical Elements & Original Array & Original Array & 0.0052 \\
+\hline
+\end{tabular}
+\end{center}
+\newline
+\captionof{table}{Merge Sort Test Results}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline Tested Input & Expected Results & Actual Results & Time \\
+\hline Empty A & Empty A & Empty A & 0.0002 \\
+\hline A 1 Element & Original A & Original A & 0.0001 \\
+\hline A 10 Elements & Sorted A 10 Elements & Sorted A 10 Elements & 0.0004 \\
+\hline A 100 Elements & Sorted A 100 Elements & Sorted A 100 Elements & 0.0028 \\
+\hline A 1000 Elements & Sorted A 1000 Elements & Sorted A 1000 Elements & 0.0294 \\
+\hline A 10000 Elements & Sorted A 10000 Elements & Sorted A 10000 Elements & 0.2098 \\
+\hline A 100000 Elements & Sorted A 100000 Elements & Sorted A 100000 Elements & 2.1904 \\
+\hline A 1000000 Elements & Sorted A 1000000 Elements & Sorted A 1000000 Elements & 22.9314 \\
+\hline 
+\hline
+\end{tabular}
+\end{center}
 \subsection{Problems Encountered}
 
 %% END TESTING
