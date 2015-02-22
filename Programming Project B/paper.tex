@@ -273,6 +273,47 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \end{algorithmic}
 \end{algorithm}
 \newline
+%% TODO: Add pre and post conditions here
+A heap sort can be implemented in a variety of languages using the pseudocode below in Algorithm 3.
+\newline
+\begin{algorithm}
+\caption {\textsc{Heap-Sort}(A)}
+\label{algo:heapsort}
+\begin{algorithmic}[1]
+\Procedure{Heapify}{A, i, total}
+\State{$var$ $left = i * 2$}
+\State{$var$ $right = left + 1$}
+\State{$var$ $iPrime = i$}
+\If{$left <= total$ and $A[left] > A[i]$}
+	\State{$i = left$}
+\EndIf
+\If{$right <= total$ and $A[right] > A[i]$}
+	\State{$i = right$}
+\EndIf
+\If{$i != iPrime$}
+	\State{$var$ $temp = A[iPrime]$}
+	\State{$A[iPrime] = A[i]$}
+	\State{$A[i] = tmp$}
+	\State{$A = heapify(A, i, total)$}
+\EndIf
+\State{\Return{$A$}}
+\EndProcedure
+\Procedure{Heap-Sort}{A}
+\State{$var$ $size = A.length$}
+\For{$var$ $i = size / 2$ downto $1$}
+	\State{$A = heapify(A, i, size$}
+\EndFor
+\For{$var$ $i = size$ downto $1$}
+	\State{$var$ $tmp = A[1]$}
+	\State{$A[0] = A[i]$}
+	\State{$A[i] = tmp$}
+	\State{$size = size - 1$}
+	\State{$A = heapify(A, 1, size)$}
+\EndFor
+\State{\Return{$A$}}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 %% END PROCEDURE
 
 %% BEGIN TESTING
