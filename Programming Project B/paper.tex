@@ -447,7 +447,13 @@ The last issue encountered during the development process of this program was ge
 
 %% BEGIN EXPERIMENTAL ANALYSIS
 \section{Experimental Analysis}
+The insertion sort demonstrated in Algorithm 1, 2, and 3 was implemented in Java and executed on an HP SpectreXT TouchSmart with a 4 core Intel i7 processor clocked at 1.9GHz running Ubuntu Gnome 14.10 64-bit.
+%% TODO: Include Graphs here
 
+The expected growth of insertion sort as the number of elements (n) grows large can be represented as $ \theta(n^2) $ where $ \theta() $ represents the asymptotically tightly bound running time. \cite{textbook} At $n_0$ the algorithm took 0.0003 milliseconds to complete. At $n_1$ the algorithm also took 0.0003 milliseconds to complete. For both these values of $n$, the algorithm runs at $ \theta(1) $, which is a constant value because the algorithm completes before a loop is run. As $n$ grows larger the time to complete the experimental data correlates quite accurately with the expected growth. For $n_{1*10^6} $ the data matches up perfectly. This is to be expected, because as n grows larger the constants and lower orders of the actual running time of the insertion sort start to affect the running time less and less as the highest order of $n^2$ is so large. It is expected for lower values of n to not correlate well with $ \theta(n^2) $ because the system running the algorithm may be executing superfolous commands such as checking for system. For the data graphed above (see Fig. 1) this was in fact the case. To aid this issue, averages of 10 trails were taken and used in Figure 1.
+
+%%TODO: Add shit about merge sort here
+%%TODO: Add shit about heap sort here
 %% END EXPERIMENTAL ANALYSIS
 
 %% BEGIN CONCLUSION
