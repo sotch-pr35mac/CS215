@@ -16,9 +16,8 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> unsorted is a non-empty set of data where T is a comparable data type with a natural order
 	*	@param int i
 	*	@param int total
-	*	@return ArrayList<T> unsorted 
+	*	@return ArrayList<T> unsorted
 	*/
-	//NOTE: No Invariants as this has no loops
 	private ArrayList<T> heapify(ArrayList<T> unsorted, int i, int total) {
 		int left = i * 2;
 		int right = left + 1;
@@ -47,18 +46,23 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> unsorted is a non-empty ArrayList<T> where T is a comparable data type with a natural order
 	*	@return ArrayList<T> sorted is a permutation of unsorted in strictly non-decreasing order
 	*/
-	//INVARIANTS (There should be two of them here)
+	//Invariant for First For Loop: TODO: write this
+	//Invariant for Second For Loop: TODO: write this
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
 		int arrSize = unsorted.size() - 1;
-		for(int i = arrSize / 2; i >= 0; i--) {
+		for(int i = arrSize / 2; i >= 0; i--) { //Initialization: TODO: write this
+			//Maintanance: TODO: write this
 			unsorted = heapify(unsorted, i, arrSize);
+			//Termination: TODO: write this
 		}
-		for(int i = arrSize; i > 0; i--) {
+		for(int i = arrSize; i > 0; i--) { //Initialization: TODO: write this
+			//Maintanance: TODO: write this
 			T tmp = unsorted.get(0);
 			unsorted.set(0, unsorted.get(i));
 			unsorted.set(i, tmp);
 			arrSize--;
 			unsorted = heapify(unsorted, 0, arrSize);
+			//Termination: TODO: write this
 		}
 		ArrayList<T> sorted = unsorted;
 		return sorted;
@@ -72,15 +76,17 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> right a non-empty ArrayList<T> where T is a comparable data type with a natural order.
 	*	@return ArrayList<T> combined should contain all the elements of left and right in stricly non-decreasing order
 	*/
-	//TODO: Write the invariants for this shit.
-	//INVARIANTS (There should be around 3 invariants for this method)
+	//Invariant for First While Loop: TODO: write this
+	//Invaraint for Second While Loop: TODO: write this
+	//Invariant for Third While Loop: TODO: write this
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
 		ArrayList<T> combined = new ArrayList<T>();
 		int i = 0;
 		int y = 0;
 		int x = 0;
 
-		while(left.size() != i && right.size() != y) {
+		while(left.size() != i && right.size() != y) { //Initialization: TODO: write this
+			//Maintanance: TODO: write this
 			if(left.get(i).compareTo(right.get(y)) < 0) {
 				combined.add(x, left.get(i));
 				i++;
@@ -91,18 +97,23 @@ public class Sort<T extends Comparable<T>> {
 				y++;
 				x++;
 			}
+			//Termination: TODO: write this
 		}
 
-		while(left.size() != i) {
+		while(left.size() != i) { //Initialization: TODO: write this
+			//Maintanance: TODO: write this
 			combined.add(x, left.get(i));
 			i++;
 			x++;
+			//Termination: TODO: write this
 		}
 
-		while(right.size() != y) {
+		while(right.size() != y) { //Initialization: TODO: write this
+			//Maintanance: TODO: write this
 			combined.add(x, right.get(y));
 			y++;
 			x++;
+			//Termination: TODO: write this
 		}
 		return combined;
 	}
@@ -114,8 +125,8 @@ public class Sort<T extends Comparable<T>> {
 	*	@param a non-empty ArrayList<T> unsorted where T is a Comparable data type with a natural order
 	*	@return ArrayList<T> returnValue which is a permutation of unsorted, in strictly non-decreasing order,
 	*/
-	//TODO: Write the invariants for this shit.
-	// INVARIANTS (2 Invariants)
+	//Invariant for First For Loop: TODO: write this
+	//Invariant for Second For Loop: TODO: write this
 	public ArrayList<T> mergeSort(ArrayList<T> unsorted) {
 		ArrayList<T> sorted = unsorted;
 		ArrayList<T> left = new ArrayList<T>();
@@ -126,13 +137,17 @@ public class Sort<T extends Comparable<T>> {
 		}
 		else {
 			int mid = (sorted.size() / 2);
-			for(int i = 0; i < mid; i++) {
+			for(int i = 0; i < mid; i++) { //Initialization: TODO: write this
+				//Maintanance: TODO: write this
 				T temp = sorted.get(i);
 				left.add(temp);
+				//Termination: TODO: write this
 			}
-			for(int i = mid; i < sorted.size(); i++) {
+			for(int i = mid; i < sorted.size(); i++) { //Initialization: TODO: write this
+				//Maintanance: TODO: write this
 				T temp = sorted.get(i);
 				right.add(temp);
+				//Termination: TODO: write this
 			}
 			left = mergeSort(left);
 			right = mergeSort(right);

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  22 FEB 2015 18:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  22 FEB 2015 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,19 +404,19 @@ LaTeX Warning: Unused global option(s):
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 134.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 135.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -482,77 +482,77 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count153
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 174.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 175.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 174.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 175.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 174
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 175
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 174
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 175
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 174.
+(Font)              <12> on input line 175.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 174.
+(Font)              <8> on input line 175.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 174.
-LaTeX Font Info:    Try loading font information for U+msa on input line 174.
+(Font)              <6> on input line 175.
+LaTeX Font Info:    Try loading font information for U+msa on input line 175.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 174.
+LaTeX Font Info:    Try loading font information for U+msb on input line 175.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 164--214
+Underfull \hbox (badness 10000) in paragraph at lines 165--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--214
+Underfull \hbox (badness 10000) in paragraph at lines 165--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--214
+Underfull \hbox (badness 10000) in paragraph at lines 165--215
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--214
+Underfull \hbox (badness 10000) in paragraph at lines 165--215
 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 243--245
+Underfull \hbox (badness 10000) in paragraph at lines 244--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--326
+Underfull \hbox (badness 10000) in paragraph at lines 323--327
 
  []
 
 
-Overfull \hbox (9.78156pt too wide) in paragraph at lines 328--343
+Overfull \hbox (9.78156pt too wide) in paragraph at lines 329--344
  [] 
  []
 
@@ -563,16 +563,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2] [3] [4]
-Overfull \hbox (9.78156pt too wide) in paragraph at lines 346--361
+Overfull \hbox (9.78156pt too wide) in paragraph at lines 347--362
  [] 
  []
 
 
-Overfull \hbox (9.78156pt too wide) in paragraph at lines 364--379
+Overfull \hbox (9.78156pt too wide) in paragraph at lines 365--380
  [] 
  []
 
-[5] [6] (./Code/Driver.java
+[5]
+No file paper.bbl.
+(./Code/Driver.java
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -580,8 +582,8 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1.
 )
-(./Code/Debug.java [7] [8] [9]) (./Code/DummyData.java [10] [11] [12] [13])
-Underfull \hbox (badness 10000) in paragraph at lines 422--427
+(./Code/Debug.java [6] [7] [8]) (./Code/DummyData.java [9] [10] [11] [12])
+Underfull \hbox (badness 10000) in paragraph at lines 423--428
 
  []
 
@@ -595,15 +597,15 @@ Overfull \hbox (12.7468pt too wide) in paragraph at lines 5--7
 [][][][] 
  []
 
-) [14] (./Code/Sort.java [15] [16] [17] [18] [19]) [20] (./paper.aux)
+) [13] (./Code/Sort.java [14] [15] [16] [17] [18]) [19] (./paper.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6725 strings out of 493104
- 93415 string characters out of 6136932
- 332413 words of memory out of 5000000
+ 6726 strings out of 493104
+ 93419 string characters out of 6136932
+ 332456 words of memory out of 5000000
  10013 multiletter control sequences out of 15000+600000
  172881 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -617,10 +619,10 @@ i12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on paper.pdf (20 pages, 250339 bytes).
+Output written on paper.pdf (19 pages, 250040 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
