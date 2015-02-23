@@ -274,22 +274,22 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \end{algorithmic}
 \end{algorithm}
 \newline
-\textbf{Merge Sort First While Loop Invariant}: Left contains i elements, all of which can be found in A[1 ... i upto mid].
+\textbf{Merge Sort First For Loop Invariant}: Left contains i elements, all of which can be found in A[1 ... i upto mid].
 \newline
-\textbf{Merge Sort First While Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and left contains no elements.
+\textbf{Merge Sort First For Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and left contains no elements.
 \newline
-\textbf{Merge Sort First While Loop Invariant Maintenance}: The invariant holds true because i is incremented at the same rate that elements are added to left from the same i index value in A.
+\textbf{Merge Sort First For Loop Invariant Maintenance}: The invariant holds true because i is incremented at the same rate that elements are added to left from the same i index value in A.
 \newline
-\textbf{Merge Sort First While Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to left from the same i index value in A upto mid.
+\textbf{Merge Sort First For Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to left from the same i index value in A upto mid.
 \newline
 \newline
-\textbf{Merge Sort Second While Loop Invariant}: Right contains i elements, all of which can be found in A[mid ... A.length].
+\textbf{Merge Sort Second For Loop Invariant}: Right contains i elements, all of which can be found in A[mid ... A.length].
 \newline
-\textbf{Merge Sort Second While Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and right contains no elements.
+\textbf{Merge Sort Second For Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and right contains no elements.
 \newline
-\textbf{Merge Sort Second While Loop Invariant Maintenance}: The invariant holds true because i is incremented at the same rate that elements are added to right from the same i index value in A.
+\textbf{Merge Sort Second For Loop Invariant Maintenance}: The invariant holds true because i is incremented at the same rate that elements are added to right from the same i index value in A.
 \newline
-\textbf{Merge Sort Second While Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to right from the same i index value in A upto to A.length.
+\textbf{Merge Sort Second For Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to right from the same i index value in A upto to A.length.
 \newline
 \newline
 \textbf{Merge Sort Conclusion}: %%TODO: Write this
@@ -374,6 +374,27 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
+\newline
+\textbf{Heap Sort First Loop Invariant}: A[i] is the parent element in a heap.
+\newline
+\textbf{Heap Sort First For Loop Invariant Initialization}: The invariant holds true before the first iteration of the loop because i is less than the size of the array, and therefore has a child node.
+\newline
+\textbf{Heap Sort First For Loop Invariant Maintenance}: The invariant holds true at the beginning of each iteration of the loop because A[i] will always be smaller than the size of the array, and therefore have children nodes.
+\newline
+\textbf{Heap Sort First For Loop Invariant Termination}: The invariant holds true at the termination of the loop because i will be the smallest index value of A and therefore will have children nodes.
+\newline
+\newline
+%% TODO: something about a conclusion
+\textbf{Heap Sort Second For Loop Invariant}: All elements in A at the index value greater than i are in stricly non-decreasing order.
+\newline
+\textbf{Heap Sort Second For Loop Invariant Initialization}: The invariant holds vacuously true before the first iteration of the loop because there are no elements in A that are at an index value greater than i.
+\newline
+\textbf{Heap Sort Second For Loop Invariant Maintenance}: The invariant holds true at the beginning of each iteration of the loop because each most extreme element is moved to the very end of the array at an index value greater than i.
+\newline
+\textbf{Heap Sort Second For Loop Invariant Termination}: The invariant holds true at the termination of the loop because i decreases as ecah largest element is moved to the end of A until the entire array has been traversed, so that all elements greater than i are in stirctly non-decreasing order.
+\newline
+\newline
+%% TODO: Something about a conclusion here or some shit like that
 %% END PROCEDURE
 
 %% BEGIN TESTING
