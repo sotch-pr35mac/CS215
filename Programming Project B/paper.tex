@@ -291,6 +291,17 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \newline
 \textbf{Merge Sort Second While Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to right from the same i index value in A upto to A.length.
 \newline
+\newline
+\textbf{Merge Together First While Loop Invariant}: Combined contains x number of elements where x is the sum of i and y and those elements are contained in left[0 ... i] or right[0 ... y] in stricly non-decreasing order.
+\newline
+\textbf{Merge Together First While Loop Invariant Initialization}: Our invariant holds true vacuously before the first iteration of the loop because $i = 0$, $y = 0$, $i + y = 0$, $x = 0$ therefore $x = i + y$ and combined contains no elements and is vacuously in order.
+\newline
+\textbf{Merge Together First While Loop Invariant Maintenance}: Our invariant holds true at the beginning of each iteration of the loop because $x$ is incremented whenever $i$ and $y$ are incremented, and elements are added to combined from left only when $left[i] < right[y]$ and added from right only when $left[i] >= right[y]$.
+\newline
+\textbf{Merge Together First While Loop Invariant Termination}: Our invariant holds true when the loop terminates because $x$ has been incremented whenever $i$ and $y$ are incremented, and elements have only been added to combined from left when $left[i] < right[y]$ and from right only when $left[i] >= right[y]$.
+\newline
+\newline
+\textbf{Merge Together Second While Loop Invariant}:
 
 %% TODO: Add pre and post conditions here
 A heap sort can be implemented in a variety of languages using the pseudocode below in Algorithm 3.
