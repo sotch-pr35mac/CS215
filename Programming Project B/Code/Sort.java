@@ -46,8 +46,8 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> unsorted is a non-empty ArrayList<T> where T is a comparable data type with a natural order
 	*	@return ArrayList<T> sorted is a permutation of unsorted in strictly non-decreasing order
 	*/
-	//Invariant for First While Loop: unsorted[i] is the parent element of a heap
-	//Invariant for Second While Loop: TODO: write this
+	//Invariant for First While Loop: unsorted[i] is the parent element in a heap
+	//Invariant for Second While Loop: All elements in unsorted greater than the index value of y are in stricly non-decreasing order
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
 		//Debug
 		Debug debugger = new Debug();
@@ -68,9 +68,12 @@ public class Sort<T extends Comparable<T>> {
 		debugger.assertChildren(unsorted, i);
 
 		int y = arrSize;
-		//Initialization: TODO: write this
+		//Initialization: Our invariant holds vacuously true before the first iteration of the loop because there are no elements in unsorted that are at an index value greater than y.
+		debugger.assertStrictLess(arrSize, y+1);
+
 		while(y > 0) {
-			//Maintanance: TODO: write this
+			//Maintanance: Our invariant holds true at the beginning of each iteration of the loop because all elements greater than y are in strictly non-decreasing order
+
 			T tmp = unsorted.get(0);
 			unsorted.set(0, unsorted.get(y));
 			unsorted.set(y, tmp);
@@ -79,7 +82,8 @@ public class Sort<T extends Comparable<T>> {
 
 			y--;
 		}
-		//Termination: TODO: write this
+		//Termination: Our invariant holds true at the termination of the loop because y decreases as each largest element is moved to the end of the list until the entire array has been traversed, so that all elements greater than y are in stricly non-decreasing order
+		debugger.assertOrder(unsorted);
 
 		ArrayList<T> sorted = unsorted;
 		return sorted;
