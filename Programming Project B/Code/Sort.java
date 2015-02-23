@@ -127,7 +127,7 @@ public class Sort<T extends Comparable<T>> {
 	*	@return ArrayList<T> returnValue which is a permutation of unsorted, in strictly non-decreasing order,
 	*/
 	//Invariant for First While Loop: left contains i elements, all of which can be found in sorted
-	//Invariant for Second For Loop: right contains y elements, all of which can be found in sorted
+	//Invariant for Second While Loop: right contains y elements, all of which can be found in sorted
 	public ArrayList<T> mergeSort(ArrayList<T> unsorted) {
 		ArrayList<T> sorted = unsorted;
 		ArrayList<T> left = new ArrayList<T>();

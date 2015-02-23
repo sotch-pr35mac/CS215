@@ -274,6 +274,24 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \end{algorithmic}
 \end{algorithm}
 \newline
+\textbf{Merge Sort First While Loop Invariant}: Left contains i elements, all of which can be found in A[0 ... i upto mid].
+\newline
+\textbf{Merge Sort First While Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and left contains no elements.
+\newline
+\textbf{Merge Sort First While Loop Invariant Maintenance}: The invariant holds true because i is incremented at the same rate that elements are added to left from the same i index value in A.
+\newline
+\textbf{Merge Sort First While Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to left from the same i index value in A upto mid.
+\newline
+\newline
+\textbf{Merge Sort Second While Loop Invariant}: Right contains i elements, all of which can be found in A[mid ... A.length].
+\newline
+\textbf{Merge Sort Second While Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and right contains no elements.
+\newline
+\textbf{Merge Sort Second While Loop Invariant Maintenance}: The invariant holds true because i is incremented at the same rate that elements are added to right from the same i index value in A.
+\newline
+\textbf{Merge Sort Second While Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to right from the same i index value in A upto to A.length.
+\newline
+
 %% TODO: Add pre and post conditions here
 A heap sort can be implemented in a variety of languages using the pseudocode below in Algorithm 3.
 \newline
