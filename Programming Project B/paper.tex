@@ -191,7 +191,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 \end{algorithmic}
 \end{algorithm}
 \newline
-\textbf{Insertion Sort Outer-Loop Invariant}: The subarray A'[1 ... i - 1] contains all the same elements as the subarray A[1 .. i - 1].
+\textbf{Insertion Sort Outer-Loop Invariant}: The subarray A'[1 ... i - 1] contains all the same elements as the subarray A[1 ... i - 1].
 \newline 
 \textbf{Insertion Sort Outer-Loop Initialization}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same one element.
 \newline
@@ -274,7 +274,7 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \end{algorithmic}
 \end{algorithm}
 \newline
-\textbf{Merge Sort First While Loop Invariant}: Left contains i elements, all of which can be found in A[0 ... i upto mid].
+\textbf{Merge Sort First While Loop Invariant}: Left contains i elements, all of which can be found in A[1 ... i upto mid].
 \newline
 \textbf{Merge Sort First While Loop Invariant Initialization}: The invariant holds true vacuously because i is 0 and left contains no elements.
 \newline
@@ -295,7 +295,7 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Sort Conclusion}: %%TODO: Write this
 \newline
 \newline
-\textbf{Merge Together First While Loop Invariant}: Combined contains x number of elements where x is the sum of i and y and those elements are contained in left[0 ... i] or right[0 ... y] in stricly non-decreasing order.
+\textbf{Merge Together First While Loop Invariant}: Combined contains x number of elements where x is the sum of i and y and those elements are contained in left[1 ... i] or right[1 ... y] in stricly non-decreasing order.
 \newline
 \textbf{Merge Together First While Loop Invariant Initialization}: Our invariant holds true vacuously before the first iteration of the loop because $i = 0$, $y = 0$, $i + y = 0$, $x = 0$ therefore $x = i + y$ and combined contains no elements and is vacuously in order.
 \newline
@@ -304,7 +304,7 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Together First While Loop Invariant Termination}: Our invariant holds true when the loop terminates because $x$ has been incremented whenever $i$ and $y$ are incremented, and elements have only been added to combined from left when $left[i] < right[y]$ and from right only when $left[i] >= right[y]$.
 \newline
 \newline
-\textbf{Merge Together Second While Loop Invariant}: Combined contains x number of elements where $x >= i$ and those elements are contained in left[0 ... i] in stricly non-decreasing order.
+\textbf{Merge Together Second While Loop Invariant}: Combined contains x number of elements where $x >= i$ and those elements are contained in left[1 ... i] in stricly non-decreasing order.
 \newline
 \textbf{Merge Together Second While Loop Invariant Initialization}: The invariant holds true before the first iteration of the loop because x has been incremented when i has been incremented and elements have been added to combined from left if and only if $left[i] < right[y]$ and from right if and only if $left[i] >= right[y]$.
 \newline
@@ -313,7 +313,7 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Together Second While Loop Invariant Termination}: The invariant holds true at the termination of the loop because x has been incremented when i has been incremented and elements have been added to combined from left in order.
 \newline
 \newline
-\textbf{Merge Together Third While Loop Invariant}: Combined contains x number of elements where x is greather than or equal to y and those elements are contained in right[0 ... y] in stricly non-decreasing order.
+\textbf{Merge Together Third While Loop Invariant}: Combined contains x number of elements where x is greather than or equal to y and those elements are contained in right[1 ... y] in stricly non-decreasing order.
 \newline
 \textbf{Merge Together Third While Loop Invariant Initialization}: The invariant holds true before the first initialization of the loop because x has been incremented when y has been incremented and elements have been added to combined from left if and only if $left[i] < right[y]$ and from right if and only if $left[i] >= right[y]$.
 \newline
@@ -448,17 +448,24 @@ The last issue encountered during the development process of this program was ge
 %% BEGIN EXPERIMENTAL ANALYSIS
 \section{Experimental Analysis}
 The insertion sort demonstrated in Algorithm 1, 2, and 3 was implemented in Java and executed on an HP SpectreXT TouchSmart with a 4 core Intel i7 processor clocked at 1.9GHz running Ubuntu Gnome 14.10 64-bit.
-%% TODO: Include Graphs here
+ \begin{figure}[!]
+\begin{center}
+\includegraphics[scale=.70]{test-results.pdf}
+\end{center}
+\captionof{figure}{Merge, Heap and Insertion Sort Run-Time Comparison}
+\label{fig:comparisonfig}
+\end{figure}
 
 The expected growth of insertion sort as the number of elements (n) grows large can be represented as $ \theta(n^2) $ where $ \theta() $ represents the asymptotically tightly bound running time. \cite{textbook} At $n_0$ the algorithm took 0.0003 milliseconds to complete. At $n_1$ the algorithm also took 0.0003 milliseconds to complete. For both these values of $n$, the algorithm runs at $ \theta(1) $, which is a constant value because the algorithm completes before a loop is run. As $n$ grows larger the time to complete the experimental data correlates quite accurately with the expected growth. For $n_{1*10^6} $ the data matches up perfectly. This is to be expected, because as n grows larger the constants and lower orders of the actual running time of the insertion sort start to affect the running time less and less as the highest order of $n^2$ is so large. It is expected for lower values of n to not correlate well with $ \theta(n^2) $ because the system running the algorithm may be executing superfolous commands such as checking for system. For the data graphed above (see Fig. 1) this was in fact the case. To aid this issue, averages of 10 trails were taken and used in Figure 1.
 
-%%TODO: Add shit about merge sort here
-%%TODO: Add shit about heap sort here
+The expected growth of merge sort as the number of elements (n) grows large can be represented as $ \theta(n*\lg(n)) $. At $n_0$ the sort took 0.0002 milliseconds to complete, however, at $n_1$ the algorithm took 0.0001 milliseconds to complete. The discrepency can be attributed to superfolous commands being executed by the system. As $n$ grows larger the time to complete correlates with the expected running time. It is expected for lower values of $n$ to not correlate as nicely with the expected running time because the system constant will have a larger impact on the smaller values of $n$. It is important to note that merge sort ran much faster than insertion sort at large values of n such as $n_{1*10^6} $ and was able to process $n_{1*10^7} $ where insertion sort crashed the system. The best case running time for this implementation of merge sort is $ \theta(1) $ and is elicited only when $ n <= 1 $ because if $n <= 1$ the array is vacuously sorted and can be returned immediately without executing any loop, and run at a constant time.
+
+Heap sort is very similar to merge sort in that its expected running time is $ \theta(n*\lg(n)) $. At lower values of $n$ heap sort ran marginally quicker than merge sort, however, as $n$ grew larger merge sort began to run marginally faster than heap sort. This difference is neglagable because of superfolous commands being executed by the system and other running processes. For all intensive purposes merge sort and heap sort have the same run time and the major difference between the two is the system constant. For $n_0$ heap sort completed in 0.0002 milliseconds and for $n_1$ heap sort completed in 0.0003 milliseconds. In both merge sort and insertion sort the sort completes before any loop is executed if $n <= 1$ however in this implementation of heap sort the algorithm runs through the entire sort. We can tell from this that the constant time is 0.0002 milliseconds, which correlates nicely with both merge and insertion sort. $ \theta(n*\lg(n)) $ is the both the best and worst case run-time for heap sort.
 %% END EXPERIMENTAL ANALYSIS
 
 %% BEGIN CONCLUSION
 \section{Conclusions}
-
+With a running time of $ \theta(n*\lg(n)) $ both heap sort and merge sort perform much faster than insertion sort at a running time of $ \theta(n^2) $, especially when $n$ grows large. While faster comptuers will be able to execute insertion sort faster, as $n$ grows large, even on a slower machine, both merge sort and heap sort will perform faster. Because it is easier to setup and maintain, insertion sort is a good choice when dealing with small sets of data that don't go beyond $n_{1*10^5}$, however, if data is expected to grow larger than that, either heap or merge sort is the best choice.
 %% END CONCLUSION
 
 \newpage
