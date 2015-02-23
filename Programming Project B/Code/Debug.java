@@ -90,6 +90,19 @@ public class Debug<T> {
 	}
 
 	/*
+	*	@Pre-Condition: ArrayList is an ArrayList of Integers and i is less than or equal to half of the size of actual
+	*	@Post-Condition: If elements exist past i the assertion holds
+	*	@Description: runs an assertion statement against an ArrayList of Integer Objects to ensure that there are children nodes of actual[i].
+	*	@param ArrayList<Integer> actual the array to test against
+	*	@param int i the index value to check has children nodes.
+	*/
+	public void assertChildren(ArrayList<Integer> actual, int i) {
+		if(debugOn == true) {
+			assert actual.size() > i;
+		}
+	}
+
+	/*
 	*	@Pre-Condition: actual and expected both contain Integer Objects
 	*	@Post-Condition: If all the elements inside of the actual arraylist are also contained in the expected arraylist, then the assertion holds true
 	*	@Description: Tests to ensure a given ArrayList of Integer Objects contains all the elements of another given ArrayList of Integer Objects

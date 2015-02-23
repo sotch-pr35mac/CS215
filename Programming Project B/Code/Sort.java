@@ -11,8 +11,8 @@ import java.util.List;
 public class Sort<T extends Comparable<T>> {
 	/*
 	*	@Pre-Condition: ArrayList<T> is a non-empty set of data where T is a comparable data type with a natural order
-	*	@Post-Condition: TODO: Write this
-	*	@Description: heapify is a helper method for heapSort that keeps the heap in order so that the root node is the largest element in the heap.
+	*	@Post-Condition: Each parent node is more extreme than its child node.
+	*	@Description: heapify is a helper method for heapSort that keeps the heap in order so that the root node is the most extreme element in the heap.
 	*	@param ArrayList<T> unsorted is a non-empty set of data where T is a comparable data type with a natural order
 	*	@param int i
 	*	@param int total
@@ -46,25 +46,41 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> unsorted is a non-empty ArrayList<T> where T is a comparable data type with a natural order
 	*	@return ArrayList<T> sorted is a permutation of unsorted in strictly non-decreasing order
 	*/
-	//Invariant for First For Loop: TODO: write this
-	//Invariant for Second For Loop: TODO: write this
+	//Invariant for First While Loop: unsorted[i] is the parent element of a heap
+	//Invariant for Second While Loop: TODO: write this
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
+		//Debug
+		Debug debugger = new Debug();
+
 		int arrSize = unsorted.size() - 1;
-		//Initialization: TODO: write this
-		for(int i = arrSize / 2; i >= 0; i--) {
-			//Maintanance: TODO: write this
+		int i = arrSize / 2;
+		//Initialization: Our invariant holds true before the first iteration of the loop because unsorted[i] must have child elements
+		debugger.assertChildren(unsorted, i);
+		while(i >= 0) {
+			//Maintanance: Our invariant holds true at the beginning of each iteration of the loop because unsorted[i] must have children elements
+			debugger.assertChildren(unsorted, i);
+
 			unsorted = heapify(unsorted, i, arrSize);
-			//Termination: TODO: write this
+
+			i--;
 		}
-		for(int i = arrSize; i > 0; i--) { //Initialization: TODO: write this
+		//Termination: Our invariant holds true at the termination of the loop because i will be the smallest index value of the loop and must have children elements
+		debugger.assertChildren(unsorted, i);
+
+		int y = arrSize;
+		//Initialization: TODO: write this
+		while(y > 0) {
 			//Maintanance: TODO: write this
 			T tmp = unsorted.get(0);
-			unsorted.set(0, unsorted.get(i));
-			unsorted.set(i, tmp);
+			unsorted.set(0, unsorted.get(y));
+			unsorted.set(y, tmp);
 			arrSize--;
 			unsorted = heapify(unsorted, 0, arrSize);
-			//Termination: TODO: write this
+
+			y--;
 		}
+		//Termination: TODO: write this
+
 		ArrayList<T> sorted = unsorted;
 		return sorted;
 	}
@@ -164,7 +180,7 @@ public class Sort<T extends Comparable<T>> {
 		debugger.assertEquals(x, combined.size());
 		debugger.assertOrder(combined);
 		debugger.assertContains(right, combined);
-		
+
 		return combined;
 	}
 
