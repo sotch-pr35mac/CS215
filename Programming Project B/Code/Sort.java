@@ -78,8 +78,8 @@ public class Sort<T extends Comparable<T>> {
 	*	@return ArrayList<T> combined should contain all the elements of left and right in stricly non-decreasing order
 	*/
 	//Invariant for First While Loop: combined contains x number of elements where x is the sum of i and y and those elements are contained in left[0 ... i] or right[0 ... y] in stricly non-decreasing order
-	//Invaraint for Second While Loop: TODO: write this
-	//Invariant for Third While Loop: TODO: write this
+	//Invaraint for Second While Loop: combined contains x number of elements where x is greater than or equal to i and those elements are contined in left[0 ... i] in stricly non-decreasing order
+	//Invariant for Third While Loop: combined contains x number of elements where x is greater than or equal to y and those elements are contained in right[0 ... y] in stricly non-decreasing order
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
 		ArrayList<T> combined = new ArrayList<T>();
 		int i = 0;
@@ -119,23 +119,52 @@ public class Sort<T extends Comparable<T>> {
 		debugger.assertOrder(combined);
 		debugger.assertContains(right, left, combined);
 
-		//Initialization: TODO: write this
+		//Initialization: Our invariant holds true before the first execution of the loop because x has been incremented whenever i has been incremented and elements have been added to combined from left in order
+		debugger.assertGreatEquals(x, i);
+		debugger.assertEquals(x, combined.size());
+		debugger.assertOrder(combined);
+		debugger.assertContains(left, combined);
+
 		while(left.size() != i) {
-			//Maintanance: TODO: write this
+			//Maintanance: Our invariant holds true at the beginning of each iteration of the loop because x has been incremented whenever i is incremented and elements have been added to combined from left in order
+			debugger.assertGreatEquals(x, i);
+			debugger.assertEquals(x, combined.size());
+			debugger.assertOrder(combined);
+			debugger.assertContains(left, combined);
+
 			combined.add(x, left.get(i));
 			i++;
 			x++;
-			//Termination: TODO: write this
 		}
+		//Termination: Our invariant holds true at the termination of the loop because x has been incremented whenever i was incremented and elements have been added to combined from left in order
+		debugger.assertGreatEquals(x, i);
+		debugger.assertEquals(x, combined.size());
+		debugger.assertOrder(combined);
+		debugger.assertContains(left, combined);
 
-		//Initialization: TODO: write this
+		//Initialization: Our invariant holds true before the first execution of the loop because x has been incremented whenever y has been incremented and elements have been added to combined from right in order
+		debugger.assertGreatEquals(x, y);
+		debugger.assertEquals(x, combined.size());
+		debugger.assertOrder(combined);
+		debugger.assertContains(right, combined);
+
 		while(right.size() != y) {
-			//Maintanance: TODO: write this
+			//Maintanance: Our invariant holds tur at the beinning of each iteration of the loop because x has been incremented whenever y is incremented and elements have been added to combined from right in order
+			debugger.assertGreatEquals(x, y);
+			debugger.assertEquals(x, combined.size());
+			debugger.assertOrder(combined);
+			debugger.assertContains(right, combined);
+
 			combined.add(x, right.get(y));
 			y++;
 			x++;
-			//Termination: TODO: write this
 		}
+		//Termination: Our invariant holds true at the terminatino of the loop because x has been incremented whenever y was incremented and elements have been added to combined from right in order.
+		debugger.assertGreatEquals(x, y);
+		debugger.assertEquals(x, combined.size());
+		debugger.assertOrder(combined);
+		debugger.assertContains(right, combined);
+		
 		return combined;
 	}
 
