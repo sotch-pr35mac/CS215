@@ -73,6 +73,23 @@ public class Debug<T> {
 	}
 
 	/*
+	*	@Pre-Condition: <code>ArrayList<Integer> actual</code> is an ArrayList of Integer Objects
+	*	@Post-Condition: If the ArrayList of Integer Objects is in stricly non-decreasing order, the program moves on normally, if not, the pgoram halts with an <code>AssertionError</code>
+	*	@Description: runs an assertion statement against an ArrayList of Integer Objects to ensure that for <code>k = actual.size(); A[k-2] <= A[k-1];</code>
+	*	@param ArrayList<Integer> actual the ArrayList to assert is in stricly non-decreasing order
+	*/
+	public void assertOrder(ArrayList<Integer> actual) {
+		if(debugOn == true) {
+			int i = actual.size();
+			while(i > 1) {
+				assert actual.get(i - 1).compareTo(actual.get(i - 2)) >= 0;
+
+				i--;
+			}
+		}
+	}
+
+	/*
 	*	@Pre-Condition: actual and expected both contain Integer Objects
 	*	@Post-Condition: If all the elements inside of the actual arraylist are also contained in the expected arraylist, then the assertion holds true
 	*	@Description: Tests to ensure a given ArrayList of Integer Objects contains all the elements of another given ArrayList of Integer Objects
@@ -83,6 +100,22 @@ public class Debug<T> {
 		if(debugOn == true) {
 			for(int i = 0; i < actual.size(); i++) {
 				assert expected.contains(actual.get(i));
+			}
+		}
+	}
+
+	/*
+	*	@Pre-Condition: expectedOne, expectedTwo, and actual all contain Integer Objects
+	*	@Post-Condition: If all the elemts inside of the actual ArrayList are also contined in either the expectedOne ArrayList or the expectedTwo ArrayList, then the assertion holds true
+	*	@Description: Tests to ensure a given ArrayList of Integer Objects contains all the elements of another given ArrayList of Integer Objects
+	*	@param: ArrayList<Integer> expectedOne one of the lists to check to see if the given ArrayList actual's elements are contained in
+	*	@param: ArrayList<Integer> expectedTwo one of the lists to check to see if the given ArrayList actual's elements are contained in
+	* @param: ArrayList<Integer> actual the list to check ot make sure all its elements are contained in either expectedOne or expectedTwo
+	*/
+	public void assertContains(ArrayList<Integer> expectedOne, ArrayList<Integer> expectedTwo, ArrayList<Integer> actual) {
+		if(debugOn == true) {
+			for(int i = 0; i < actual.size(); i++) {
+				assert expectedOne.contains(actual.get(i)) || expectedTwo.contains(actual.get(i));
 			}
 		}
 	}

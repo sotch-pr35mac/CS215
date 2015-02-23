@@ -77,7 +77,7 @@ public class Sort<T extends Comparable<T>> {
 	*	@param ArrayList<T> right a non-empty ArrayList<T> where T is a comparable data type with a natural order.
 	*	@return ArrayList<T> combined should contain all the elements of left and right in stricly non-decreasing order
 	*/
-	//Invariant for First While Loop: TODO: write this
+	//Invariant for First While Loop: combined contains x number of elements where x is the sum of i and y and those elements are contained in left[0 ... i] or right[0 ... y] in stricly non-decreasing order
 	//Invaraint for Second While Loop: TODO: write this
 	//Invariant for Third While Loop: TODO: write this
 	private ArrayList<T> mergeTogether(ArrayList<T> left, ArrayList<T> right) {
@@ -86,8 +86,22 @@ public class Sort<T extends Comparable<T>> {
 		int y = 0;
 		int x = 0;
 
-		while(left.size() != i && right.size() != y) { //Initialization: TODO: write this
-			//Maintanance: TODO: write this
+		//Debug
+		Debug debugger = new Debug();
+
+		//Initialization: Our invariant holds true vacuously before the first execution of the loop because x, i, and y are all equal to zero, combined is empty and therefore in order
+		debugger.assertEquals(0, i);
+		debugger.assertEquals(0, y);
+		debugger.assertEquals(0, x);
+		debugger.assertEquals(i, combined.size());
+
+		while(left.size() != i && right.size() != y) {
+			//Maintanance: Our invariant holds true at the beginning of each iteration of the loop because x is incremented whenever i or y is incremented and elements are added to combined from left and right in order
+			debugger.assertEquals(i+y, x);
+			debugger.assertEquals(x, combined.size());
+			debugger.assertOrder(combined);
+			debugger.assertContains(right, left, combined);
+
 			if(left.get(i).compareTo(right.get(y)) < 0) {
 				combined.add(x, left.get(i));
 				i++;
@@ -98,10 +112,15 @@ public class Sort<T extends Comparable<T>> {
 				y++;
 				x++;
 			}
-			//Termination: TODO: write this
 		}
+		//Termination: Our invariant holds tur at the termination of the loop because x has been incremented whenever i or y has been incremented, and elements are added to combined from left and right in order
+		debugger.assertEquals(i+y, x);
+		debugger.assertEquals(x, combined.size());
+		debugger.assertOrder(combined);
+		debugger.assertContains(right, left, combined);
 
-		while(left.size() != i) { //Initialization: TODO: write this
+		//Initialization: TODO: write this
+		while(left.size() != i) {
 			//Maintanance: TODO: write this
 			combined.add(x, left.get(i));
 			i++;
@@ -109,7 +128,8 @@ public class Sort<T extends Comparable<T>> {
 			//Termination: TODO: write this
 		}
 
-		while(right.size() != y) { //Initialization: TODO: write this
+		//Initialization: TODO: write this
+		while(right.size() != y) {
 			//Maintanance: TODO: write this
 			combined.add(x, right.get(y));
 			y++;
