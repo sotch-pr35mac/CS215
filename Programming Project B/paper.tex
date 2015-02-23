@@ -292,6 +292,9 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Sort Second While Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to right from the same i index value in A upto to A.length.
 \newline
 \newline
+\textbf{Merge Sort Conclusion}: %%TODO: Write this
+\newline
+\newline
 \textbf{Merge Together First While Loop Invariant}: Combined contains x number of elements where x is the sum of i and y and those elements are contained in left[0 ... i] or right[0 ... y] in stricly non-decreasing order.
 \newline
 \textbf{Merge Together First While Loop Invariant Initialization}: Our invariant holds true vacuously before the first iteration of the loop because $i = 0$, $y = 0$, $i + y = 0$, $x = 0$ therefore $x = i + y$ and combined contains no elements and is vacuously in order.
@@ -301,10 +304,37 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Together First While Loop Invariant Termination}: Our invariant holds true when the loop terminates because $x$ has been incremented whenever $i$ and $y$ are incremented, and elements have only been added to combined from left when $left[i] < right[y]$ and from right only when $left[i] >= right[y]$.
 \newline
 \newline
-\textbf{Merge Together Second While Loop Invariant}:
+\textbf{Merge Together Second While Loop Invariant}: Combined contains x number of elements where $x >= i$ and those elements are contained in left[0 ... i] in stricly non-decreasing order.
+\newline
+\textbf{Merge Together Second While Loop Invariant Initialization}: The invariant holds true before the first iteration of the loop because x has been incremented when i has been incremented and elements have been added to combined from left if and only if $left[i] < right[y]$ and from right if and only if $left[i] >= right[y]$.
+\newline
+\textbf{Merge Together Second While Loop Invariant Maintenance}: The invariant holds true at the beginning of each iteration of the loop because x has been incremented when i has been incremented and elements have been added to combined from left in order.
+\newline
+\textbf{Merge Together Second While Loop Invariant Termination}: The invariant holds true at the termination of the loop because x has been incremented when i has been incremented and elements have been added to combined from left in order.
+\newline
+\newline
+\textbf{Merge Together Third While Loop Invariant}: Combined contains x number of elements where x is greather than or equal to y and those elements are contained in right[0 ... y] in stricly non-decreasing order.
+\newline
+\textbf{Merge Together Third While Loop Invariant Initialization}: The invariant holds true before the first initialization of the loop because x has been incremented when y has been incremented and elements have been added to combined from left if and only if $left[i] < right[y]$ and from right if and only if $left[i] >= right[y]$.
+\newline
+\textbf{Merge Together Third While Loop Invariant Maintenance}: The invariant holds true at the beginning of each iteration of the loop because x has been incremented when y has been incremented and elements have been added to combined from right in order.
+\newline
+\textbf{Merge Together Third While Loop Invariant Termination}: The invariant holds true at the termination of the loop because x has been incremented when y has been incremented and elements have been added to combined from right in order.
+\newline
+\newline
+\textbf{Merge Together Conclusion}: %%TODO: Write this.
+\newline
+\newline
 
-%% TODO: Add pre and post conditions here
 A heap sort can be implemented in a variety of languages using the pseudocode below in Algorithm 3.
+\newline
+\textbf{Heap Sort Pre-Condition}: A is a non-empty array with a natural order.
+\newline
+\textbf{Heap Sort Post-Condition}: A' is a permutation of A in strictly non-decreasing order.
+\newline
+\textbf{Heapify Pre-Condition}: A is a non-empty array with a comparable data type in a natural order.
+\newline
+\textbf{Heapify Post-Condition}: %%TODO: Write this.
 \newline
 \begin{algorithm}
 \caption {\textsc{Heap-Sort}(A)}
