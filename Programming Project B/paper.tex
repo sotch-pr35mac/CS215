@@ -146,7 +146,7 @@
 
 %% BEGIN ABSTRACT
 \begin{abstract}
-
+The present study investiages the insertion sort, merge sort, and heap sort sorting algorithms and how they perform on data sets of different sizes and types whe implemented in Java. Insertion sort is a sorting algorithm that runs in $ \theta(n^2) $. For sorting large sets of data, insertion sort does not perform exemplary, however, for simple sorting of data sets under 10,000, insertion sort performs resonably quickly on modern day computers. Merge sort and heap sort both perform at $ \theta(n*\lg(n)) $. Both merge and heap sort perform exceptionally well when sorting both small and large sets of data, even upto 10,000,000 elements.
 %% END ABSTRACT
 \end{abstract}
 
@@ -292,9 +292,6 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Sort Second For Loop Invariant Termination}: The invariant holds true because i has been incremented at the same rate that elements have been added to right from the same i index value in A upto to A.length.
 \newline
 \newline
-\textbf{Merge Sort Conclusion}: %%TODO: Write this
-\newline
-\newline
 \textbf{Merge Together First While Loop Invariant}: Combined contains x number of elements where x is the sum of i and y and those elements are contained in left[1 ... i] or right[1 ... y] in stricly non-decreasing order.
 \newline
 \textbf{Merge Together First While Loop Invariant Initialization}: Our invariant holds true vacuously before the first iteration of the loop because $i = 0$, $y = 0$, $i + y = 0$, $x = 0$ therefore $x = i + y$ and combined contains no elements and is vacuously in order.
@@ -322,9 +319,6 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Together Third While Loop Invariant Termination}: The invariant holds true at the termination of the loop because x has been incremented when y has been incremented and elements have been added to combined from right in order.
 \newline
 \newline
-\textbf{Merge Together Conclusion}: %%TODO: Write this.
-\newline
-\newline
 
 A heap sort can be implemented in a variety of languages using the pseudocode below in Algorithm 3.
 \newline
@@ -334,7 +328,7 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 \newline
 \textbf{Heapify Pre-Condition}: A is a non-empty array with a comparable data type in a natural order.
 \newline
-\textbf{Heapify Post-Condition}: %%TODO: Write this.
+\textbf{Heapify Post-Condition}: Each parent node is more extreme than its child  node.
 \newline
 \begin{algorithm}
 \caption {\textsc{Heap-Sort}(A)}
@@ -384,7 +378,6 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 \textbf{Heap Sort First For Loop Invariant Termination}: The invariant holds true at the termination of the loop because i will be the smallest index value of A and therefore will have children nodes.
 \newline
 \newline
-%% TODO: something about a conclusion
 \textbf{Heap Sort Second For Loop Invariant}: All elements in A at the index value greater than i are in stricly non-decreasing order.
 \newline
 \textbf{Heap Sort Second For Loop Invariant Initialization}: The invariant holds vacuously true before the first iteration of the loop because there are no elements in A that are at an index value greater than i.
@@ -394,13 +387,12 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 \textbf{Heap Sort Second For Loop Invariant Termination}: The invariant holds true at the termination of the loop because i decreases as ecah largest element is moved to the end of A until the entire array has been traversed, so that all elements greater than i are in stirctly non-decreasing order.
 \newline
 \newline
-%% TODO: Something about a conclusion here or some shit like that
 %% END PROCEDURE
 
 %% BEGIN TESTING
 \section{Testing}
 \subsection{Testing Plan and Results}
-All arrays used in testing are Java ArrayList<Integer> unless otherwise spcified. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgewock and Kevin Wayne %%TODO: Cite this shit.
+All arrays used in testing are Java ArrayList<Integer> unless otherwise spcified. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgewock and Kevin Wayne \cite{stopwatch}
 It is important to note that the soptwatch class used takes the elapsed real-time between the start of the sort algorithm and the end of the sort algorithim as opposed to taking the elapsed processor-time becasue these tests were run on a multi-core computer.
 In the table below, A denotes Array. Times in the table below are given as averages out of 10 trials.
 \newline
