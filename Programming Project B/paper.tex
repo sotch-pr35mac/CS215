@@ -146,7 +146,7 @@
 
 %% BEGIN ABSTRACT
 \begin{abstract}
-The present study investiages the insertion sort, merge sort, and heap sort sorting algorithms and how they perform on data sets of different sizes and types whe implemented in Java. Insertion sort is a sorting algorithm that runs in $ \theta(n^2) $. For sorting large sets of data, insertion sort does not perform exemplary, however, for simple sorting of data sets under 10,000, insertion sort performs resonably quickly on modern day computers. Merge sort and heap sort both perform at $ \theta(n*\lg(n)) $. Both merge and heap sort perform exceptionally well when sorting both small and large sets of data, even upto 10,000,000 elements.
+The present study investigates the insertion sort, merge sort, and heap sort sorting algorithms and how they perform on data sets of different sizes and types when implemented in Java. Insertion sort is a sorting algorithm that runs in $ \theta(n^2) $. For sorting large sets of data, insertion sort does not perform exemplary, however, for simple sorting of data sets under 10,000, insertion sort performs reasonably quickly on modern day computers. Merge sort and heap sort both perform at $ \theta(n*\lg(n)) $. Both merge and heap sort perform exceptionally well when sorting both small and large sets of data, even upto 10,000,000 elements.
 %% END ABSTRACT
 \end{abstract}
 
@@ -157,7 +157,7 @@ In order to show how an algorithm might run on a given set of hardware, and how 
 
 %% BEGIN BACKGROUND
 \section{Background}
-A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position, and repositioning it into a more appropriate place in the list. Heap sort is another sorting algorithm that greatly differs than insertion sort in that it uses a divide, conquer, and combine method; meaning that it breaks the set it is sorting into subsets until the subsets can no longer be broken up and then merge sort combines the subsets together rendering the correct answer. %% Write this for heap sort. 
+A sorting algorithm is used to sort data with a natural order. One such sorting algorithm is insertion sort, which sorts by iterating through a list of data, taking the current position, and repositioning it into a more appropriate place in the list. Merge sort is another sorting algorithm that greatly differs than insertion sort in that it uses a divide, conquer, and combine method; meaning that it breaks the set it is sorting into subsets until the subsets can no longer be broken up and then merge sort combines the subsets together rendering the correct answer. Heap sort creates a heap data structure and then swaps the first index with the last index value and re-heaps the data structure until the entire set is sorted.
 %% END BACKGROUND
 
 %% BEGIN PROCEDURE
@@ -215,7 +215,7 @@ An insertion sort can be implemented in a multitude of languages using the pseud
 
 A merge sort can be implemented in a variety of languages using the pseudocode provided in Algorithm 2.
 \newline
-\textbf{Merge Sort Pre-Condition}: A is a non-empty array of a comparable data with a natural order.
+\textbf{Merge Sort Pre-Condition}: A is a non-empty array of a comparable data type with a natural order.
 \newline
 \textbf{Merge Sort Post-Condition}: A' is a permutation of A (containing all the same elements) in strictly non-decreasing order.
 \newline
@@ -310,7 +310,7 @@ A merge sort can be implemented in a variety of languages using the pseudocode p
 \textbf{Merge Together Second While Loop Invariant Termination}: The invariant holds true at the termination of the loop because x has been incremented when i has been incremented and elements have been added to combined from left in order.
 \newline
 \newline
-\textbf{Merge Together Third While Loop Invariant}: Combined contains x number of elements where x is greather than or equal to y and those elements are contained in right[1 ... y] in stricly non-decreasing order.
+\textbf{Merge Together Third While Loop Invariant}: Combined contains x number of elements where x is greater than or equal to y and those elements are contained in right[1 ... y] in strictly non-decreasing order.
 \newline
 \textbf{Merge Together Third While Loop Invariant Initialization}: The invariant holds true before the first initialization of the loop because x has been incremented when y has been incremented and elements have been added to combined from left if and only if $left[i] < right[y]$ and from right if and only if $left[i] >= right[y]$.
 \newline
@@ -384,7 +384,7 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 \newline
 \textbf{Heap Sort Second For Loop Invariant Maintenance}: The invariant holds true at the beginning of each iteration of the loop because each most extreme element is moved to the very end of the array at an index value greater than i.
 \newline
-\textbf{Heap Sort Second For Loop Invariant Termination}: The invariant holds true at the termination of the loop because i decreases as ecah largest element is moved to the end of A until the entire array has been traversed, so that all elements greater than i are in stirctly non-decreasing order.
+\textbf{Heap Sort Second For Loop Invariant Termination}: The invariant holds true at the termination of the loop because i decreases as each largest element is moved to the end of A until the entire array has been traversed, so that all elements greater than i are in stirctly non-decreasing order.
 \newline
 \newline
 %% END PROCEDURE
@@ -392,9 +392,9 @@ A heap sort can be implemented in a variety of languages using the pseudocode be
 %% BEGIN TESTING
 \section{Testing}
 \subsection{Testing Plan and Results}
-All arrays used in testing are Java ArrayList<Integer> unless otherwise spcified. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgewock and Kevin Wayne \cite{stopwatch}
-It is important to note that the soptwatch class used takes the elapsed real-time between the start of the sort algorithm and the end of the sort algorithim as opposed to taking the elapsed processor-time becasue these tests were run on a multi-core computer.
-In the table below, A denotes Array. Times in the table below are given as averages out of 10 trials.
+All arrays used in testing are Java ArrayList<Integer> unless otherwise specified. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgwick and Kevin Wayne \cite{stopwatch}
+It is important to note that the stopwatch class used takes the elapsed real-time between the start of the sort algorithm and the end of the sort algorithm as opposed to taking the elapsed processor-time because these tests were run on a multi-core computer.
+In the table below, A denotes Array. Times in the table below are given as averages out of 10 trials in milliseconds.
 \newline
 \captionof{table}{Insertion Sort Test Results}
 \begin{center}
