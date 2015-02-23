@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  22 FEB 2015 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  22 FEB 2015 20:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -572,6 +572,9 @@ Overfull \hbox (9.78156pt too wide) in paragraph at lines 365--380
  [] 
  []
 
+
+LaTeX Warning: Citation `erik' on page 5 undefined on input line 386.
+
 [5]
 No file paper.bbl.
 (./Code/Driver.java
@@ -583,7 +586,7 @@ LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1.
 )
 (./Code/Debug.java [6] [7] [8]) (./Code/DummyData.java [9] [10] [11] [12])
-Underfull \hbox (badness 10000) in paragraph at lines 423--428
+Underfull \hbox (badness 10000) in paragraph at lines 427--432
 
  []
 
@@ -597,16 +600,16 @@ Overfull \hbox (12.7468pt too wide) in paragraph at lines 5--7
 [][][][] 
  []
 
-) [13] (./Code/Sort.java [14] [15] [16] [17] [18]) [19] (./paper.aux)
+) [13] (./Code/Sort.java [14] [15] [16] [17] [18] [19]) [20] (./paper.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6726 strings out of 493104
- 93419 string characters out of 6136932
- 332456 words of memory out of 5000000
- 10013 multiletter control sequences out of 15000+600000
+ 6727 strings out of 493104
+ 93425 string characters out of 6136932
+ 329455 words of memory out of 5000000
+ 10014 multiletter control sequences out of 15000+600000
  172881 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,43p,610b,1649s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -619,10 +622,10 @@ i12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on paper.pdf (19 pages, 250040 bytes).
+Output written on paper.pdf (20 pages, 254614 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

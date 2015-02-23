@@ -6,6 +6,7 @@
 */
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Debug<T> {
 	boolean debugOn; //Variable to keep track of whether or not debug is on
@@ -67,6 +68,21 @@ public class Debug<T> {
 				assert actual.get(i - 1).compareTo(actual.get(i - 2)) >= 0;
 
 				i--;
+			}
+		}
+	}
+
+	/*
+	*	@Pre-Condition: actual and expected both contain Integer Objects
+	*	@Post-Condition: If all the elements inside of the actual arraylist are also contained in the expected arraylist, then the assertion holds true
+	*	@Description: Tests to ensure a given ArrayList of Integer Objects contains all the elements of another given ArrayList of Integer Objects
+	*	@param ArrayList<Integer> expected the list to check contains against
+	*	@param ArrayList<Integer> actual the list to check to make sure all its elements are contained in the other arraylist
+	*/
+	public void assertContains(ArrayList<Integer> expected, ArrayList<Integer> actual) {
+		if(debugOn == true) {
+			for(int i = 0; i < actual.size(); i++) {
+				assert expected.contains(actual.get(i));
 			}
 		}
 	}

@@ -12,11 +12,11 @@ public class Driver{
     DummyData testData = new DummyData();
 
     ArrayList<Integer> testList = new ArrayList<Integer>();
-    testList = testData.runArrayList(10000000, 0, 10000000, testList);
+    testList = testData.runArrayList(10, 0, 100, testList);
     //testList = testData.runArrayList(1000, testList);
 
     System.out.println("Unsorted list: ");
-    //System.out.println(testList);
+    System.out.println(testList);
 
     Sort sorter = new Sort();
 

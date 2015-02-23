@@ -50,7 +50,8 @@ public class Sort<T extends Comparable<T>> {
 	//Invariant for Second For Loop: TODO: write this
 	public ArrayList<T> heapSort(ArrayList<T> unsorted) {
 		int arrSize = unsorted.size() - 1;
-		for(int i = arrSize / 2; i >= 0; i--) { //Initialization: TODO: write this
+		//Initialization: TODO: write this
+		for(int i = arrSize / 2; i >= 0; i--) {
 			//Maintanance: TODO: write this
 			unsorted = heapify(unsorted, i, arrSize);
 			//Termination: TODO: write this
@@ -125,25 +126,42 @@ public class Sort<T extends Comparable<T>> {
 	*	@param a non-empty ArrayList<T> unsorted where T is a Comparable data type with a natural order
 	*	@return ArrayList<T> returnValue which is a permutation of unsorted, in strictly non-decreasing order,
 	*/
-	//Invariant for First For Loop: TODO: write this
+	//Invariant for First While Loop: left contains i elements, all of which can be found in sorted
 	//Invariant for Second For Loop: TODO: write this
 	public ArrayList<T> mergeSort(ArrayList<T> unsorted) {
 		ArrayList<T> sorted = unsorted;
 		ArrayList<T> left = new ArrayList<T>();
 		ArrayList<T> right = new ArrayList<T>();
 		ArrayList<T> returnValue;
+
+		//Debug
+		Debug debugger = new Debug();
+		debugger.turnOn();
+
 		if(sorted.size() <= 1) {
 			returnValue = sorted;
 		}
 		else {
 			int mid = (sorted.size() / 2);
-			for(int i = 0; i < mid; i++) { //Initialization: TODO: write this
-				//Maintanance: TODO: write this
+			int i = 0;
+			//Initialization: Our invariant holds true bcause i is zero and left contains 0 elements.
+			debugger.assertEquals(i, left.size());
+
+			while(i < mid) {
+				//Maintanance: Our invariant holds true because i is increased at the same rate elements are added to it from the same i index in sorted
+				debugger.assertEquals(i, left.size());
+				debugger.assertContains(sorted, left);
+
 				T temp = sorted.get(i);
 				left.add(temp);
-				//Termination: TODO: write this
+
+				i++;
 			}
-			for(int i = mid; i < sorted.size(); i++) { //Initialization: TODO: write this
+			//Termination: Our invariant holds true because i has been incremented at the same rate elements are added to left from the same index i in sorted
+			debugger.assertEquals(i, left.size());
+			debugger.assertContains(sorted, left);
+
+			for(int y = mid; y < sorted.size(); y++) { //Initialization: TODO: write this
 				//Maintanance: TODO: write this
 				T temp = sorted.get(i);
 				right.add(temp);

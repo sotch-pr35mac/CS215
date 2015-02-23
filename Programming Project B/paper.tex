@@ -1,5 +1,5 @@
 
- %% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -379,7 +379,11 @@ In the table below, A denotes Array. Times in the table below are given as avera
 \end{tabular}
 \end{center}
 \subsection{Problems Encountered}
-No problems were encountered.
+One major issue encountered during the development of this insertion sort was that after completing the sort, A' was sorted properly except for the first element in the array. No matter what value the first element of A had, it did not change position in A'. For example, if A[5, 6, 3, 4, 7] was passed to the insertion sort algorithm, the returned array would look like A'[5, 3, 4, 6, 7]. Changing the guard for the inner for loop (see Algorithm 1 line 6) from \textit{key < A[j] and j downto 1} to \textit{j downto 1 and key < A[j]} corrected this issue.
+
+Another issue encountered during the development of this program was executing Java $assert$ statements. When assertions were wrapped in parenthesis, they evaluated to a boolean, and the assert would throw an $AssertionError$ with the explanation 'cannot compare to boolean'. Removing the parenthesis wrapping the assertion fixed this issue.
+
+The last issue encountered during the development process of this program was generic programming. The program would not compile because not all Objects have a compareTo method. Adding the statement $<T$ $extends$ $Comparable<T>>$ fixed this issue. \cite{erik}
 %% END TESTING
 
 %% BEGIN EXPERIMENTAL ANALYSIS
