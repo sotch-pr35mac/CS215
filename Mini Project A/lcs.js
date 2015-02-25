@@ -18,7 +18,12 @@ function lcs(one, two) {
 	else {
 		var a = lcs(one, twoSub);
 		var b = lcs(oneSub, two);
-		return (a.length > b.length) ? a : b;
+		if(a.length > b.length) {
+			return a;
+		}
+		else {
+			return b;
+		}
 	}
 }
 
