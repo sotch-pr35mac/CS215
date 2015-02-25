@@ -1,0 +1,14 @@
+Mini Project A. Using the strings on page 391
+	Write a class with a method to find and print
+		LCS (length) and a subsequence printout.
+	1. Before lab: What do you expect to learn?
+			What problems do you expect to encounter?
+	2. Output: A test done by hand and by program to test with strings from page 391
+	3. After lab: What did you learn?
+			What problems did you actually encounter?
+			Ho do you expect this to help you later on?
+	4. Your Code 
+
+(This is a relatively formal write-up and shit, 'namsayn)
+
+This shit is aight to do in JavaScript.
