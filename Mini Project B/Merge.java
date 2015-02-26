@@ -23,7 +23,10 @@ public class Merge {
     int i = 0;
     int j = 0;
     ArrayList<Integer> merged = new ArrayList<Integer>();
-    for(int y = startIndex; y < endIndex; y++) {
+    int y = startIndex;
+    /* INITIALIZZATION: Prior to the first iteration of the loop, we have k = p, so that the subarray A[startIndex ... y - 1] is empty. This empty subarray contains the y - startIndex = 0 smallest elements of left and right, and since i = j = 1, both left[i] and right[j] are the smallest elements of their arrays that have not been copied back into A. */
+    while(y < endIndex) {
+      /* MAINTENANCE: To see that each iteration maintains the loop invariant, let us first suppose that left[i] <= right[j]. Then left[i] is the smallest element not yet copied back into A. Because A[startIndex ... y - 1] contains the y - startIndex smallest elements, after the copy of left[i] into A[y], the subarray A[startIndex ... y] will contains the y - startIndex + 1 smallest elements. Incrementeing y and i reestablishes the loop invariant for the next iteration. If instead left[i] > right[j], then the appropriate action is used to maintain the loop invariant. */
       if(left.get(i).compareTo(right.get(j)) <= 0) {
         merged.set(y, left.get(i));
         i++;
@@ -32,7 +35,9 @@ public class Merge {
         merged.set(y, right.get(j));
         j++;
       }
+      y++;
     }
+    /* TERMINATION: At termination, y = endIndex + 1. By the loop invariant, the subarray A[startIndex ... y - 1], which is A[startIndex ... endIndex], ctonains the y - startIndex = endIndex - startIndex + 1 smallest elements of left[0 ... nOne + 1] and right[0 ... nTwo + 1] in sorted order. The arrays left and right together contain nOne + nTwo + 2 = endIndex - startIndex + 3 elements. All but the two largest have been copied back into A, and these two largest elements have the sentinels. */
 
     return merged;
   }
