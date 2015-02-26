@@ -27,3 +27,26 @@ function lcs(one, two) {
 	}
 }
 
+//This function serves as the driver function
+function driver() {
+	var stringOne = "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA";
+	var stringTwo = "GTCGTTCGGAATGCCGTTGCTCTGTAAA";
+	var matchString = "GTCGTCGGAAGCCGGCCGAA";
+	console.log("Original String 1: "+stringOne);
+	console.log("Original String 2: "+stringTwo);
+
+
+	var resultString = lcs(stringOne, stringTwo);
+	console.log("Resulting Substring: "+resultString);
+	console.log("Resulting Substring should match the proposed Resulting Substring: "+matchString);
+
+	if(resultString == matchString) {
+		console.log("Strings match! Programm successful.");
+	}
+	else {
+		console.log("Oops... Strings do not match. Program unsuccessful.");
+	}
+}
+
+//Run the driver.
+driver();
