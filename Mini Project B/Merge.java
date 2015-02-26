@@ -47,7 +47,7 @@ public class Merge {
         int mid = ((startIndex + endIndex) / 2);
         mergeSort(unsorted, startIndex, mid);
         mergeSort(unsorted, mid+1, endIndex);
-        ArrayList<Integer> sorted = mergeTogether(unosrted, startIndex, endIndex, mid);
+        ArrayList<Integer> sorted = mergeTogether(unsorted, startIndex, endIndex, mid);
     }
     else {
       ArrayList<Integer> sorted = unsorted;
