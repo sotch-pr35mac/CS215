@@ -29,9 +29,14 @@ function lcs(one, two) {
 
 //This function serves as the driver function
 function driver() {
-	var stringOne = "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA";
-	var stringTwo = "GTCGTTCGGAATGCCGTTGCTCTGTAAA";
-	var matchString = "GTCGTCGGAAGCCGGCCGAA";
+	//This data takes far too long to execute, moving to data provided in the second paragraph on page 391.
+	//var stringOne = "ACCGGTCGAGTGCGCGGAAGCCGGCCGAA";
+	//var stringTwo = "GTCGTTCGGAATGCCGTTGCTCTGTAAA";
+	//var matchString = "GTCGTCGGAAGCCGGCCGAA";
+
+	var stringOne = "ABCBDAB";
+	var stringTwo = "BDCABA";
+	var matchString = "BCA";
 	console.log("Original String 1: "+stringOne);
 	console.log("Original String 2: "+stringTwo);
 
