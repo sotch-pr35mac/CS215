@@ -37,15 +37,16 @@ function driver() {
 	var stringOne = "ABCBDAB";
 	var stringTwo = "BDCABA";
 	var matchString = "BCBA";
+	var matchStringTwo = "BDAB";
 	console.log("Original String 1: "+stringOne);
 	console.log("Original String 2: "+stringTwo);
 
 
 	var resultString = lcs(stringOne, stringTwo);
 	console.log("Resulting Substring: "+resultString);
-	console.log("Resulting Substring should match the proposed Resulting Substring: "+matchString);
+	console.log("Resulting Substring should match the proposed Resulting Substring: "+matchString+" or: "+matchStringTwo);
 
-	if(resultString == matchString) {
+	if(resultString == matchString || resultString == matchStringTwo) {
 		console.log("Strings match! Programm successful.");
 	}
 	else {
