@@ -36,7 +36,7 @@ function driver() {
 
 	var stringOne = "ABCBDAB";
 	var stringTwo = "BDCABA";
-	var matchString = "BCA";
+	var matchString = "BCBA";
 	console.log("Original String 1: "+stringOne);
 	console.log("Original String 2: "+stringTwo);
 
