@@ -51,7 +51,7 @@ function lcs(one, two) {
 			}
 		}
 	}
-
+	console.log(tab);
 	return {
 		sequence: breadcrumbs(tab, one, two),
 		length: lcsVal
