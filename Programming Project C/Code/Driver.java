@@ -7,8 +7,6 @@
 
 public class Driver {
   public static void main(String args[]) {
-    if(args[0] == "-h") {
-      System.out.println("Hello.");
-    }
+    //Drive shit here
   }
 }
