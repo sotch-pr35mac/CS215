@@ -33,20 +33,12 @@ public class Knapsack<T extends Comparable<T>> {
     //Initialization: TODO: write this
     int i = 0;
     while(i < elems - 1) {
+      //Maintenance: TODO: write this
       if(!(weights.get(i).intValue() > sizePrime)) {
         tab.set(i, new Integer(1));
         profit = profit + prices.get(i).intValue();
         sizePrime = sizePrime - weights.get(i).intValue();
       }
-      //Maintenance: TODO: write this
-      //if(weights.get(i).intValue() > sizePrime) {
-        //break;
-      //}
-      /*else {
-        tab.set(i, new Integer(1));
-        profit = profit + prices.get(i).intValue();
-        sizePrime = sizePrime - weights.get(i).intValue();
-      }*/
 
       i++;
     }
