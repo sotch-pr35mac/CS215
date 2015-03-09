@@ -1,6 +1,6 @@
 /*
 * @Auhtor: Preston Stosur-Bassett
-* @Description: TODO: write this
+* @Description: This class implements a greedy and dynamic solution for the 0/1 Knapsack problem. These two solutions will return the max value that can be obtained only, and not how to obtain them.
 * @Class: Knapsack
 * @Date: 3, 3, 2015
 */
