@@ -75,7 +75,21 @@ public class Knapsack<T extends Comparable<T>> {
   * @return
   */
   //There should also be some invariants in here as well
-  public int dynamicKnapsack() {
+  public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
+    ArrayList<ArrayList<Integer>> tab = new ArrayList<ArrayList<Integer>>(elems);
+    int profit = 0;
 
+    for(int i = 0; i <= elems; i++) {
+      tab.add(new ArrayList<Intger>(elems));
+      for(int y = 0; y <= backpackSize; y++) {
+        tab.get(i).add(new Integer(0));
+      }
+    }
+
+    for(int o = 0; o < elems; o++) {
+      for(int t = 0; t < elems; t++) {
+        if()
+      }
+    }
   }
 }
