@@ -22,34 +22,49 @@ public class Knapsack<T extends Comparable<T>> {
   //For Loop Invariant: TODO: write this
   //While Loop Invariant: TODO: write this
   public int greedyKnapsack(int elems, ArrayList<Integer> weights,  ArrayList<Integer> prices, int backpackSize) {
-    ArrayList<Integer> tab = new ArrayList<Integer>(elems);
-    int sizePrime = backpackSize;
-    int profit = 0;
-
-    for(int i = 0; i < elems; i++) {
-      tab.add(new Integer(0));
+    int returnValue;
+    if(elems == 1) {
+      returnValue = prices.get(0).intValue();
     }
+    else if(elems < 1) {
+      returnValue = 0;
+    }
+    else {
+      ArrayList<Integer> tab = new ArrayList<Integer>(elems);
+      int sizePrime = backpackSize;
+      int profit = 0;
 
-    //Initialization: TODO: write this
-    int i = 0;
-    while(i < elems - 1) {
-      //Maintenance: TODO: write this
-      if(!(weights.get(i).intValue() > sizePrime)) {
-        tab.set(i, new Integer(1));
-        profit = profit + prices.get(i).intValue();
-        sizePrime = sizePrime - weights.get(i).intValue();
+      //Initialization: TODO: write this
+      for(int i = 0; i < elems; i++) {
+        //Maintenance: TODO: write this
+        tab.add(new Integer(0));
+      }
+      //Termination: TODO: write this
+
+      //Initialization: TODO: write this
+      int i = 0;
+      while(i < elems - 1) {
+        //Maintenance: TODO: write this
+        if(!(weights.get(i).intValue() > sizePrime)) {
+          tab.set(i, new Integer(1));
+          profit = profit + prices.get(i).intValue();
+          sizePrime = sizePrime - weights.get(i).intValue();
+        }
+
+        i++;
+      }
+      //Termination: TODO: write this
+
+      if(i < elems) {
+        tab.set(i, new Integer(sizePrime / weights.get(i).intValue()));
       }
 
-      i++;
-    }
-    //Termination: TODO: write this
+      profit = profit + (tab.get(i).intValue() * prices.get(i).intValue());
 
-    if(i < elems) {
-      tab.set(i, new Integer(sizePrime / weights.get(i).intValue()));
+      returnValue = profit;
     }
 
-    profit = profit + (tab.get(i).intValue() * prices.get(i).intValue());
-
-    return profit;
+    return returnValue;
   }
+
 }

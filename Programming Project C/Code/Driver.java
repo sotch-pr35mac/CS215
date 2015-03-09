@@ -11,11 +11,12 @@ public class Driver {
   public static void main(String args[]) {
     Knapsack theif = new Knapsack();
     DummyData testData = new DummyData();
+    Stopwatch watchman = new Stopwatch();
 
     ArrayList<Integer> prices = new ArrayList<Integer>();
     ArrayList<Integer> weights = new ArrayList<Integer>();
 
-    int numberOfElements = 5;
+    int numberOfElements = 10;
     int knapsackSize = 40;
 
     System.out.println("Max Knapsack Capacity: "+knapsackSize);
@@ -27,9 +28,12 @@ public class Driver {
     System.out.println("Set W:"+weights);
     System.out.println("");
 
+    watchman.startTime();
     int totalProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
+    double elapsedTime = watchman.elapsedTime();
 
     Integer totalProfitObject = new Integer(totalProfit);
     System.out.println("The total profit according to this algorithm is: "+totalProfitObject);
+    System.out.println("Time to Complete: "+elapsedTime);
   }
 }

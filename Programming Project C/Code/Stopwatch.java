@@ -13,20 +13,20 @@
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ *  @update @ 5.3.15 by Preston Stosur-Bassett, added start method.
  */
 
 
-public class Stopwatch { 
+public class Stopwatch {
 
-    private final long start;
+    private long start;
 
     /**
-     * Initialize a stopwatch object.
-     */
-    public Stopwatch() {
-        start = System.currentTimeMillis();
-    } 
-
+    * Starts the stopwatch timer
+    */
+    public void startTime() {
+      start = System.currentTimeMillis();
+    }
 
     /**
      * Returns the elapsed time (in seconds) since this object was created.
@@ -36,4 +36,4 @@ public class Stopwatch {
         return (now - start) / 1000.0;
     }
 
-} 
+}
