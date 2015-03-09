@@ -27,7 +27,7 @@ public class Knapsack<T extends Comparable<T>> {
     int profit = 0;
 
     for(int i = 0; i < elems; i++) {
-      tab.set(i, 0);
+      tab.add(new Integer(0));
     }
 
     //Initialization: TODO: write this
