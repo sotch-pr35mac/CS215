@@ -87,8 +87,9 @@ public class Knapsack<T extends Comparable<T>> {
     }
 
     for(int o = 0; o < elems; o++) {
-      for(int t = 0; t < elems; t++) {
-        if()
+      for(int t = 0; t < backpackSize; t++) {
+        //Do the important shit here in this if and shit
+        
       }
     }
   }
