@@ -67,4 +67,15 @@ public class Knapsack<T extends Comparable<T>> {
     return returnValue;
   }
 
+  /*
+  * @Pre-Condition:
+  * @Post-Condition:
+  * @Description:
+  * @param
+  * @return
+  */
+  //There should also be some invariants in here as well
+  public int dynamicKnapsack() {
+
+  }
 }
