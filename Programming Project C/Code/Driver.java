@@ -16,7 +16,9 @@ public class Driver {
     ArrayList<Integer> weights = new ArrayList<Integer>();
 
     int numberOfElements = 5;
-    int knapsackSize = 22;
+    int knapsackSize = 40;
+
+    System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
     prices = testData.runArrayList(numberOfElements, 1, 100, prices);
     weights = testData.runArrayList(numberOfElements, 1, 50, weights);
