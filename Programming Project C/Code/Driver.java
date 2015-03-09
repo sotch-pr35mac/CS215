@@ -16,24 +16,36 @@ public class Driver {
     ArrayList<Integer> prices = new ArrayList<Integer>();
     ArrayList<Integer> weights = new ArrayList<Integer>();
 
-    int numberOfElements = 10;
-    int knapsackSize = 40;
+    if(args[0].equals("greedy") == true && args[1] != null && args[2] != null) {
+      System.out.println("Running greedy algorithm...");
 
-    System.out.println("Max Knapsack Capacity: "+knapsackSize);
+      int numberOfElements = Integer.parseInt(args[1]);
+      int knapsackSize = Integer.parseInt(args[2]);
 
-    prices = testData.runArrayList(numberOfElements, 1, 100, prices);
-    weights = testData.runArrayList(numberOfElements, 1, 50, weights);
+      System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
-    System.out.println("Set P:"+prices);
-    System.out.println("Set W:"+weights);
-    System.out.println("");
+      prices = testData.runArrayList(numberOfElements, 1, 100, prices);
+      weights = testData.runArrayList(numberOfElements, 1, 50, weights);
 
-    watchman.startTime();
-    int totalProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
-    double elapsedTime = watchman.elapsedTime();
+      System.out.println("Set P:"+prices);
+      System.out.println("Set W:"+weights);
+      System.out.println("");
 
-    Integer totalProfitObject = new Integer(totalProfit);
-    System.out.println("The total profit according to this algorithm is: "+totalProfitObject);
-    System.out.println("Time to Complete: "+elapsedTime);
+      watchman.startTime();
+      int totalProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
+      double elapsedTime = watchman.elapsedTime();
+
+      Integer totalProfitObject = new Integer(totalProfit);
+      System.out.println("The total profit according to this algorithm is: "+totalProfitObject);
+      System.out.println("Time to Complete: "+elapsedTime);
+    }
+    else if(args[0].equals("dynamic") == true && args[1] != null && args[2] != null) {
+      System.out.println("Running dynamic algorithm...");
+      System.out.println("COMING SOON!");
+    }
+    else {
+      System.out.println("Invalid argument error!!");
+      System.out.println("The correct format is: Driver [method] [number of elements] [size of knapsack]");
+    }
   }
 }
