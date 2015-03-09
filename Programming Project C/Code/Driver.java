@@ -21,6 +21,10 @@ public class Driver {
     prices = testData.runArrayList(numberOfElements, 1, 100, prices);
     weights = testData.runArrayList(numberOfElements, 1, 50, weights);
 
+    System.out.println("Set P:"+prices);
+    System.out.println("Set W:"+weights);
+    System.out.println("");
+
     int totalProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
 
     Integer totalProfitObject = new Integer(totalProfit);
