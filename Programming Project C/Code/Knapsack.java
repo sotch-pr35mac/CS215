@@ -91,7 +91,7 @@ public class Knapsack<T extends Comparable<T>> {
     }
     else {
       for(int i = 0; i <= elems; i++) {
-        tab.add(new ArrayList<Intger>(elems));
+        tab.add(new ArrayList<Integer>(elems));
         for(int y = 0; y <= backpackSize; y++) {
           tab.get(i).add(new Integer(0));
         }
@@ -101,7 +101,7 @@ public class Knapsack<T extends Comparable<T>> {
         for(int j = 1; j <= backpackSize; j++) {
           //Do the important shit here in this if and shit
           if(weights.get(i).intValue() <= j) {
-            tab.get(i).set(j, new Integer(Math.max(tab.get(i-1).get(j).intValue(), tab.get(i-1).get(j - tab.get(i)) + prices.get(i))));
+            tab.get(i).set(j, new Integer(Math.max(tab.get(i-1).get(j).intValue(), tab.get(i-1).get(j - tab.get(i).get(i).intValue()) + prices.get(i))));
           }
           else {
             tab.get(i).set(j, tab.get(i-1).get(j));
@@ -109,7 +109,7 @@ public class Knapsack<T extends Comparable<T>> {
         }
       }
 
-      returnValue = tab.get(tab.size() - 1).get(this.size() - 1).intValue();;
+      returnValue = tab.get(elems).get(backpackSize).intValue();;
     }
 
     return returnValue;
