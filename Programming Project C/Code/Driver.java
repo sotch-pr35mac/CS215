@@ -5,6 +5,8 @@
 * @Description: This class will serve as a driver function for our Knapsack class
 */
 
+import java.util.ArrayList;
+
 public class Driver {
   public static void main(String args[]) {
     Knapsack theif = new Knapsack();
@@ -22,6 +24,6 @@ public class Driver {
     int totalProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
 
     Integer totalProfitObject = new Integer(totalProfit);
-    System.out.println("The total profit according to this algorithm is: "+totalProfitObjects);
+    System.out.println("The total profit according to this algorithm is: "+totalProfitObject);
   }
 }

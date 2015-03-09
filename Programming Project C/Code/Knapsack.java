@@ -23,10 +23,10 @@ public class Knapsack<T extends Comparable<T>> {
   //While Loop Invariant: TODO: write this
   public int greedyKnapsack(int elems, ArrayList<Integer> weights,  ArrayList<Integer> prices, int backpackSize) {
     ArrayList<Integer> tab = new ArrayList<Integer>(elems);
-    int sizePrime = size;
+    int sizePrime = backpackSize;
     int profit = 0;
 
-    for(int i = 0; i < elems, i++) {
+    for(int i = 0; i < elems; i++) {
       tab.set(i, 0);
     }
 
@@ -48,7 +48,7 @@ public class Knapsack<T extends Comparable<T>> {
     //Termination: TODO: write this
 
     if(i < elems) {
-      tab.set(i, new Integer(sizePrime / weights.get(i).intValue));
+      tab.set(i, new Integer(sizePrime / weights.get(i).intValue()));
     }
 
     profit = profit + (tab.get(i).intValue() * prices.get(i).intValue());
