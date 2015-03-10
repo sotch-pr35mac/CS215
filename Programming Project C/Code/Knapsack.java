@@ -55,7 +55,7 @@ public class Knapsack<T extends Comparable<T>> {
       //Initialization: TODO: write this
       while(backpackSize > 0 && i < elems) {
         //Maintenance: TODO: write this
-        if(backpackSize - ratioListings.get(i).get(2).intValue() > 0) {
+        if(backpackSize - ratioListings.get(i).get(2).intValue() >= 0) {
           profit = profit + ratioListings.get(i).get(1).intValue();
           backpackSize = backpackSize - ratioListings.get(i).get(2).intValue();
         }
