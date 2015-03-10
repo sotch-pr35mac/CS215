@@ -29,10 +29,11 @@ public class DummyData {
 			// MAINTANANCE: At the beginning of each iteration, one element was added to A and start was increased by one, therefore, our invariant holds true.
 			debugger.assertGreatEquals(list.size(), start);
 			Integer intToAdd = new Integer(random.nextInt((max - min + 1) + min));
-			list.add(intToAdd);
+			if(intToAdd != 0) {
+				list.add(intToAdd);
 
-			//Count up on the iterator
-			start++;
+				start++;
+			} 
 		}
 		/*TERMINATION: The negation of the guard implies that (end - start) number of elements have been added to A, since start is initialized as 0 at the beginning of the method and is
 			incremented by 1 each iteration of the loop, which means that start amount of elements have been added to A, and so our invariant holds true.	*/

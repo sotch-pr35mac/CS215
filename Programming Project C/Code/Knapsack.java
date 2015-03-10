@@ -31,36 +31,38 @@ public class Knapsack<T extends Comparable<T>> {
       returnValue = 0;
     }
     else {
-      ArrayList<Integer> tab = new ArrayList<Integer>(elems);
-      int sizePrime = backpackSize;
       int profit = 0;
+
+      ArrayList<ArrayList<Integer>> ratioListings = new ArrayList<ArrayList<Integer>>(elems);
 
       //Initialization: TODO: write this
       for(int i = 0; i < elems; i++) {
         //Maintenance: TODO: write this
-        tab.add(new Integer(0));
+        int ratio = prices.get(i).intValue() / weights.get(i).intValue();
+        ArrayList<Integer> innerRatioListing = new ArrayList<Integer>(3);
+        innerRatioListing.add(new Integer(ratio));
+        innerRatioListing.add(new Integer(prices.get(i).intValue()));
+        innerRatioListing.add(new Integer(weights.get(i).intValue()));
+        ratioListings.add(innerRatioListing);
       }
       //Termination: TODO: write this
 
-      //Initialization: TODO: write this
+      Sort sorter = new Sort();
+
+      ratioListings = sorter.insertionSortNestedArray(ratioListings, 0);
+
       int i = 0;
-      while(i < elems - 1) {
+      //Initialization: TODO: write this
+      while(backpackSize > 0 && i < elems) {
         //Maintenance: TODO: write this
-        if(!(weights.get(i).intValue() > sizePrime)) {
-          tab.set(i, new Integer(1));
-          profit = profit + prices.get(i).intValue();
-          sizePrime = sizePrime - weights.get(i).intValue();
+        if(backpackSize - ratioListings.get(i).get(2).intValue() > 0) {
+          profit = profit + ratioListings.get(i).get(1).intValue();
+          backpackSize = backpackSize - ratioListings.get(i).get(2).intValue();
         }
 
         i++;
       }
       //Termination: TODO: write this
-
-      if(i < elems) {
-        tab.set(i, new Integer(sizePrime / weights.get(i).intValue()));
-      }
-
-      profit = profit + (tab.get(i).intValue() * prices.get(i).intValue());
 
       returnValue = profit;
     }
@@ -108,8 +110,12 @@ public class Knapsack<T extends Comparable<T>> {
       }
       // First Outer While Loop Termination: TODO: write this
 
+      // Second Outer For Loop Initialization: TODO: write this
       for(int i = 0; i < elems - 1; i++) {
+        // Second Outer For Loop Maintenance: TODO: write this
+        // Second Inner For Loop Initialization: TODO: write this
         for(int j = 0; j < backpackSize; j++) {
+          // Second Inner For Loop Maintenance: TODO: write this
           if(weights.get(i).intValue() <= j && prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()] > tab[i][j]) {
             tab[i+1][j] = prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()];
           }
@@ -117,7 +123,9 @@ public class Knapsack<T extends Comparable<T>> {
             tab[i+1][j] = tab[i][j];
           }
         }
+        // Second Inner For Loop Termination: TODO: write this
       }
+      // Second Outer For Loop Termination: TODO: write this
 
       returnValue = tab[elems-1][backpackSize-1];
     }

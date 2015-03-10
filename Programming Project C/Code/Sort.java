@@ -315,4 +315,42 @@ public class Sort<T extends Comparable<T>> {
 		}
 		return sorted;
 	}
+
+
+	/*
+	*	@Pre-Condition: TODO: write this
+	*	@Post-Condition: TODO: write this
+	*	@Description: TODO: write this
+	* @param ArrayList<ArrayList<T>> unsorted TODO: write this
+	*	@param int sortingIndex TODO: write this
+	*	@return ArrayList<ArrayList<T>> sorted TODO: write this
+	*/
+	//There should be two loop invariants, I should be able to take them straight from above
+	public ArrayList<ArrayList<T>> insertionSortNestedArray(ArrayList<ArrayList<T>> list, int sortingIndex) {
+		if(list.size() > 1) {
+			int i = 1;
+
+			//Outer While Loop Initialization: TODO: write this
+			while(i < list.size()) {
+				//Outer While Loop Maintenance: TODO: write this
+				ArrayList<T> currentElement = list.get(i);
+				T value = list.get(i).get(sortingIndex);
+				int j = i - 1;
+
+				//Inner While Loop Initialization: TODO: write this
+				while(j >= 0 && (value.compareTo(list.get(j).get(sortingIndex)) > 0)) {
+					//Inner While Loop Maintenance: TODO: write this
+					list.set(j+1, list.get(j));
+					j--;
+				}
+				//Inner While Loop Termination: TODO: write this
+				list.set(j+1, currentElement);
+
+				i++;
+			}
+			//Outer While Loop Termination: TODO: write this
+		}
+
+		return list;
+	}
 }
