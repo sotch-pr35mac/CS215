@@ -97,17 +97,6 @@ public class Knapsack<T extends Comparable<T>> {
         }
       }
 
-      /* BEGIN: DEBUG */
-      System.out.println("Backpack Size: "+backpackSize);
-      System.out.println("Number of Items: "+elems);
-
-      for(int i = 0; i < tab.size(); i++) {
-        System.out.println(tab.get(i));
-      }
-
-      System.out.println("");
-      /* END: DEBUG */
-
       for(int i = 1; i <= elems; i++) {
         for(int j = 0; j < backpackSize; j++) {
           System.out.println(tab.get(i-1).get(j - weights.get(i-1).intValue()));
