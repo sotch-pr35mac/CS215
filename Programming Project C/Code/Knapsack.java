@@ -78,7 +78,7 @@ public class Knapsack<T extends Comparable<T>> {
   * @param int backpackSize TODO: write this
   * @return int returnValue TODO: write this
   */
-  //There should be three loop invariants here
+  //There should be for loop invariants here
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
     int returnValue = 0;
     if(elems == 1) {
@@ -90,11 +90,23 @@ public class Knapsack<T extends Comparable<T>> {
     else {
       int[][] tab = new int[elems][backpackSize];
 
-      for(int i = 0; i < elems; i++) {
-        for(int j = 0; j < backpackSize; j++) {
-          tab[i][j] = 0;
+      int x = 0;
+      int y = 0;
+      // First Outer While Loop Initialization: TODO: write this
+      while(x < elems) {
+        // First Outer While Loop Maintenance: TODO: write this
+        // First Inner While Loop Initialization: TODO: write this
+        while(y < backpackSize) {
+          // First Inner While Loop Maintenance: TODO: write this
+          tab[x][y] = 0;
+
+          y++;
         }
+        // First Inner While Loop Termination: TODO: write this
+
+        x++;
       }
+      // First Outer While Loop Termination: TODO: write this
 
       for(int i = 0; i < elems - 1; i++) {
         for(int j = 0; j < backpackSize; j++) {
