@@ -78,38 +78,36 @@ public class Knapsack<T extends Comparable<T>> {
   * @param int backpackSize TODO: write this
   * @return int returnValue TODO: write this
   */
-  //There should be four loop invariants in here
+  //There should be three loop invariants here
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
-    ArrayList<ArrayList<Integer>> tab = new ArrayList<ArrayList<Integer>>(elems);
-    int profit = 0;
-    int returnValue;
+    int returnValue = 0;
     if(elems == 1) {
-      returnValue = 1;
+      returnValue = prices.get(0).intValue();
     }
     else if(elems <= 0) {
       returnValue = 0;
     }
     else {
+      int[][] tab = new int[elems][backpackSize];
+
       for(int i = 0; i < elems; i++) {
-        tab.add(new ArrayList<Integer>(elems));
-        for(int y = 0; y < backpackSize; y++) {
-          tab.get(i).add(new Integer(0));
+        for(int j = 0; j < backpackSize; j++) {
+          tab[i][j] = 0;
         }
       }
 
-      for(int i = 1; i <= elems; i++) {
+      for(int i = 0; i < elems - 1; i++) {
         for(int j = 0; j < backpackSize; j++) {
-          System.out.println(tab.get(i-1).get(j - weights.get(i-1).intValue()));
-          if((weights.get(i).intValue() < j) && (prices.get(i-1).intValue() + tab.get(i-1).get(j - weights.get(i-1).intValue()) > tab.get(i-1).get(j).intValue())) {
-            tab.get(i).set(j, prices.get(i-1) + tab.get(i-1).get(j - weights.get(i-1)));
+          if(weights.get(i).intValue() <= j && prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()] > tab[i][j]) {
+            tab[i+1][j] = prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()];
           }
           else {
-            tab.get(i).set(j, tab.get(i-1).get(j));
+            tab[i+1][j] = tab[i][j];
           }
         }
       }
 
-      returnValue = tab.get(elems).get(backpackSize).intValue();;
+      returnValue = tab[elems-1][backpackSize-1];
     }
 
     return returnValue;
