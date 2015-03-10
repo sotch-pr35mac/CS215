@@ -69,14 +69,14 @@ public class Knapsack<T extends Comparable<T>> {
   }
 
   /*
-  * @Pre-Condition:
-  * @Post-Condition:
-  * @Description:
-  * @param int elems
-  * @param ArrayList<Integer> weights
-  * @param ArrayList<Integer> prices
-  * @param int backpackSize
-  * @return int returnValue
+  * @Pre-Condition: TODO: write this
+  * @Post-Condition: TODO: write this
+  * @Description: TODO: write this
+  * @param int elems TODO: write this
+  * @param ArrayList<Integer> weights TODO: write this
+  * @param ArrayList<Integer> prices TODO: write this
+  * @param int backpackSize TODO: write this
+  * @return int returnValue TODO: write this
   */
   //There should be four loop invariants in here
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
