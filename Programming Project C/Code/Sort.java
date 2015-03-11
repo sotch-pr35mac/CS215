@@ -328,30 +328,52 @@ public class Sort<T extends Comparable<T>> {
 	//INVARIANT (Outer-Loop): The Pre-Condition implies that A[0 ... i - 1] will contain all the same data as A'[0 ... i - 1]
 	//INVARIANT (Inner-Loop): A[0 ... j] is sorted in stricly non-increasing order
 	public ArrayList<ArrayList<T>> insertionSortNestedArray(ArrayList<ArrayList<T>> unsorted, int sortingIndex) {
+		Debug debugger = new Debug<List<T>>();
 		ArrayList<ArrayList<T>> list = unsorted;
+
 		if(list.size() > 1) {
 			int i = 1;
 
 			/*INITIALIZATION (Outer-Loop): Before the first iteration of the loop the invariant holds beause i = 1, and there is one elment in the subarray of A[0 ... i - 1] and A'[0 ... i - 1] */
+			List<ArrayList<T>> subSortedOI = list.subList(0, i - 1);
+			List<ArrayList<T>> subUnsortedOI = unsorted.subList(0, i - 1);
+			debugger.assertEquals(subUnsortedOI, subSortedOI);
+
 			while(i < list.size()) {
 				/*MAINTENANCE (Outer-Loop): At the beginning of each iteration of the loop, the loop invariant is maintained because the subarray of A'[0 ... i - 1] contains all the same elements as A[0 ... i - 1] */
+				List<ArrayList<T>> subSortedOM = list.subList(0, i - 1);
+				List<ArrayList<T>> subUnsortedOM = unsorted.subList(0, i - 1);
+				debugger.assertEquals(subUnsortedOM, subSortedOM);
+
 				ArrayList<T> currentElement = list.get(i);
 				T value = list.get(i).get(sortingIndex);
 				int j = i - 1;
 
 				/*INITIALIZATION (Inner-Loop): Before the first iteration of the loop, j = 0, the subarray of sorted[0 ... 0] contains one element and therefore the invariants hold vacuously. */
+				List subSortedII = list.subList(0, j);
+				//debugger.assertOrder(subSortedII); //TODO: fix this?
 				while(j >= 0 && (value.compareTo(list.get(j).get(sortingIndex)) > 0)) {
 					/*MAINTENANCE (Inner-Loop): At the beginning of each iteration A[0 ... j] is sorted in stricly non-increasing order */
+					List subSortedIM = list.subList(0, j);
+					//debugger.assertOrder(subSortedIM); //TODO: fix this?
+
 					list.set(j+1, list.get(j));
 					j--;
 				}
 				/*TERMINATION (Inner-Loop): The negation of the gaurd implies that A'[0 ... j] has been entirely traversed and is in stricly non-increasing order. */
+				List subSortedIT = list.subList(0, j+1);
+				//debugger.assertOrder(subSortedIT); //TODO: fix this?
+
 				list.set(j+1, currentElement);
 
 				i++;
 			}
 			/*TERMINATION (Outer-Loop): When the loop terminates, i is equal to A'.length meaning the entire array has been traversed and that the guard has been negated.
 			  													The negation of the guard implies that A'[0 ... i - 1] contains all the elements of A[0 ... i - 1] */
+			List subSortedOT = list.subList(0, i - 1);
+			//debugger.assertOrder(subSortedOT); //TODO: fix this?
+			debugger.assertEquals(new Integer(list.size()), new Integer(i));
+			debugger.assertEquals(unsorted, list);
 		}
 
 		return list;
