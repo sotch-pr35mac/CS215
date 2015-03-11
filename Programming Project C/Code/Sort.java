@@ -318,37 +318,40 @@ public class Sort<T extends Comparable<T>> {
 
 
 	/*
-	*	@Pre-Condition: TODO: write this
-	*	@Post-Condition: TODO: write this
-	*	@Description: TODO: write this
-	* @param ArrayList<ArrayList<T>> unsorted TODO: write this
-	*	@param int sortingIndex TODO: write this
-	*	@return ArrayList<ArrayList<T>> sorted TODO: write this
+	*	@Pre-Condition: ArrayList<ArrayList<T>> unsorted is an unsorted a nested non-empty ArrayList of a non-empty ArrayList (in tabular format) of a comparable data type with a natural order where sortingIndex is an index value of the nest ArrayList.
+	*	@Post-Condition: ArrayList<ArrayList<T>> will return a permutation of <code>unsorted</code> that will be in stricly non-increasing order.
+	*	@Description: insertionSortNestedArray will sort a nested ArrayList in tabular format of a comparable data type and given a specific index value of the inner ArrayList will sort the inner ArrayLists into stricly non-increasing order within the outer ArrayList
+	* @param ArrayList<ArrayList<T>> list is a non-empty unsorted nested ArrayList of ArrayList of data type T, where T is a comparable data type with a natural order.
+	*	@param int sortingIndex is an index value of the inner ArrayList to use for sorting comparisons
+	*	@return ArrayList<ArrayList<T>> list is a permutation of <code>unsorted</code> where all the elements in the outer ArrayList are sorted in stricly non-increasing order by inner ArrayLists index value of sortingIndex
 	*/
-	//There should be two loop invariants, I should be able to take them straight from above
-	public ArrayList<ArrayList<T>> insertionSortNestedArray(ArrayList<ArrayList<T>> list, int sortingIndex) {
+	//INVARIANT (Outer-Loop): The Pre-Condition implies that A[0 ... i - 1] will contain all the same data as A'[0 ... i - 1]
+	//INVARIANT (Inner-Loop): A[0 ... j] is sorted in stricly non-increasing order
+	public ArrayList<ArrayList<T>> insertionSortNestedArray(ArrayList<ArrayList<T>> unsorted, int sortingIndex) {
+		ArrayList<ArrayList<T>> list = unsorted;
 		if(list.size() > 1) {
 			int i = 1;
 
-			//Outer While Loop Initialization: TODO: write this
+			/*INITIALIZATION (Outer-Loop): Before the first iteration of the loop the invariant holds beause i = 1, and there is one elment in the subarray of A[0 ... i - 1] and A'[0 ... i - 1] */
 			while(i < list.size()) {
-				//Outer While Loop Maintenance: TODO: write this
+				/*MAINTENANCE (Outer-Loop): At the beginning of each iteration of the loop, the loop invariant is maintained because the subarray of A'[0 ... i - 1] contains all the same elements as A[0 ... i - 1] */
 				ArrayList<T> currentElement = list.get(i);
 				T value = list.get(i).get(sortingIndex);
 				int j = i - 1;
 
-				//Inner While Loop Initialization: TODO: write this
+				/*INITIALIZATION (Inner-Loop): Before the first iteration of the loop, j = 0, the subarray of sorted[0 ... 0] contains one element and therefore the invariants hold vacuously. */
 				while(j >= 0 && (value.compareTo(list.get(j).get(sortingIndex)) > 0)) {
-					//Inner While Loop Maintenance: TODO: write this
+					/*MAINTENANCE (Inner-Loop): At the beginning of each iteration A[0 ... j] is sorted in stricly non-increasing order */
 					list.set(j+1, list.get(j));
 					j--;
 				}
-				//Inner While Loop Termination: TODO: write this
+				/*TERMINATION (Inner-Loop): The negation of the gaurd implies that A'[0 ... j] has been entirely traversed and is in stricly non-increasing order. */
 				list.set(j+1, currentElement);
 
 				i++;
 			}
-			//Outer While Loop Termination: TODO: write this
+			/*TERMINATION (Outer-Loop): When the loop terminates, i is equal to A'.length meaning the entire array has been traversed and that the guard has been negated.
+			  													The negation of the guard implies that A'[0 ... i - 1] contains all the elements of A[0 ... i - 1] */
 		}
 
 		return list;
