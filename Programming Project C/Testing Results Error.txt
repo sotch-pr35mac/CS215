@@ -1,0 +1,68 @@
+1. n = 0, c = 50
+	error: 0
+AVG: 0
+
+1. n = 1, c = 50
+	error: 0
+AVG: 0
+
+1. n = 10, c = 50
+	error: 0
+2. ''
+	error: 0
+3. ''
+	error: 0
+4. '' 
+	error: 0
+5. ''
+	error: 29
+6. ''
+	error: 21
+7. ''
+	error: 2
+8. ''
+	error: 0
+9. ''
+	error: 1
+10. ''
+	error: 0
+AVG: 5.3
+
+1. n = 100, c = 200
+		error: 0
+2. error: 2
+3. error: 0
+4. error: 2
+5. error: 0
+6. error: 4
+7. error: 1
+8. error: 0
+9. error: 0
+10. error: 0
+AVG: 0.9
+
+1. n = 1000, c = 2000
+		error: 0.0
+2. error: 0.004
+3. error: 0.00007
+4. error: 0.031
+5. error: 0.13
+6. error: 0.026
+7. error: 0.089
+8. error: 0.0171
+9. error: 0.0123
+10. error: 0.0194
+AVG: 0.032887
+
+1. n = 10000, c = 20000
+		error: 0.00692
+2. error: 0.007619
+3. error: 0.0066
+4. error: 0.019951
+5. error: 0.007675
+6. error: 0.0025652
+7. error: 0.00818357
+8. error: 0.00528
+9. error: 0.005789
+10. error: 0.00555725
+AVG: 0.007614002

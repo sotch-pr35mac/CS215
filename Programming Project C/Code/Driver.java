@@ -103,8 +103,7 @@ public class Driver {
       int top = Math.abs(difference);
       int bottom = Math.abs(dynamicProfit);
       double error = new Integer(top).doubleValue() / new Integer(bottom).doubleValue();
-      double exactPercentError = error * 100;
-      int percentError = new Double(exactPercentError).intValue();
+      double percentError = error * 100;
 
       System.out.println("Percent Error: "+percentError+"%");
 

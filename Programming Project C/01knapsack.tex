@@ -303,9 +303,9 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 \section{Testing}
 \subsection{Testing Plan and Results}
 All arrays used in testing are Java ArrayList<Integer> except for $tab$ in the dynamic solution, which is a primitive Java nested array. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgwick and Kevin Wayne \cite{stopwatch}
-It is important to note that the stopwatch lass used takes the elapsed real-time between the start of the call to the knapsack solution and the end of that call as opposed to taking the elapse processor-time because these tests were run on a multi-core computer.
+It is important to note that the stopwatch class used takes the elapsed real-time between the start of the call to the knapsack solution and the end of that call as opposed to taking the elapse processor-time because these tests were run on a multi-core computer.
+%% TODO: rephrase the below paragraph
 When the number of elements was below 100, the size of the knapsack was 50; when values of 100 and greater were used the size of the knapsack was $2n$ where $n$ is the number of elements. For example, if the number of elements was 100, the size of the knapsack was 200, in order so the knapsack was sure to be able to make reasonable comparisons.
-In the table below, times are given as averages out of 10 trials in milliseconds.
 \newline
 \captionof{table}{Greedy Solution Real-Time Run-Time}
 \begin{center}
@@ -324,6 +324,7 @@ In the table below, times are given as averages out of 10 trials in milliseconds
 \captionof{table}{Dynamic Solution Real-Time Run-Tim}
 \begin{center}
 \begin{tabular}{|l|l|l|}
+\hline Number of Elements & Size of Knapsack & Time \\
 \hline 0 & 50 & 0.0001 \\
 \hline 1 & 50 & 0.0 \\
 \hline 10 & 50 & 0.0002 \\
@@ -334,6 +335,19 @@ In the table below, times are given as averages out of 10 trials in milliseconds
 \end{tabular}
 \end{center}
 %% TODO: You need to implement a testing plan testing the correctness of the two algorithms!
+\newline
+\captionof{table}{Dynamic vs Greedy Solutions Accuracy Comparison}
+\begin{center}
+\begin{tabular}{|l|l|l|l}
+\hline Number of Elements & Size of Knapsack & Percent Error \\
+\hline 0 & 50 & 0 \\
+\hline 1 & 50 & 0 \\
+\hline 10 & 50 & 5.3 \\
+\hline 100 & 200 & 0.032887 \\
+\hline 1000 & 2000 & 0.032887 \\
+\hline 10000 & 20000 & 0.00555725 \\
+\end{tabular}
+\end{center}
 
 \subsection{Problems Encountered}
 One major issue encountered during the development of the dynamic programming solution was that when the second pair of loops would make calls to any of ArrayLists (including $tab$, which at the time was also an ArrayList implementation) there would be an out of bounds error because of a negative index value. The out of bounds error was eminating from the conditional in the second nested loop. The cause for this error is still unknown. To aid the issue $tab$ was changed from a nested ArrayList to a primitive nested Java array. 
