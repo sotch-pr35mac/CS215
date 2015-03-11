@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  11 MAR 2015 06:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2015.1.14)  11 MAR 2015 12:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,36 +575,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--299
 LaTeX Warning: Citation `stopwatch' on page 2 undefined on input line 305.
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 305--310
+
+ []
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.91998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
+[2] [3] [4]
+
+LaTeX Warning: Citation `erik' on page 5 undefined on input line 359.
+
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `!tbp') on input line 318.
+               Default added (so using `!tbp') on input line 366.
 
-<test-results.pdf, id=19, 1029.8475pt x 565.11125pt>
+<test-results.pdf, id=26, 1029.8475pt x 565.11125pt>
 File: test-results.pdf Graphic file (type pdf)
  <use test-results.pdf>
-Package pdftex.def Info: test-results.pdf used on input line 320.
+Package pdftex.def Info: test-results.pdf used on input line 368.
 (pdftex.def)             Requested size: 566.4179pt x 310.81215pt.
 
-Overfull \hbox (50.4179pt too wide) in paragraph at lines 320--321
+Overfull \hbox (50.4179pt too wide) in paragraph at lines 368--369
  [] 
  []
 
-[3] [4] (./Code/Driver.java
+[5 <./test-results.pdf>] [6] (./Code/Driver.java
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 1.
- (/usr/share/texmf/tex/latex/lm/omslmr.fd
+
+(/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 1.
- [5 <./test-results.pdf>] [6]) (./Code/Knapsack.java [7] [8] [9]) (./Code/Sort.
-java
-[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
+ [7] [8]) (./Code/Knapsack.java
+[9] [10] [11] [12]) (./Code/Sort.java [13] [14] [15] [16] [17] [18] [19]
+[20] [21] [22] [23]
 Overfull \hbox (407.5444pt too wide) in paragraph at lines 372--373
 [][][][] 
  []
@@ -844,8 +853,8 @@ Overfull \hbox (406.39453pt too wide) in paragraph at lines 372--373
 []  
  []
 
-[22])
-Underfull \hbox (badness 10000) in paragraph at lines 362--367
+[24] [25])
+Underfull \hbox (badness 10000) in paragraph at lines 410--415
 
  []
 
@@ -859,18 +868,18 @@ Overfull \hbox (12.7468pt too wide) in paragraph at lines 5--7
 [][][][] 
  []
 
-[23]) (./Code/Debug.java [24] [25] [26] [27] [28] [29]) (./Code/DummyData.java
-[30] [31] [32]) [33] (./01knapsack.aux)
+) [26] (./Code/Debug.java [27] [28] [29] [30] [31]) (./Code/DummyData.java
+[32] [33] [34]) [35] (./01knapsack.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6739 strings out of 493104
- 93694 string characters out of 6136932
- 339473 words of memory out of 5000000
- 10023 multiletter control sequences out of 15000+600000
- 170086 words of font info for 104 fonts, out of 8000000 for 9000
+ 6742 strings out of 493104
+ 93727 string characters out of 6136932
+ 337473 words of memory out of 5000000
+ 10026 multiletter control sequences out of 15000+600000
+ 172881 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,43p,1174b,1649s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
@@ -882,10 +891,10 @@ i12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on 01knapsack.pdf (33 pages, 385276 bytes).
+Output written on 01knapsack.pdf (35 pages, 397260 bytes).
 PDF statistics:
- 167 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
+ 173 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
