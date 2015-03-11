@@ -24,8 +24,21 @@ public class Driver {
 
       System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
-      prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
-      weights = testData.runArrayList(numberOfElements, 1, 50, weights);
+      //prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
+      //weights = testData.runArrayList(numberOfElements, 1, 50, weights);
+
+      prices.add(new Integer(10));
+      prices.add(new Integer(100));
+      prices.add(new Integer(55));
+      prices.add(new Integer(12));
+      prices.add(new Integer(63));
+
+      weights.add(new Integer(45));
+      weights.add(new Integer(20));
+      weights.add(new Integer(40));
+      weights.add(new Integer(9));
+      weights.add(new Integer(50));
+
 
       System.out.println("Set P:"+prices);
       System.out.println("Set W:"+weights);
@@ -47,8 +60,20 @@ public class Driver {
 
       System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
-      prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
-      weights = testData.runArrayList(numberOfElements, 1, 50, weights);
+      //prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
+      //weights = testData.runArrayList(numberOfElements, 1, 50, weights);
+
+      prices.add(new Integer(10));
+      prices.add(new Integer(100));
+      prices.add(new Integer(55));
+      prices.add(new Integer(12));
+      prices.add(new Integer(63));
+
+      weights.add(new Integer(45));
+      weights.add(new Integer(20));
+      weights.add(new Integer(40));
+      weights.add(new Integer(9));
+      weights.add(new Integer(50));
 
       System.out.println("Set P:"+prices);
       System.out.println("Set W:"+weights);

@@ -88,6 +88,7 @@ public class Knapsack<T extends Comparable<T>> {
   //INVARIANT (Second Inner-Loop): TODO: write this
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
     int returnValue = 0;
+    backpackSize = backpackSize + 1;
     if(elems == 1) {
       returnValue = prices.get(0).intValue();
     }
