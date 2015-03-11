@@ -152,19 +152,150 @@
 
 %% BEGIN MOTIVATION
 \section{Motivation}
-%%TODO: write this
+A 0/1 Knapsack problem is most often described as how does a theif steal the most valuable items with the amount of space he has available to carry them. However, the applications of a 0/1 Knapsack far beyond just this. When solved, a 0/1 Knapsack problem will render the optimal solution, whether it be how one should construct their schedule so they can get the most done in one day, or how to pack a truck such that the fewest amount of trips are taken. 
 
 %% END MOTIVATION
 
 %% BEGIN BACKGROUND
 \section{Background}
-%%TODO: write this
+Unfortunately, solving a 0/1 Knapsack problem often times proves difficult because in order to find the best solution, all possible solutions must be attempted, a method known as brute force. It is not pratical to brute force a problem of this kind because it would take $ \theta{n!} $ to solve, which is unacceptable for large sets of numbers. However, there are other methods beside brute force that allow for the correct or 'good-enought' solution to be found. One of these methods is known as dynamic programming, which trades off speed for space. With dynamic programming the correct solution can be found in $ \theta{n*m} $ time, where n is the amount of items and m is the size of the knapsack. Another method for solving this type of problem is called a greedy algorithm, which works by making the best decision on which item to take locally. A greedy solution to the 0/1 Knapsack problem traditionally runs in $ \theta{n} $ time. Unfortunately a greedy solution is not always correct and therefore highly unreliable.
 
 %% END BACKGROUND
 
 %% BEGIN PROCEDURE
 \section{Procedure}
-%%TODO: write this
+A multidimentional array insertion sort can be implemented in a multitude of languages using the pseudocode provided in Algorithm 1.
+\newline
+\textbf{Insertion Sort Pre-Condition}: A is an unsorted non-empty array of non-empty arrays containing a comparable data type with a natural order such that v is an index value of the inner array.
+\newline
+\textbf{Insertion Sort Post-Condition}: A' is a permutation of A that is in strictly non-increasing order.
+\begin{algorithm}
+\caption {\textsc{Insertion-Sort}(A, v)}
+\label{algo:insertionsort}
+\begin{algorithmic}[1]
+\Procedure{Insertion-Sort}{A, v}
+\If{$A.length < 2$}
+\State{\Return{$A$}}
+\EndIf
+\State{$i = 2$}
+\While{$i$ upto $A.length$}
+	\State{$key = A[i][v]$}
+	\State{$a = A[i]$}
+	\State{$j = i - 2$}
+	\While{$j$ downto $1$ and $key > A[j][v]$}
+		\State{$A[j+1] = A[j]$}
+		\State{$j = j - 1$}
+	\EndWhile
+	\State{$A[j+1] = a$}
+	\StateP$i = i + 1$}
+\EndWhile
+\State{\Return{$A$}}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\newline
+\textbf{Insertion Sort Outer-Loop Invariant}: The subarray A'[1 ... i - 1] contains all the same elements as the subarray A[1 ... i - 1].
+\newline 
+\textbf{Insertion Sort Outer-Loop Initialization}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same one element.
+\newline
+\textbf{Insertion Sort Outer-Loop Maintenance}: The outer-loop invariant holds because A'[1 ... i - 1] and A[1 ... i - 1] both contain the same elements, although they may be in different orders.
+\newline
+\textbf{Insertion Sort Outer-Loop Termination}: When the outer-loop terminates, i = A.length, which implies that the entire array has been traversed and the guard has been negated. The negation of the guard implies that A'[1 ... i - 1] contains all the elements in A[1 ... i - 1].
+\newline
+\newline
+\textbf{Insertion Sort Inner-Loop Invariant}: A'[1 ... j] is sorted in strictly non-decreasing order.
+\newline
+\textbf{Insertion Sort Inner-Loop Initialization}: Before the first iteration of the loop, j = 1, meaning the subarray A'[1 ... j] contains exactly one element, which is already sorted.
+\newline
+\textbf{Insertion Sort Inner-Loop Maintenance}: At the beginning of each iteration of the loop the inner-loop invariant holds because j counts down from i, and A'[j+1] is swapped with A'[j] only if A'[j+1] is less than A[j].
+\newline
+\textbf{Insertion Sort Inner-Loop Termination}: The negation of the guard implies that j = A.length and that A'[1 ... j] has been entirely traversed and sorted in strictly non-decreasing order, which maintains the inner-loop invariant. 
+\newline
+\newline
+\textbf{Insertion Sort Conclusion}: The termination of both the inner and outer loops implies that the entire array has been traversed, A' is a permutation of A containing all the same elements in strictly non-decreasing order. This satisfies the post condition.
+\newline
+\newline
+
+A greedy solution to a 0/1 knapsack problem can be implemented in a variety of languages using the pseudocode in Algorithm 2.
+\newline
+\textbf{Greedy Knapsack Pre-Condition}: $Weights$ and $Prices$ both have in them $n$ number of elements
+\newline
+\textbf{Greedy Knapsack Post-Condition}: The returned value will be a resonable solution for the largest value of price combinations such that the aggregate of the corresponding weights does not excede knapsack capacity $c$.
+\begin{algorithm}
+\caption {\textsc{Greedy-Knapsack}(n, Weights, Prices, c)}
+\label{algo:greedy}
+\begin{algorithmic}[1]
+\Procedure{Greedy-Knapsack}{n, Weights, Prices, c}
+\If{$n == 1$}
+	\State{\Return{$Prices[1]$}}
+\EndIf
+\If{$n <= 0$}
+	\State{\Return{$0$}}
+\EndIf
+\State{$profit = 0$}
+\State{$ratio = new Array$}
+\For{$v = 1$ upto $n$}
+	\State{$a = Prices[v] / Weights[v]$}
+	\State{$ratio[v] = a$}
+\EndFor
+\State{$ratio = Insertion-Sort(ratio, 1)$}
+\State{$i = 1$}
+\While{$c > 0$ and $i < n$}
+	\If{$c - ratio[i][3] >= 0$}
+		\State{$profit = profit + ratio[i][2]$}
+		\State{$c = c - ratio[i][3]$}
+	\EndIf
+	\State{$i = i + 1$}
+\EndWhile
+\State{\Return{$profit$}}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\newline
+%% TODO: Write invariants for greedy algorithm here
+\newline
+\newline
+
+A dynamic solution to 0/1 knapsack can be implemented in a variety of languages using the pseudocode provided in Algorithm 3.
+\newline
+\textbf{Dynamic Knapsack Pre-Condition}: $Weights$ and $Prices$ both have $n$ number of elements
+\newline
+\textbf{Dynamic Knapsack Post-Condition}: The returned value will be the correct solution for the largest value of price combinations such that the aggregate of the corresponding weights does not excede knapsack capacity $c$.
+\begin{algorithmic}
+\caption {\textsc{Dynamic-Knapsack}(n, Weights, Prices, c)}
+\label{algo:dynamic}
+\begin{algorithm}[1]
+\Procedure{Dynamic-Knapsack}{n, Weights, Prices, c}
+\If{$n == 1$}
+	\State{\Return{$Prices[1]$}}
+\EndIf
+\If{$n <= 0$}
+	\State{\Return{$0$}}
+\EndIf
+\State{$tab[n][c] = new Nested Array$}
+\For{$x = 1$ upto $n$}
+	\For{$y = 1$ upto $c$}
+		\State{$tab[x][y] = 0$}
+	\EndFor
+\EndFor
+\For{$i = 1$ upto $n$}
+	\For{$j = 0$ upto $c$}
+		\If{$Weights[i] <= j$ and $Prices[i] + tab[i][j - Weights[i]] > tab[i][j]$}
+			\State{$tab[i+1][j] = Price[i] + tab[i][j - weights[i]]$}
+		\EndIf
+		\Else
+			\State{$tab[i+1][j] = tab[i][j]$}
+		\EndElse
+	\EndFor
+\EndFor
+\State{\Return{$tab[n][c]$}}
+\EndProcedure
+\end{algorithm}
+\end{algorithmic}
+\newline
+%% TODO: Write pseudocode invariants here for Dynamic solution
+\newline
+\newline
 
 %% END PROCEDURE
 
