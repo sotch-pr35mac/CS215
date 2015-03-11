@@ -187,7 +187,7 @@ A multidimentional array insertion sort can be implemented in a multitude of lan
 		\State{$j = j - 1$}
 	\EndWhile
 	\State{$A[j+1] = a$}
-	\StateP$i = i + 1$}
+	\State{$i = i + 1$}
 \EndWhile
 \State{\Return{$A$}}
 \EndProcedure
@@ -220,7 +220,7 @@ A greedy solution to a 0/1 knapsack problem can be implemented in a variety of l
 \newline
 \textbf{Greedy Knapsack Pre-Condition}: $Weights$ and $Prices$ both have in them $n$ number of elements
 \newline
-\textbf{Greedy Knapsack Post-Condition}: The returned value will be a resonable solution for the largest value of price combinations such that the aggregate of the corresponding weights does not excede knapsack capacity $c$.
+\textbf{Greedy Knapsack Post-Condition}: The returned value will be a reasonable solution for the largest value of price combinations such that the aggregate of the corresponding weights does not exceed knapsack capacity $c$.
 \begin{algorithm}
 \caption {\textsc{Greedy-Knapsack}(n, Weights, Prices, c)}
 \label{algo:greedy}
@@ -260,11 +260,11 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 \newline
 \textbf{Dynamic Knapsack Pre-Condition}: $Weights$ and $Prices$ both have $n$ number of elements
 \newline
-\textbf{Dynamic Knapsack Post-Condition}: The returned value will be the correct solution for the largest value of price combinations such that the aggregate of the corresponding weights does not excede knapsack capacity $c$.
-\begin{algorithmic}
+\textbf{Dynamic Knapsack Post-Condition}: The returned value will be the correct solution for the largest value of price combinations such that the aggregate of the corresponding weights does not exceed knapsack capacity $c$.
+\begin{algorithm}
 \caption {\textsc{Dynamic-Knapsack}(n, Weights, Prices, c)}
 \label{algo:dynamic}
-\begin{algorithm}[1]
+\begin{algorithmic}[1]
 \Procedure{Dynamic-Knapsack}{n, Weights, Prices, c}
 \If{$n == 1$}
 	\State{\Return{$Prices[1]$}}
@@ -283,15 +283,15 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 		\If{$Weights[i] <= j$ and $Prices[i] + tab[i][j - Weights[i]] > tab[i][j]$}
 			\State{$tab[i+1][j] = Price[i] + tab[i][j - weights[i]]$}
 		\EndIf
-		\Else
+		\If{$!$$(Weights[i] <= j)$ and $!$$(Prices[i] + tab[i][j - Weights[i]] > tab[i][j])$}
 			\State{$tab[i+1][j] = tab[i][j]$}
-		\EndElse
+		\EndIf
 	\EndFor
 \EndFor
 \State{\Return{$tab[n][c]$}}
 \EndProcedure
-\end{algorithm}
 \end{algorithmic}
+\end{algorithm}
 \newline
 %% TODO: Write pseudocode invariants here for Dynamic solution
 \newline
@@ -302,16 +302,32 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 %% BEGIN TESTING
 \section{Testing}
 \subsection{Testing Plan and Results}
-%%TODO: write this
+All arrays used in testing are Java ArrayList<Integer> except for $tab$ in the dynamic solution, which is a primitive Java nested array. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgwick and Kevin Wayne \cite{stopwatch}
+It is important to note that the stopwatch lass used takes the elapsed real-time between the start of the call to the knapsack solution and the end of that call as opposed to taking the elapse processor-time because these tests were run on a multi-core computer.
+In the table below, times are given as averages out of 10 trials in milliseconds.
+%% TODO: You need to implement a testing plan testing the correctness of the two algorithms!
 
 \subsection{Problems Encountered}
-%%TODO: write this
+One major issue encountered during the development of the dynamic programming solution was that when the second pair of loops would make calls to any of ArrayLists (including $tab$, which at the time was also an ArrayList implementation) there would be an out of bounds error because of a negative index value. The out of bounds error was eminating from the conditional in the second nested loop. The cause for this error is still unknown. To aid the issue $tab$ was changed from a nested ArrayList to a primitive nested Java array. 
+
+Another issue encountered during the development of this program was executing Java $assert$ statements. When assertions were wrapped in parenthesis, they evaluated to a boolean, and the assert would throw an $AssertionError$ with the explanation 'cannot compare to boolean'. Removing the parenthesis wrapping the assertion fixed this issue.
+
+When the dynamic solution was executed with values of anything above $n = 100000$ and $c = 200000$ Java gave a "Out Of Memory Error: Java heap space". This can be attributed the extreme number of elements being stored in $tab$. The computer's system monitor reported RAM usage at 95\%. Unfortunately, this issue cannot be aided. 
+
+The last issue encountered during the development process of this program was generic programming. The program would not compile because not all Objects have a compareTo method. Adding the statement $<T$ $extends$ $Comparable<T>>$ fixed this issue. \cite{erik}
 
 %% END TESTING
 
 %% BEGIN EXPERIMENTAL ANALYSIS
 \section{Experimental Analysis}
 %%TODO: write this
+\begin{figure}[!]
+\begin{center}
+\includegraphics[scale=.55]{test-results.pdf}
+\end{center}
+\captionof{figure}{Java Implementation of Greedy and Dynamic Solutions to 0/1 Knapsack Run-Time Analysis}
+\label{fig:runtime}
+\end{figure}
 
 %% END EXPERIMENTAL ANALYSIS
 
