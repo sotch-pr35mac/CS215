@@ -24,21 +24,8 @@ public class Driver {
 
       System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
-      //prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
-      //weights = testData.runArrayList(numberOfElements, 1, 50, weights);
-
-      prices.add(new Integer(10));
-      prices.add(new Integer(100));
-      prices.add(new Integer(55));
-      prices.add(new Integer(12));
-      prices.add(new Integer(63));
-
-      weights.add(new Integer(45));
-      weights.add(new Integer(20));
-      weights.add(new Integer(40));
-      weights.add(new Integer(9));
-      weights.add(new Integer(50));
-
+      prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
+      weights = testData.runArrayList(numberOfElements, 1, 50, weights);
 
       System.out.println("Set P:"+prices);
       System.out.println("Set W:"+weights);
@@ -60,20 +47,8 @@ public class Driver {
 
       System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
-      //prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
-      //weights = testData.runArrayList(numberOfElements, 1, 50, weights);
-
-      prices.add(new Integer(10));
-      prices.add(new Integer(100));
-      prices.add(new Integer(55));
-      prices.add(new Integer(12));
-      prices.add(new Integer(63));
-
-      weights.add(new Integer(45));
-      weights.add(new Integer(20));
-      weights.add(new Integer(40));
-      weights.add(new Integer(9));
-      weights.add(new Integer(50));
+      prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
+      weights = testData.runArrayList(numberOfElements, 1, 50, weights);
 
       System.out.println("Set P:"+prices);
       System.out.println("Set W:"+weights);
@@ -86,6 +61,48 @@ public class Driver {
       Integer totalProfitObject = new Integer(totalProfit);
       System.out.println("The total profit according to this dynamic algorithm is: "+totalProfitObject);
       System.out.println("Time to Complete: "+elapsedTime);
+    }
+    else if(args[0].equals("compare") == true && args[1] != null && args[2] != null) {
+      System.out.println("Comparing greedy solution to dynamic solution...");
+
+      Stopwatch dynamicWatch = new Stopwatch();
+      Stopwatch greedyWatch = new Stopwatch();
+
+      int numberOfElements = Integer.parseInt(args[1]);
+      int knapsackSize = Integer.parseInt(args[2]);
+
+      System.out.println("Max Knapsack Capacity: "+knapsackSize);
+
+      prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
+      weights = testData.runArrayList(numberOfElements, 1, 50, weights);
+
+      System.out.println("Set P:"+prices);
+      System.out.println("Set W:"+weights);
+      System.out.println("");
+
+      greedyWatch.startTime();
+      int greedyProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
+      double greedyTime = greedyWatch.elapsedTime();
+
+      System.out.println("Greedy Solution: $"+greedyProfit);
+
+      dynamicWatch.startTime();
+      int dynamicProfit = theif.dynamicKnapsack(numberOfElements, weights, prices, knapsackSize);
+      double dynamicTime = dynamicWatch.elapsedTime();
+
+      System.out.println("Dynamic Solution: $"+dynamicProfit);
+      System.out.println("");
+
+      int percentError = 0;
+      if(dynamicProfit != 0) {
+        int top = Math.abs(greedyProfit - dynamicProfit);
+        int bottom = Math.abs(dynamicProfit);
+        int error = top / bottom;
+        percentError = error * 100;
+      }
+
+      System.out.println("Percent Error: "+percentError+"%");
+
     }
     else {
       System.out.println("Invalid argument error!!");
