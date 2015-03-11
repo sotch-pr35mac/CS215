@@ -71,6 +71,11 @@ public class Driver {
       int numberOfElements = Integer.parseInt(args[1]);
       int knapsackSize = Integer.parseInt(args[2]);
 
+      if(numberOfElements <= 0) {
+        System.out.println("Cannot have 0 or negative number for number of elements. Changing to 1.");
+        numberOfElements = 1;
+      }
+
       System.out.println("Max Knapsack Capacity: "+knapsackSize);
 
       prices = testData.runArrayList(numberOfElements, 1, 1000, prices);
@@ -84,22 +89,22 @@ public class Driver {
       int greedyProfit = theif.greedyKnapsack(numberOfElements, weights, prices, knapsackSize);
       double greedyTime = greedyWatch.elapsedTime();
 
-      System.out.println("Greedy Solution: $"+greedyProfit);
+      System.out.println("Greedy Solution: $"+greedyProfit+". Completed in "+greedyTime+" milliseconds.");
 
       dynamicWatch.startTime();
       int dynamicProfit = theif.dynamicKnapsack(numberOfElements, weights, prices, knapsackSize);
       double dynamicTime = dynamicWatch.elapsedTime();
 
-      System.out.println("Dynamic Solution: $"+dynamicProfit);
+      System.out.println("Dynamic Solution: $"+dynamicProfit+". Completed in "+dynamicTime+" milliseconds.");
+
       System.out.println("");
 
-      int percentError = 0;
-      if(dynamicProfit != 0) {
-        int top = Math.abs(greedyProfit - dynamicProfit);
-        int bottom = Math.abs(dynamicProfit);
-        int error = top / bottom;
-        percentError = error * 100;
-      }
+      int difference = greedyProfit - dynamicProfit;
+      int top = Math.abs(difference);
+      int bottom = Math.abs(dynamicProfit);
+      double error = new Integer(top).doubleValue() / new Integer(bottom).doubleValue();
+      double exactPercentError = error * 100;
+      int percentError = new Double(exactPercentError).intValue();
 
       System.out.println("Percent Error: "+percentError+"%");
 
