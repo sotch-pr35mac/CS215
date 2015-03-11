@@ -72,6 +72,25 @@ public class Debug<T> {
 		}
 	}
 
+
+	/*
+	*	@Pre-Condition: <code>List<ArrayList<Integer>> actual</code> is an iterable list of ArrayList of Integer objects where sortingIndex is an index value of the ArrayList
+	*	@Post-Condition: If the LIst of ArrayList of Integer objects is in stricly non-increasing order, the program moves on normally, if not, the program halts with an <code>AssertionError</code>
+	*	@Description: runs an assertion statement against a list of ArrayList of Integer objects to ensure that for <code>k = actual.size(); A[k-2] >= A[k-1];</code>
+	*	@param List<ArrayList<Integer>> actual the list to assert is in stricly non-decreasing order
+	*	@param int sortingIndex the index value to make sorting comparisons from
+	*/
+	public void assertOrder(List<ArrayList<Integer>> actual, int sortingIndex) {
+		if(debugOn == true) {
+			int i = actual.size();
+			while(i > 1) {
+				assert actual.get(i - 1).get(sortingIndex).compareTo(actual.get(i - 2).get(sortingIndex)) <= 0;
+
+				i--;
+			}
+		}
+	}
+
 	/*
 	*	@Pre-Condition: <code>ArrayList<Integer> actual</code> is an ArrayList of Integer Objects
 	*	@Post-Condition: If the ArrayList of Integer Objects is in stricly non-decreasing order, the program moves on normally, if not, the pgoram halts with an <code>AssertionError</code>

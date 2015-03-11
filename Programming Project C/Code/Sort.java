@@ -351,18 +351,18 @@ public class Sort<T extends Comparable<T>> {
 
 				/*INITIALIZATION (Inner-Loop): Before the first iteration of the loop, j = 0, the subarray of sorted[0 ... 0] contains one element and therefore the invariants hold vacuously. */
 				List subSortedII = list.subList(0, j);
-				//debugger.assertOrder(subSortedII); //TODO: fix this?
+				debugger.assertOrder(subSortedII, sortingIndex);
 				while(j >= 0 && (value.compareTo(list.get(j).get(sortingIndex)) > 0)) {
 					/*MAINTENANCE (Inner-Loop): At the beginning of each iteration A[0 ... j] is sorted in stricly non-increasing order */
 					List subSortedIM = list.subList(0, j);
-					//debugger.assertOrder(subSortedIM); //TODO: fix this?
+					debugger.assertOrder(subSortedIM, sortingIndex);
 
 					list.set(j+1, list.get(j));
 					j--;
 				}
 				/*TERMINATION (Inner-Loop): The negation of the gaurd implies that A'[0 ... j] has been entirely traversed and is in stricly non-increasing order. */
 				List subSortedIT = list.subList(0, j+1);
-				//debugger.assertOrder(subSortedIT); //TODO: fix this?
+				debugger.assertOrder(subSortedIT, sortingIndex);
 
 				list.set(j+1, currentElement);
 
@@ -371,7 +371,7 @@ public class Sort<T extends Comparable<T>> {
 			/*TERMINATION (Outer-Loop): When the loop terminates, i is equal to A'.length meaning the entire array has been traversed and that the guard has been negated.
 			  													The negation of the guard implies that A'[0 ... i - 1] contains all the elements of A[0 ... i - 1] */
 			List subSortedOT = list.subList(0, i - 1);
-			//debugger.assertOrder(subSortedOT); //TODO: fix this?
+			debugger.assertOrder(subSortedOT, sortingIndex);
 			debugger.assertEquals(new Integer(list.size()), new Integer(i));
 			debugger.assertEquals(unsorted, list);
 		}
