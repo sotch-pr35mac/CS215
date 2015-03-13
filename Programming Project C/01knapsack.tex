@@ -326,6 +326,24 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 \textbf{Dynamic Solution First Inner-Loop Invariant Termination}: After the termination of the loop the invariant holds true because elements have been added to tab[x] at the same rate in which y has been incremented.
 \newline
 \newline
+\textbf{Dynamic Solution Second Outer-Loop Invariant}: tab[i][j] is larger than or equal to tab[i-1][j]
+\newline
+\textbf{Dynamic Solution Second Outer-Loop Invariant Initialization}: Before the first iteration of the loop the invariant holds true vacuously because tab[-1] does not exist.
+\newline
+\textbf{Dynamic Solution Second Outer-Loop Invariant Maintenance}: At the beginning of each iteration of the loop the invariant holds true because during the loop the values are incremented, but they are never decreased.
+\newline
+\textbf{Dynamic Solution Second Outer-Loop Invariant Termination}: After the loop has terminated the invariant holds true because the values in tab have never been decreased, only increased, and therefore tab[i][j] will be greater than or equal to tab[i-1][j]
+\newline
+\newline
+\textbf{Dynamic Solution Second Inner-Loop Invariant}: tab[i][j] is always equal to or greater than tab[i][j-1]
+\newline
+\textbf{Dynamic Solution Second Inner-Loop Invariant Initialization}: Before the first iteration of the loop the invariant holds true vacuously because tab[i][j-1] does not exist.
+\newline
+\textbf{Dynamic Solution Second Inner-Loop Invariant Maintenance}: At the beginning of each iteration of the loop the invariant holds true because the values in tab have never been decreased, only increased, therefore tab[i][j] is going to be larger than or equal to tab[i][j-1].
+\newline
+\textbf{Dynamic Solution Second Inner-Loop Invariant Termination}: After the termination of the loop the invariant holds true because the values in tab have never been decremeneted, only incremented.
+\newline
+\newline
 
 %% END PROCEDURE
 
