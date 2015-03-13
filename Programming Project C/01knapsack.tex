@@ -226,7 +226,7 @@ A greedy solution to a 0/1 knapsack problem can be implemented in a variety of l
 \label{algo:greedy}
 \begin{algorithmic}[1]
 \Procedure{Greedy-Knapsack}{n, Weights, Prices, c}
-\If{$n == 1$}
+\If{$n == 1$ and $Weights[1] <= c$}
 	\State{\Return{$Prices[1]$}}
 \EndIf
 \If{$n <= 0$}
@@ -252,7 +252,22 @@ A greedy solution to a 0/1 knapsack problem can be implemented in a variety of l
 \end{algorithmic}
 \end{algorithm}
 \newline
-%% TODO: Write invariants for greedy algorithm here
+\textbf{Greedy Solution First-Loop Invariant}: ratio[1 ... v-1] has the same number of non-null elements in it as both Prices[1 ... v-1] and Weights[1 ... v-1].
+\newline
+\textbf{Greedy Solution First-Loop Invariant Initialization}: The invariant holds true before the first iteration of the loop because $v=1$, and ratio[1 ... v-1], Prices[1 ... v-1] and Weights[0 ... v-1] all do not exist, and is therefore vacuously true.
+\newline
+\textbf{Greedy Solution First-Loop Invariant Maintenance}: At the beginning of each iteration of the loop the invariant holds true because each time the loop runs, v is incremented by 1, and exactly 1 element is added to ratio, therefore ratio[0 ... v-1] will have the exact same number of elements as both Prices[1 ... v-1] and Weights[1 ... v-1].
+\newline
+\textbf{Greedy Solution First-Loop Invariant Termination}: After the termination of the loop the invariant holds true because v has been incremented by 1 during each iteration of the loop, and ratio has gained 1 element during each iteration of the loop, therefore ratio[1 ... v-1] contains the exact same number of elements as both Prices[1 ... v-1] and Weights[1 ... v-1].
+\newline
+\newline
+\textbf{Greedy Solution Second-Loop Invaraint}: The aggregate of the weights corresponding to the prices included in $profit$ are less than or equal to $c$.
+\newline
+\textbf{Greedy Solution Second-Loop Invariant Initialization}: Before the first iteration of the loop the invariant holds true vacuously because no prices have been included in $profit$.
+\newline
+\textbf{Greedy Solution Second-Loop Invariant Maintenance}: At the beginning of each iteration of the loop the invariant holds true because only items whose weight is less than or equal to the size of $c$ are added to $profit$.
+\newline
+\textbf{Greedy Solution Second-Loop Invariant Termination}: After the termination of the loop, the invariant holds true because only items whose weight was less than or equal to the value of $c$ have been added to $profit$.
 \newline
 \newline
 
@@ -266,7 +281,7 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 \label{algo:dynamic}
 \begin{algorithmic}[1]
 \Procedure{Dynamic-Knapsack}{n, Weights, Prices, c}
-\If{$n == 1$}
+\If{$n == 1$ and $Weights[1] <= c$}
 	\State{\Return{$Prices[1]$}}
 \EndIf
 \If{$n <= 0$}
@@ -304,8 +319,7 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 \subsection{Testing Plan and Results}
 All arrays used in testing are Java ArrayList<Integer> except for $tab$ in the dynamic solution, which is a primitive Java nested array. All times are recorded in milliseconds using a stopwatch class borrowed from Robert Sedgwick and Kevin Wayne \cite{stopwatch}
 It is important to note that the stopwatch class used takes the elapsed real-time between the start of the call to the knapsack solution and the end of that call as opposed to taking the elapse processor-time because these tests were run on a multi-core computer.
-%% TODO: rephrase the below paragraph
-When the number of elements was below 100, the size of the knapsack was 50; when values of 100 and greater were used the size of the knapsack was $2n$ where $n$ is the number of elements. For example, if the number of elements was 100, the size of the knapsack was 200, in order so the knapsack was sure to be able to make reasonable comparisons.
+The size of elements used in testing are as follows: For $n < 100$, $c = 50$. For $n >= 100$, $c = 2n$ where $n$ represents the number of items, and $c$ represents the capacity of the knapsack.
 \newline
 \captionof{table}{Greedy Solution Real-Time Run-Time}
 \begin{center}
@@ -334,7 +348,7 @@ When the number of elements was below 100, the size of the knapsack was 50; when
 \hline
 \end{tabular}
 \end{center}
-%% TODO: You need to implement a testing plan testing the correctness of the two algorithms!
+The percent error of greedy solutions is shown in Table 3. Percent error was calculated by the percent error formula: $\frac{ | Greedy Solution - Dynamic Solution | }{ | Dynamic Solution | } * 100$. The percentages shown in Table 3 are average percent errors taken from trials of 10.
 \captionof{table}{Dynamic vs Greedy Solutions Accuracy Comparison}
 \begin{center}
 \begin{tabular}{|l|l|l|l}
@@ -342,7 +356,7 @@ When the number of elements was below 100, the size of the knapsack was 50; when
 \hline 0 & 50 & 0\% \\
 \hline 1 & 50 & 0\% \\
 \hline 10 & 50 & 5.3\% \\
-\hline 100 & 200 & 0.032887\% \\
+\hline 100 & 200 & 0.9\% \\
 \hline 1000 & 2000 & 0.032887\% \\
 \hline 10000 & 20000 & 0.00555725\% \\
 \hline
@@ -362,7 +376,7 @@ The last issue encountered during the development process of this program was ge
 
 %% BEGIN EXPERIMENTAL ANALYSIS
 \section{Experimental Analysis}
-%%TODO: write this
+%%TODO: write this (make sure to mension the thing about the negative correlation between n and the answer, which can be attribute to the difference in size when numbers are larger
 \begin{figure}[!]
 \begin{center}
 \includegraphics[scale=.55]{test-results.pdf}
