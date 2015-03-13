@@ -99,11 +99,12 @@ public class Knapsack<T extends Comparable<T>> {
   * @param int backpackSize is the maximum value of the weights that the knapsack can hold
   * @return int returnValue is the correct value of the maximum amount of values you can get from prices where their correcsponding weights do not excede the backpackSize
   */
-  //INVARIANT (First Outer-Loop): TODO: write this
-  //INVARIANT (First Inner-Loop): TODO: write this
+  //INVARIANT (First Outer-Loop): tab[0 ... x-1] has the same number of non-null elements in it as both weights[0 ... x-1] and prices[0 ... x-1]
+  //INVARIANT (First Inner-Loop): tab[x] has y number of non-null elements in it.
   //INVARIANT (Second Outer-Loop): TODO: write this
   //INVARIANT (Second Inner-Loop): TODO: write this
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
+    Debug debugger = new Debug();
     int returnValue = 0;
     backpackSize = backpackSize + 1;
     if(elems == 1 && weights.get(0).intValue() <= backpackSize) {
@@ -117,21 +118,51 @@ public class Knapsack<T extends Comparable<T>> {
 
       int x = 0;
       int y = 0;
-      /*INITIALIZATION (First Outer-Loop): TODO: write this */
+      int nonNullElements = 0;
+      /*INITIALIZATION (First Outer-Loop): Before the first iteration of the loop the invariant holds vacuously because tab[0 ... x-1], weights[0 ... x-1] and prices[0 ... x-1] all do not exist.*/
       while(x < elems) {
-        /*MAINTENANCE (First Outer-Loop): TODO: write this*/
-        /*INITIALIZATION (First Inner-Loop): TODO: write this */
-        while(y < backpackSize) {
-          /*MAINTENANCE (First Inner-Loop): TODO: write this */
-          tab[x][y] = 0;
+        /*MAINTENANCE (First Outer-Loop): At the beginning of each iteration of the loop the invariant holds because x is incremented by one at the same rate that one element is added to tab[].*/
+        if(x > 0) {
+          int[][] subTabM = Array.copyOfRange(tab, 0, x-1);
+          debugger.assertEquals(new Integer(weights.subList(0, x-1).intValue()), new Integer(prices.subList(0, x-1).intValue()));
+          debugger.assertEquals(new Integer(prices.subList(0, x-1).intValue()), new Integer(subTabM.length));
+        }
 
+        /*INITIALIZATION (First Inner-Loop): Before the first iteration of the loop the invariant holds true because y = 0 and tab[x] has 0 elements in it.  */
+        nonNullElements = 0;
+        for(int i = 0; i < tab[x].length; i++) {
+          if(tab[x][y] != null) {
+            nonNullElements++;
+          }
+        }
+        debugger.assertEquals(nonNullElements, y);
+
+        while(y < backpackSize) {
+          /*MAINTENANCE (First Inner-Loop): At the beginning of each iteration of the loop the invariant holds true because at the same rate y is incremented an element is added to tab[x]*/
+          nonNullElements = 0;
+          for(int = 0; i < tab[x].length; i++) {
+            if(tab[x][y] != null) {
+              nonNullElements++;
+            }
+          }
+          debugger.assertEquals(nonNullElements, y);
+
+          tab[x][y] = 0;
           y++;
         }
-        /*TERMINATION (First Inner-Loop): TODO: write this */
+        /*TERMINATION (First Outer-Loop): At the termination of the loop the invariant holds true because y has been incremented at the same rate elements have been added to tab[x]*/
+        nonNullElements = 0;
+        for(int z = 0; z < tab[x].length; z++) {
+          if(tab[h][x] != null) {
+            nonNullElements++;
+          }
+        debugger.assertEquals(nonNullElements, z);
 
         x++;
       }
-      /*TERMINATION (First Outer-Loop): TODO: write this */
+      /*TERMINATION (First Inner-Loop): At the termination of the loop the invariant holds true because x has been incremented at the same rate that elements have been added to tab[]. */
+      debugger.assertEquals(new Integer(weights.subList(0, x-1).intValue()), new Integer(prices.subList(0, x-1).intValue()));
+      debugger.assertEquals(new Integer(prices.subList(0, x-1).intValue()), new Integer(subTabM.length));
 
       // Second Outer For Loop Initialization: TODO: write this
       for(int i = 0; i < elems - 1; i++) {
