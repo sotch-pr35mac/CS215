@@ -101,8 +101,8 @@ public class Knapsack<T extends Comparable<T>> {
   */
   //INVARIANT (First Outer-Loop): tab[0 ... x-1] has the same number of non-null elements in it as both weights[0 ... x-1] and prices[0 ... x-1]
   //INVARIANT (First Inner-Loop): tab[x] has y number of non-null elements in it.
-  //INVARIANT (Second Outer-Loop): TODO: write this
-  //INVARIANT (Second Inner-Loop): TODO: write this
+  //INVARIANT (Second Outer-Loop): tab[i][] is larger than or equal to tab[i-1][].
+  //INVARIANT (Second Inner-Loop): tab[i][j] is always equal to or greater than tab[i][j-1]
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
     Debug debugger = new Debug();
     int returnValue = 0;
@@ -166,12 +166,18 @@ public class Knapsack<T extends Comparable<T>> {
 
       int i = 0;
       int j = 0;
-      // Second Outer For Loop Initialization: TODO: write this
+      /*INITIALIZATION Second Outer-Loop: Before the first iteration of the loop our invariant holds vacuously true because tab[i-1] does not exist.*/
       while(i < elems - 1) {
-        // Second Outer For Loop Maintenance: TODO: write this
-        // Second Inner For Loop Initialization: TODO: write this
+        /*MAINTENANCE Second Outer-Loop: At the beginning of each iteration of the for loop the invariant holds true because during the loop tab can only be increased, never decreased.*/
+        if(i > 0) {
+          debugger.assertGreatEquals(tab[i][j], tab[i-1][j]);
+        }
+        /*INITIALIZATION Second Inner-Loop: Before the first iteration of the for loop the invariant holds vacuously because tab[i][j-1] does not exist.*/
         while(j < backpackSize) {
-          // Second Inner For Loop Maintenance: TODO: write this
+          /*MAINTENANCE Second Inner-Loop: AT the beginning of each iteration of hte for loop the invariant holds true because during the loop tab can only be increased, never decreased.*/
+          if(j > 0){
+            debugger.assertGreatEquals(tab[i][j], tab[i][j-1]);
+          }
           if(weights.get(i).intValue() <= j && prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()] > tab[i][j]) {
             tab[i+1][j] = prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()];
           }
@@ -181,11 +187,17 @@ public class Knapsack<T extends Comparable<T>> {
 
           j++;
         }
-        // Second Inner For Loop Termination: TODO: write this
+        /*TERMINATION Second Inner-Loop: After the termination of the loop the invariant holds true because the values in tab have only ever been increased and never decreased.*/
+        if(j > 0) {
+          debugger.assertGreatEquals(tab[i][j], tab[i][j-1]);
+        }
 
         i++;
       }
-      // Second Outer For Loop Termination: TODO: write this
+      /*TERMINATION Second Outer-Loop: At the termination of the loop the invariant holds true because the values of tab have only been increased, but never decreased.*/
+      if(i > 0) {
+        debugger.assertGreatEquals(tab[i][j], tab[i-1][j]);
+      }
 
       returnValue = tab[elems-1][backpackSize-1];
     }
