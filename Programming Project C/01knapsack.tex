@@ -308,7 +308,22 @@ A dynamic solution to 0/1 knapsack can be implemented in a variety of languages 
 \end{algorithmic}
 \end{algorithm}
 \newline
-%% TODO: Write pseudocode invariants here for Dynamic solution
+\textbf{Dynamic Solution First Outer-Loop Invariant}: tab[1 .. x-1] has the same number of non-null elements in it as both Weights[1 ... x - 1] and Prices[1 ... x-1].
+\newline
+\textbf{Dynamic Solution First Outer-Loop Invariant Initialization}: Before the first iteration of the loop the invariant holds true vacuously because tab[0 ... x-1], weights[0 ... x-1] and prices[0 ... x-1] all do not exist.
+\newline
+\textbf{Dynamic Solution First Outer-Loop Invariant Maintenance}: At the beginning of each iteration because x is incremented by one at the same rate that one element is added to tab.
+\newline
+\textbf{Dynamic Solution First Outer-Loop Invariant Termination}: At the termination of the loop the invariant holds true because x has been incremented at the same rate that an element has been added to tab.
+\newline
+\newline
+\textbf{Dynamic Solution First Inner-Loop Invariant}: tab[x] has y number of non-null elements in it.
+\newline
+\textbf{Dynamic Solution First Inner-Loop Invariant Initialization}: Before the first iteration of the loop the invariant holds true because y = 0 and tab[x] has 0 elements in it.
+\newline
+\textbf{Dynamic Solution First Inner-Loop Invariant Maintenance}: At the beginning of each iteration of the loop the invariant holds true because because y is incremented at the same rate that elements are added to tab[x].
+\newline
+\textbf{Dynamic Solution First Inner-Loop Invariant Termination}: After the termination of the loop the invariant holds true because elements have been added to tab[x] at the same rate in which y has been incremented.
 \newline
 \newline
 
