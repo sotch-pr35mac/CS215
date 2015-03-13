@@ -140,7 +140,7 @@ public class Knapsack<T extends Comparable<T>> {
         while(y < backpackSize) {
           /*MAINTENANCE (First Inner-Loop): At the beginning of each iteration of the loop the invariant holds true because at the same rate y is incremented an element is added to tab[x]*/
           nonNullElements = 0;
-          for(int = 0; i < tab[x].length; i++) {
+          for(int i = 0; i < tab[x].length; i++) {
             if(tab[x][y] != null) {
               nonNullElements++;
             }
@@ -164,11 +164,13 @@ public class Knapsack<T extends Comparable<T>> {
       debugger.assertEquals(new Integer(weights.subList(0, x-1).intValue()), new Integer(prices.subList(0, x-1).intValue()));
       debugger.assertEquals(new Integer(prices.subList(0, x-1).intValue()), new Integer(subTabM.length));
 
+      int i = 0;
+      int j = 0;
       // Second Outer For Loop Initialization: TODO: write this
-      for(int i = 0; i < elems - 1; i++) {
+      while(i < elems - 1) {
         // Second Outer For Loop Maintenance: TODO: write this
         // Second Inner For Loop Initialization: TODO: write this
-        for(int j = 0; j < backpackSize; j++) {
+        while(j < backpackSize) {
           // Second Inner For Loop Maintenance: TODO: write this
           if(weights.get(i).intValue() <= j && prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()] > tab[i][j]) {
             tab[i+1][j] = prices.get(i).intValue() + tab[i][j - weights.get(i).intValue()];
@@ -176,8 +178,12 @@ public class Knapsack<T extends Comparable<T>> {
           else {
             tab[i+1][j] = tab[i][j];
           }
+
+          j++;
         }
         // Second Inner For Loop Termination: TODO: write this
+
+        i++;
       }
       // Second Outer For Loop Termination: TODO: write this
 
