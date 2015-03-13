@@ -7,6 +7,7 @@
 
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.List;
 
 public class Knapsack<T extends Comparable<T>> {
   /*
@@ -19,11 +20,12 @@ public class Knapsack<T extends Comparable<T>> {
   * @param int backpackSize is the maximum value of weights that the knapsack can hold
   * @return int profit is a reasonable solution to the given 0/1 Knapsack problem
   */
-  //INVARIANT (First Loop): TODO: write this
-  //INVARIANT (Second Loop): TODO: write this
+  //INVARIANT (First Loop): ratioListings[0 ... v-1] has the same number of non-null elements in it as both prices[0 ... v-1] and weights[0 ... v-1]
+  //INVARIANT (Second Loop): The aggregate of the weights corresponding to the prices included in the value of profit are less than or equal to the value of backpackSize
   public int greedyKnapsack(int elems, ArrayList<Integer> weights,  ArrayList<Integer> prices, int backpackSize) {
+    Debug debugger = new Debug();
     int returnValue;
-    if(elems == 1) {
+    if(elems == 1 && weights.get(0).intValue() <= backpackSize) {
       returnValue = prices.get(0).intValue();
     }
     else if(elems < 1) {
@@ -35,9 +37,15 @@ public class Knapsack<T extends Comparable<T>> {
       ArrayList<ArrayList<Integer>> ratioListings = new ArrayList<ArrayList<Integer>>(elems);
 
       int v = 0;
-      /*INITIALIZATION (First Loop): */
+      /*INITIALIZATION (First Loop): Our invariant holds before the first iteration of the loop because v = 0, and ratioListings[v-1], prices[v-1] and weights[v-1] all do not exist, and therefore is vacously true.*/
+
       while(v < elems) {
-        /*MAINTANENCE (First-Loop): */
+        /*MAINTANENCE (First-Loop): At the beginning of each iteration of the loop our invariant holds true because each time the loop runs, v is increased by one and one element is added to raioListings, therefore ratioListings[0 ... v-1] will have exactly the same number of elements as both prices[0 ... v-1] and weights[0 ... v-1].*/
+        if(v > 0) {
+          debugger.assertEquals(new Integer(weights.subList(0, v-1).size()), new Integer(prices.subList(0, v-1).size()));
+          debugger.assertEquals(new Integer(prices.subList(0, v-1).size()), new Integer(ratioListings.subList(0, v-1).size()));
+        }
+
         int ratio = prices.get(v).intValue() / weights.get(v).intValue();
         ArrayList<Integer> innerRatioListing = new ArrayList<Integer>(3);
         innerRatioListing.add(new Integer(ratio));
@@ -47,24 +55,33 @@ public class Knapsack<T extends Comparable<T>> {
 
         v++;
       }
-      /*TERMINATION (First Loop): */
+      /*TERMINATION (First Loop): After the loop terminates, our invariant holds true because v has been increased by one during each iteration of the loop, and ratioListings has gained one element during each iteration of the loop, so therefore ratioListings[0 ... v-1] contains exactly the same number of elements as both prices[0 ... v-1] and weights[0 ... v-1]*/
+      debugger.assertEquals(new Integer(weights.subList(0, v-1).size()), new Integer(prices.subList(0, v-1).size()));
+      debugger.assertEquals(new Integer(prices.subList(0, v-1).size()), new Integer(ratioListings.subList(0, v-1).size()));
 
       Sort sorter = new Sort();
 
       ratioListings = sorter.insertionSortNestedArray(ratioListings, 0);
 
       int i = 0;
-      /*INITIALIZATION (Second Loop): */
+      int totalWeight = 0;
+      /*INITIALIZATION (Second Loop): Before the first iteration of the loop our invariant holds true because no prices are included in the value of profit, and therefore, vacuously true.*/
+      debugger.assertLessEquals(totalWeight, backpackSize);
+
       while(backpackSize > 0 && i < elems) {
-        /*MAINTENANCE (Second Loop): */
+        /*MAINTENANCE (Second Loop): At the beginning of each iteration of the loop our invariant holds true because only items whose weight is less than or equal to the remaining space in the knapsack (backpackSize) are added to the profit.*/
+        debugger.assertLessEquals(totalWeight, backpackSize);
+
         if(backpackSize - ratioListings.get(i).get(2).intValue() >= 0) {
           profit = profit + ratioListings.get(i).get(1).intValue();
           backpackSize = backpackSize - ratioListings.get(i).get(2).intValue();
+          totalWeight = totalWeight + ratioListings.get(i).get(2).intValue();
         }
 
         i++;
       }
-      /*TERMINATION (Second Loop): */
+      /*TERMINATION (Second Loop): After the loop terminates, our invariant holds true because only items whose weight was less than or equal to the remaining size in the knapsack (backpackSize) were added to the profit.*/
+      debugger.assertLessEquals(totalWeight, backpackSize);
 
       returnValue = profit;
     }
@@ -89,7 +106,7 @@ public class Knapsack<T extends Comparable<T>> {
   public int dynamicKnapsack(int elems, ArrayList<Integer> weights, ArrayList<Integer> prices, int backpackSize) {
     int returnValue = 0;
     backpackSize = backpackSize + 1;
-    if(elems == 1) {
+    if(elems == 1 && weights.get(0).intValue() <= backpackSize) {
       returnValue = prices.get(0).intValue();
     }
     else if(elems <= 0) {
