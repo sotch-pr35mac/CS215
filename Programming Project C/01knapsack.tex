@@ -409,7 +409,6 @@ The last issue encountered during the development process of this program was ge
 
 %% BEGIN EXPERIMENTAL ANALYSIS
 \section{Experimental Analysis}
-%%TODO: write this (make sure to mension the thing about the negative correlation between n and the answer, which can be attribute to the difference in size when numbers are larger
 \begin{figure}[!]
 \begin{center}
 \includegraphics[scale=.55]{test-results.pdf}
@@ -417,6 +416,14 @@ The last issue encountered during the development process of this program was ge
 \captionof{figure}{Java Implementation of Greedy and Dynamic Solutions to 0/1 Knapsack Run-Time Analysis}
 \label{fig:runtime}
 \end{figure}
+The insertion sort, greedy solution and dynamic solution demonstrated in Algorithm 1, 2 and 3 was implemented in Java and executed on an HP SpectreXT TouchSmart with a 4 core Intel i7 Ivybridge processor clocked at 1.9GHz running Ubuntu Gnome 14.10 64-bit with 8GB of DDR3 RAM.
+The expected growth of insertion sort as the number of elements (n) grows large can be represented as $ \theta{n^2} $ where $ \theta{} $ represents the asympotically tightly bound running time. \cite{textbook}
+
+The greedy solution also follows a similair $ \theta{n^2} $ run time, see Figure 1. This is because an insertion sort was chosen to implement as the sorting algorithm used in the greedy solution. An insertion sort was chosen for the sorting algorithm because, while it is not the fatest, requires less auxillary space. While run time is an important factor, the space required to run the algorithm is also very important, and should not be neglacted. As seen in Table 2, the dynamic solution unavoidably requried too much auxillary space and Java gave an error when values of $n$ became incresingly large. It also important to note that the data graphed in Figure 1 was executed while the machine executed superfolous commands such as checking for system updates. To aid this issue, averages of 10 trails were taken and used in Figure 1.
+
+The run time for the dynamic solution as seen in figure one $ \theta{n*c} $ where n is the number of elements and c is the size of the knapsack. In this implementation for values of $n$ greater than or equal to 100, a value of $2n$ was used for $c$. That would make the run time of the specific implementation of the dynamic solution $2n^2$ but after dropping constants becomes $ \theta{n^2} $. In Figure 1, the reason that the dynamic solution takes so much more time to complete is because there is a constant of 2 for $n^2$ which can be attributed to doubling the real time it took to return the results. Because the dynamic solution works by storing answers originally found in auxillary space, the values of $n$ cannot be very high without causing a Java error, as seen in Table 2. 
+
+In Table 3 there looks to be a negative correlation between the size of $n$ and the percent error. This negative correlation can be attributed to the fact that the percent error formula takes the difference between the two results and divides it by the correct result. For example, if the result for a greedy solution was 2 and the result for the dynamic solution was 3 the formula would read $ \frac{2}{3} * 100 $ rendering a 66.66\% error, however the difference between the two is only 2. If the values were 101 and 103 the pecent error formula would read $ \frac{2}{103} * 100 $ and renders 1.9\% error. The second value is substantially lower, even though the difference between the two numbers remains the same.
 
 %% END EXPERIMENTAL ANALYSIS
 
